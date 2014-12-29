@@ -85,7 +85,7 @@
     _textField.borderStyle = UITextBorderStyleRoundedRect;
     _textField.delegate = self;
     _textField.placeholder = @"请输入客户经理姓名模糊搜索";
-    
+    [_textField addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
 
     float oY = _textField.frame.origin.y + _textField.frame.size.height + 10;
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(SPACE_BASIC, oY, self.view.frame.size.width-SPACE_BASIC-10, self.view.frame.size.height - oY)];
@@ -164,11 +164,6 @@
 
 #pragma mark - UITextfield delegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    
-    NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    [self DATA_collator:text];
-    [_tableView reloadData];
-    
     return range.location >= 26 ?NO:YES;
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -187,7 +182,11 @@
 {
     [self.view endEditing:YES];
 }
-
+- (void)textFieldEditChanged:(UITextField *)textField
+{
+    [self DATA_collator: [textField text] ];
+    [_tableView reloadData];
+}
 #pragma mark - button action
 - (void)refreshAction
 {
@@ -209,7 +208,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    int index = alertView.tag = 100;
+    int index = alertView.tag - 100;
     if ( buttonIndex == 0) {
         NSDictionary *dic = [_searchList objectAtIndex: index ];
         [_request Login_newpwd:[dic objectForKey:@"id"]];

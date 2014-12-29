@@ -173,6 +173,7 @@
 		45A12FF01A500B3500D2C4AE /* tips.png in Resources */ = {isa = PBXBuildFile; fileRef = 45A12FD41A500B3500D2C4AE /* tips.png */; };
 		45A12FF11A500B3500D2C4AE /* yd.png in Resources */ = {isa = PBXBuildFile; fileRef = 45A12FD51A500B3500D2C4AE /* yd.png */; };
 		45CB2D081A3C6C6F00C73F16 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45CB2D071A3C6C6F00C73F16 /* QuartzCore.framework */; };
+		A0F8A64E1A51A130003534AE /* ic_user.png in Resources */ = {isa = PBXBuildFile; fileRef = A0F8A64D1A51A130003534AE /* ic_user.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -469,6 +470,7 @@
 		45CB2BFB1A3C2C4700C73F16 /* ChongKe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChongKe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45CB2BFC1A3C2C4700C73F16 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		45CB2D071A3C6C6F00C73F16 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A0F8A64D1A51A130003534AE /* ic_user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_user.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1015,6 +1017,7 @@
 		45A12FB91A500B3500D2C4AE /* imgs */ = {
 			isa = PBXGroup;
 			children = (
+				A0F8A64D1A51A130003534AE /* ic_user.png */,
 				45A12FBA1A500B3500D2C4AE /* arrow_icon.png */,
 				45A12FBB1A500B3500D2C4AE /* arrow_icon_gray.png */,
 				45A12FBC1A500B3500D2C4AE /* btn_back.png */,
@@ -1172,6 +1175,7 @@
 				45A12FE81A500B3500D2C4AE /* locus_round_original.9.png in Resources */,
 				45A12FDB1A500B3500D2C4AE /* ic_feedback.png in Resources */,
 				45A12FD81A500B3500D2C4AE /* btn_back.png in Resources */,
+				A0F8A64E1A51A130003534AE /* ic_user.png in Resources */,
 				45A12FED1A500B3500D2C4AE /* s_raido_checked_f.png in Resources */,
 				45A12FE31A500B3500D2C4AE /* locus_arrow.9.png in Resources */,
 				45A12FDC1A500B3500D2C4AE /* ic_launcher.png in Resources */,

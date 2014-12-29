@@ -11,5 +11,6 @@
 @interface GroupListViewController : BaseSubViewController
 
 - (id)initWithDic:(NSDictionary *)pDic;
+@property (nonatomic) BOOL mIsRefresh;
 
 @end

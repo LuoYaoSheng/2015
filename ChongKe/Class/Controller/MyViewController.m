@@ -96,6 +96,8 @@
     _textField.delegate = self;
     _textField.placeholder = @"请输入集团名称模糊搜索";
     
+    [_textField addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
+    
     float oY = _textField.frame.origin.y + _textField.frame.size.height + 10;
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(SPACE_BASIC, oY, self.view.frame.size.width-SPACE_BASIC-10, self.view.frame.size.height - oY)];
     [_tableView setBackgroundColor:[UIColor clearColor]];
@@ -177,7 +179,6 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    
     NSDictionary *dic = [_dataList objectAtIndex:indexPath.row];
     GroupListViewController *controller = [[GroupListViewController alloc]initWithDic:dic];
     controller.title = @"集团领导";
@@ -187,9 +188,6 @@
 #pragma mark - UITextfield delegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
-    NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    [self DATA_collator:text];
-    [_tableView reloadData];
     return range.location >= 26 ?NO:YES;
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -207,6 +205,12 @@
 - (void)UI_hideKeyboard
 {
     [self.view endEditing:YES];
+}
+
+- (void)textFieldEditChanged:(UITextField *)textField
+{
+    [self DATA_collator: [textField text] ];
+    [_tableView reloadData];
 }
 
 #pragma mark - button action

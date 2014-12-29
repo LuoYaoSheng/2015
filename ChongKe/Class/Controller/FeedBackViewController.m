@@ -81,7 +81,7 @@
     _textView = [[UITextView alloc]initWithFrame:bgView.bounds];
     [bgView addSubview:_textView];
     _textView.delegate = self;
-    [_textView becomeFirstResponder];
+//    [_textView becomeFirstResponder];
     _textView.text = Title_Home;
 }
 

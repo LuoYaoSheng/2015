@@ -35,6 +35,8 @@
 @property (nonatomic, strong) NSString* tip2;
 @property (nonatomic, strong) NSString* tip3;
 
+@property (nonatomic, strong) UIButton *btnQuit;
+
 @end
 
 
@@ -84,12 +86,13 @@
 #endif
     
     [super viewWillAppear:animated];
-    
+    _btnQuit.hidden = YES;
     // 初始化内容
     switch (_nLockViewType) {
         case LLLockViewTypeCheck:
         {
             _tipLable.text = @"请输入解锁密码";
+            _btnQuit.hidden = NO;
         }
             break;
         case LLLockViewTypeCreate:
@@ -151,9 +154,12 @@
     _lockview.center = CGPointMake(self.view.center.x, self.view.center.y+30);
     
     
-    _tipLable = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
+//    _tipLable = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-30, self.view.frame.size.width, 21)];
+    _tipLable = [[UILabel alloc]init];
+    [_tipLable setBackgroundColor:[UIColor clearColor]];
+    _tipLable.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_tipLable];
-    
+
     _tipButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];// 重设/(取消)的提示按钮
     [_tipButton addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_tipButton];
@@ -162,13 +168,14 @@
     iv_logo.center = CGPointMake(self.view.center.x, _lockview.frame.origin.y - iv_logo.frame.size.height*0.5 + 30);
     
     
-    UIButton *btnQuit = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width*0.5, self.view.frame.size.height-46, self.view.frame.size.width*0.5, 46)];
-    [self.view addSubview:btnQuit];
-    btnQuit.titleLabel.font = [UIFont systemFontOfSize:14];
-    [btnQuit setBackgroundColor:[UIColor clearColor]];
-    [btnQuit setTitle:@"忘记图形密码,点这里" forState:UIControlStateNormal];
-    [btnQuit setTitleColor:[StyleKit colorOfBaseDeep] forState:UIControlStateNormal];
-    [btnQuit addTarget:self action:@selector(quitAction) forControlEvents:UIControlEventTouchUpInside];
+    _btnQuit = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width*0.5, self.view.frame.size.height-46, self.view.frame.size.width*0.5, 46)];
+    [self.view addSubview:_btnQuit];
+    _btnQuit.titleLabel.font = [UIFont systemFontOfSize:14];
+    [_btnQuit setBackgroundColor:[UIColor clearColor]];
+    [_btnQuit setTitle:@"忘记图形密码,点这里" forState:UIControlStateNormal];
+    [_btnQuit setTitleColor:[StyleKit colorOfBaseDeep] forState:UIControlStateNormal];
+    [_btnQuit addTarget:self action:@selector(quitAction) forControlEvents:UIControlEventTouchUpInside];
+    _btnQuit.hidden = YES;
 //
 //    UIButton *btnNext = [[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width*0.5, self.view.frame.size.height-46, self.view.frame.size.width*0.5, 46)];
 //    [self.view addSubview:btnNext];

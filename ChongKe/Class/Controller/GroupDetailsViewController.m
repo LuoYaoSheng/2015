@@ -8,6 +8,7 @@
 
 #import "GroupDetailsViewController.h"
 #import "ExpenseCalendarViewController.h"
+#import "GroupListViewController.h"
 
 @interface GroupDetailsViewController ()<UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate, UIActionSheetDelegate, RequestResultProtocol>
 {
@@ -195,7 +196,7 @@
             textField.keyboardType = UIKeyboardTypePhonePad;
         }
         
-        if ( 1 == i || 2 == i ||  3 == i || 6== i ) {
+        if ( 0==i || 1 == i || 2 == i ||  3 == i || 6== i|| 7== i ) {
             CGSize size = [strName sizeWithFont:font constrainedToSize:CGSizeMake(CGFLOAT_MAX, 46) lineBreakMode:lineBreakMode];
             label.text = strName;
             
@@ -221,8 +222,34 @@
             [btn addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
         }
         
-        if ( 6 == i) {
-            textField.text = [_dic objectForKey:@"khjl"];
+        switch ( i ) {
+            case 0:
+                textField.text = [_dic objectForKey:@"gname"];
+            break;
+            case 1:
+                textField.text = [_dic objectForKey:@"job"];
+            break;
+            case 2:
+                textField.text =  @"";//[_dataLevel objectAtIndex: [[_dic objectForKey:@"level_s"] intValue]-1];
+            break;
+            case 3:
+                textField.text = [_dic objectForKey:@"yd"];
+            break;
+            case 4:
+                textField.text = [_dic objectForKey:@"lt"];
+            break;
+            case 5:
+                textField.text = [_dic objectForKey:@"dx"];
+            break;
+            case 6:
+                textField.text = [_dic objectForKey:@"khjl"];
+            break;
+            case 7:
+                textField.text = [_dic objectForKey:@"dept"];
+            break;
+            case 8:
+                textField.text = [_dic objectForKey:@"interest"];
+            break;
         }
     }
 }
@@ -392,10 +419,10 @@
     
     textField = (UITextField *)[[_scrollView viewWithTag:1002] viewWithTag:102];
     NSString *jb = textField.text;
-    
-    if ( fs.length * job.length * jb.length * yd.length * khjl.length <= 0 ) {
+
+    if ( fs.length * job.length * gname.length * jb.length * yd.length * khjl.length * dept.length<= 0 ) {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
-                                                            message:@"还有必有项未填写！"
+                                                            message:@"还有必填项未填写！"
                                                            delegate:nil
                                                   cancelButtonTitle:@"确定"
                                                   otherButtonTitles:nil];
@@ -415,6 +442,9 @@
 - (void)httpRequesSucess:(NSDictionary *)pDic operation:(int)pOperation
 {
     [SVProgressHUD dismiss];
+    
+    GroupListViewController *vc = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
+    vc.mIsRefresh = YES;
     
     [self.navigationController popViewControllerAnimated:YES];
 }

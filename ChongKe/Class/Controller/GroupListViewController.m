@@ -54,8 +54,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [_request Group_list:[_dic objectForKey:@"ecode"]];
-    [SVProgressHUD show];
+    if ( _mIsRefresh ) {
+        [_request Group_list:[_dic objectForKey:@"ecode"]];
+        [SVProgressHUD show];
+    }
 }
 //- (void)viewWillDisappear:(BOOL)animated
 //{
@@ -76,6 +78,8 @@
     [_ecodeList addObject:[_dic objectForKey:@"ecode"]];
     [_enameList addObject:@"全部"];
     _searchList = [[NSMutableArray alloc]init];
+    
+    _mIsRefresh = YES;
 }
 
 - (void)DATA_collator:(NSString *)text
@@ -121,6 +125,7 @@
     _textField.borderStyle = UITextBorderStyleRoundedRect;
     _textField.delegate = self;
     _textField.placeholder = @"请输入领导姓名模糊搜索";
+    [_textField addTarget:self action:@selector(textFieldEditChanged:) forControlEvents:UIControlEventEditingChanged];
     
     _btnEcode = [UIButton createRedRadius:CGRectMake( self.view.frame.size.width-90, height, 80, 42)];
     [self.view addSubview:_btnEcode];
@@ -216,6 +221,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    _mIsRefresh = NO;
     NSDictionary *dic = [_dataList objectAtIndex:indexPath.row];
     GroupDetailsViewController *controller = [[GroupDetailsViewController alloc]initWithDic:dic];
     controller.title = @"详情";
@@ -224,9 +230,6 @@
 
 #pragma mark - UITextfield delegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    [self DATA_collator:text];
-    [_tableView reloadData];
     return range.location >= 26 ?NO:YES;
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -245,7 +248,11 @@
 {
     [self.view endEditing:YES];
 }
-
+- (void)textFieldEditChanged:(UITextField *)textField
+{
+    [self DATA_collator: [textField text] ];
+    [_tableView reloadData];
+}
 #pragma mark - sheet delegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -274,6 +281,7 @@
 
 - (void)addAction
 {
+    _mIsRefresh = NO;
     GroupAddViewController *controller = [[GroupAddViewController alloc]initWithDic:_dic];
     controller.title = @"添加领导";
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_TO_CONTROLLER object:controller];

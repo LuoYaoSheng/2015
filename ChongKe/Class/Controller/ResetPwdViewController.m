@@ -195,15 +195,9 @@
 }
 - (void)httpRequesSucess:(NSDictionary *)pDic operation:(int)pOperation
 {
-    
-    [self.navigationController popToRootViewControllerAnimated:YES];
-    
-//    NSDictionary *dic = [pDic objectForKey:@"data"];
-//    [SVProgressHUD dismiss];
-
-//    [[NSUserDefaults standardUserDefaults] setObject:_tfPwd_new forKey:@"pwd"];
-
-//    [self.navigationController popToRootViewControllerAnimated:YES];
+    [SVProgressHUD dismissWithSuccess:@"密码修改成功！"];
+    [self.navigationController popViewControllerAnimated:YES];
+    [[NSUserDefaults standardUserDefaults] setObject:_tfPwd[1].text forKey:@"pwd"];
 }
 
 @end

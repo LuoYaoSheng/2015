@@ -98,8 +98,6 @@
     int iAct = [[pDicParam objectForKey:KEY_SEARCH] intValue];
     NSString *respon = [[NSString alloc] initWithData:pData  encoding:NSUTF8StringEncoding];
 
-    NSLog(@"respon:%@", respon);
-    
     //JSON格式的转化
     NSDictionary *dic = [respon JSONValue];
     if ( [[respon JSONValue] isKindOfClass:[NSDictionary class]] ) {
@@ -182,7 +180,7 @@
 }
 - (void)Group_update:(NSString *)sId ecode:(NSString *)ecode ename:(NSString *)ename gname:(NSString *)gname dept:(NSString *)dept level_s:(int)level_s job:(NSString *)job yd:(NSString *)yd lt:(NSString *)lt dx:(NSString *)dx interest:(NSString *)interest work:(NSString *)work khjl:(NSString *)khjl fs:(NSString *)fs client:(NSString *)client
 {
-    NSString *url = [NSString stringWithFormat:@"%@%@", URL_BASIC, @"a_group_list"];
+    NSString *url = [NSString stringWithFormat:@"%@%@", URL_BASIC, @"a_group_update"];
     NSString *sJon = [NSString stringWithFormat:@"{\"id\":\"%@\",\"ecode\":\"%@\",\"ename\":\"%@\",\"gname\":\"%@\",\"dept\":\"%@\",\"level_s\":%d,\"job\":\"%@\",\"yd\":\"%@\",\"lt\":\"%@\",\"interest\":\"%@\",\"work\":\"%@\",\"khjl\":\"%@\",\"fs\":\"%@\",\"client\":\"%@\"}", sId, ecode, ename, gname, dept, level_s, job, yd, lt, interest,work, khjl, fs, client];
     NSData *postData = [sJon dataUsingEncoding:NSUTF8StringEncoding];
     [self requestPost:url data:postData operation:Type_Group_update];

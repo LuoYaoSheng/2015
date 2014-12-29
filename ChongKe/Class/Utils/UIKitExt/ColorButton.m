@@ -46,7 +46,8 @@
             float radius = pFrame.size.width > pFrame.size.height ? pFrame.size.height:pFrame.size.width;
 //            radius *= 0.5*0.1;半径取0.1
             radius *= 0.1;            
-            [[self layer]setCornerRadius: radius ];
+            [[self layer] setCornerRadius: radius ];
+            [[self layer] setMasksToBounds:YES];
         }
     }
     
