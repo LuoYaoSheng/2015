@@ -10,29 +10,29 @@
 	<string>JoinShare</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>03974E53-631F-4328-8AD3-9B6BEA33A730</key>
+		<key>B4D5E70EB90E034DE19639C9E07E576BBF11EFC4</key>
 		<string>https://github.com/LuoYaoSheng/2015.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>JoinShare/JoinShare.xcodeproj/project.xcworkspace</string>
+	<string>JoinShare/JoinShare.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>03974E53-631F-4328-8AD3-9B6BEA33A730</key>
+		<key>B4D5E70EB90E034DE19639C9E07E576BBF11EFC4</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/LuoYaoSheng/2015.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>03974E53-631F-4328-8AD3-9B6BEA33A730</string>
+	<string>B4D5E70EB90E034DE19639C9E07E576BBF11EFC4</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>03974E53-631F-4328-8AD3-9B6BEA33A730</string>
+			<string>B4D5E70EB90E034DE19639C9E07E576BBF11EFC4</string>
 			<key>IDESourceControlWCCName</key>
 			<string>2015</string>
 		</dict>
