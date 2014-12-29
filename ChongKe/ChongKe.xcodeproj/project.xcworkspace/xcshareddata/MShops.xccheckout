@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2AB6DFC8-47DC-4C4C-9FCB-2C8E21212D66</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MShops</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E4631DB0-F1B8-4781-9071-4992AF464AF2</key>
+		<string>svn://120.24.214.44/skClient</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>_MShops/MShops.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E4631DB0-F1B8-4781-9071-4992AF464AF2</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>E4631DB0-F1B8-4781-9071-4992AF464AF2</key>
+		<string>svn://120.24.214.44/skClient</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>svn://120.24.214.44/skClient/_MShops/MShops.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E4631DB0-F1B8-4781-9071-4992AF464AF2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E4631DB0-F1B8-4781-9071-4992AF464AF2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>skClient</string>
+		</dict>
+	</array>
+</dict>
+</plist>
