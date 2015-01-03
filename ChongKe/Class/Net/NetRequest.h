@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, NetType) {
     Type_Report,
     Type_Feedback_add,
     Type_Check_update,
+    Type_New_report,
 };
 @protocol RequestResultProtocol;
 @interface NetRequest : NSObject
@@ -45,8 +46,8 @@ typedef NS_ENUM(NSInteger, NetType) {
 - (void)Group_add:(NSString *)ecode ename:(NSString *)ename gname:(NSString *)gname dept:(NSString *)dept level_s:(int)level_s job:(NSString *)job yd:(NSString *)yd lt:(NSString *)lt dx:(NSString *)dx interest:(NSString *)interest work:(NSString *)work khjl:(NSString *)khjl fs:(NSString *)fs client:(NSString *)client;
 - (void)Report:(NSString *)phone ny:(NSString *)ny;
 - (void)Feedback_add:(NSString *)msg client:(NSString *)client uname:(NSString *)uname phone:(NSString *)phone;
-
 - (void)Check_update;
+- (void)NewReport:(NSString *)phone ny:(NSString *)ny;
 @end
 
 @protocol RequestResultProtocol <NSObject>

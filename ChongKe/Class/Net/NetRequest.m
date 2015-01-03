@@ -211,5 +211,12 @@
     NSString *url = [NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@", @"954270"];
     [self RequestPost:url iAct:Type_Check_update];
 }
+- (void)NewReport:(NSString *)phone ny:(NSString *)ny
+{
+    NSString *url = [NSString stringWithFormat:@"%@%@", URL_BASIC, @"a_new_report"];
+    NSString *sJon = [NSString stringWithFormat:@"{\"phone\":\"%@\",\"ny\":\"%@\"}", phone,ny];
+    NSData *postData = [sJon dataUsingEncoding:NSUTF8StringEncoding];
+    [self requestPost:url data:postData operation:Type_New_report];
+}
 @end
 

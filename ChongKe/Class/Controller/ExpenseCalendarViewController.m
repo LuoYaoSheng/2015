@@ -40,7 +40,8 @@
     [self DATA_init];
     [self UI_init];
 
-    [_request Report:_tel ny:_lTop[_index].text];
+//    [_request Report:_tel ny:_lTop[_index].text];
+    [_request NewReport:_tel ny:_lTop[_index].text];
     [SVProgressHUD show];
 }
 
@@ -78,6 +79,7 @@
 //    NSUInteger day = [cps day];
     _month = [cps month];
     _year = [cps year];
+
 }
 
 #pragma mark - ui init
@@ -118,8 +120,8 @@
         
         int month = _month - idx;
         int year = _year;
-        if ( month < 0) {
-            month = 12;
+        if ( month <= 0) {
+            month = 12 - idx + 1;
             year -= 1;
         }
         _lTop[ idx ].text = [NSString stringWithFormat:@"%4d%02d",year,month];
@@ -140,7 +142,7 @@
 #pragma mark - tableview delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return 8;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -170,46 +172,38 @@
         switch ( idx ) {
             case 0:
             {
-                height = 46*5;
-                count = 5;
-                array = [NSMutableArray arrayWithObjects:@"分室", @"集团编号", @"集团名称", @"集团客户经理", @"价值等级", nil];
-                keys = [NSMutableArray arrayWithObjects:@"fs", @"ecode", @"ename", @"jtkhjl", @"jzdj", nil];
+                height = 46*4;
+                count = 4;
+                array = [NSMutableArray arrayWithObjects: @"集团编号", @"集团名称", @"集团客户经理", @"价值等级", nil];
+                keys = [NSMutableArray arrayWithObjects:@"ecode", @"ename", @"jtkhjl", @"jzdj", nil];
             }
                 break;
                 
             case 1:
             {
-                height = 46*12;
-                count = 12;
-                array = [NSMutableArray arrayWithObjects:@"成员类型", @"是否拍照目标存量成员", @"用户品牌", @"用户状态", @"是否在网",@"网龄层次",@"是否更换USIM卡",@"使用终端类型",@"使用网络类型",@"是否价值成员",@"基本套餐",@"是否160包千", nil];
-                keys = [NSMutableArray arrayWithObjects:@"cylx", @"sfpz", @"yhpb", @"yhzt", @"sfzw",@"wlcc",@"sfgh",@"syzd",@"sywl",@"sfjz",@"jbtc",@"sf160", nil];
+                height = 46*4;
+                count = 4;
+                array = [NSMutableArray arrayWithObjects:@"成员类型",  @"用户品牌", @"用户状态", @"是否160包干", nil];
+                keys = [NSMutableArray arrayWithObjects:@"cylx", @"yhpb", @"yhzt",@"sfbg", nil];
             }
                 break;
                 
             case 2:
             {
-                height = 46*17;
-                count = 18;
-                array = [NSMutableArray arrayWithObjects:@"是否综合捆绑", @"是否硬捆绑", @"硬捆绑到期时长(月)", @"是否预存话费捆绑", @"预存捆绑到期时长(月)", @"是否保底优惠捆绑", @"保底优惠捆绑到期时长(月)", @"是否银行托收", @"银行托收到期时长(月)", @"是否银行代扣", @"银行代扣到期时长(月)", @"是否集团统付捆绑", @"集团统付捆绑到期时长(月)", @"是否家庭付费捆绑", @"家庭付费捆绑到期时长(月)", @"是否终端捆绑", @"终端捆绑到期时长(月)", nil];
-                keys = [NSMutableArray arrayWithObjects:@"sfzhkb", @"sfykb", @"ykbdq", @"sfyc", @"ycdq", @"sfbd", @"bdyhdq", @"sfyhts", @"yhtsdq", @"sfyhdk", @"yhdkdq", @"sfjttf", @"jttfdq", @"sfjtff", @"jtffdq", @"sfzdkb", @"zdkbdq", nil];
-            }
-                break;
-                
-            case 3:
-            {
-                height = 46*8;
-                count = 8;
-                array = [NSMutableArray arrayWithObjects:@"是否软捆绑", @"是否v网活跃",@"是否套餐型产品用户",@"是否139活跃",@"是否飞信活跃",@"是否号簿管家活跃",@"是否手机缴费活跃",@"是否银信通", nil];
-                keys = [NSMutableArray arrayWithObjects:@"sfrkb", @"sfvw",@"sftc",@"sf139",@"sffx",@"sfhb",@"sfsj",@"sfyxt", nil];
+                height = 46*14;
+                count = 14;
+                array = [NSMutableArray arrayWithObjects:@"是否综合捆绑",@"是否硬捆绑", @"硬捆绑到期时长(月)", @"是否预存话费捆绑", @"预存捆绑到期时长(月)", @"是否保底优费捆绑", @"保底优惠捆绑到期时长(月)", @"是否银行托收", @"是否银行代扣", @"是否集团统付捆绑", @"是否终端捆绑", @"终端捆绑到期时长(月)", @"是否软捆绑",@"是否订购集团V网", nil];
+                keys = [NSMutableArray arrayWithObjects:@"sfzhkb",@"sfykb", @"ykbdq", @"sfyc", @"ycdq", @"sfbd", @"bdyhdq", @"sfyhts", @"sfyhdk", @"sfjttf", @"sfzdkb", @"zdkbdq", @"sfrkb",@"sfdgv", nil];
+
             }
                 break;
                 
             default:
             {
-                height = 46*7;
-                count = 7;
-                array = [NSMutableArray arrayWithObjects:@"营销保底最高金额(元)", @"集团统付出账金额(元)",@"当月MOU(分钟)",@"当月语音收入(元)",@"当月DOU(元)",@"当月流量收入(元)",@"当月ARPU(元)", nil];
-                keys = [NSMutableArray arrayWithObjects:@"yxbd", @"jttf",@"dymou",@"dyyy",@"dydou",@"dyll",@"dyarpu", nil];
+                height = 46*6;
+                count = 6;
+                array = [NSMutableArray arrayWithObjects:@"营销保底最高金额(元)", @"集团统付出账金额(元)",@"当月主叫MOU(分钟)",@"上月主叫MOU(分钟)",@"当月DOU(元)",@"ARPU(元)", nil];
+                keys = [NSMutableArray arrayWithObjects:@"yxbd", @"jttf", @"dymou",@"symou",@"dydou",@"dyarpu", nil];
             }
                 break;
         }
@@ -273,23 +267,19 @@
         
         switch ( idx ) {
             case 0:
-                height = 46*5+10;
+                height = 46*4+10;
                 break;
                 
             case 1:
-                height = 46*12+10;
+                height = 46*4+10;
                 break;
                 
             case 2:
-                height = 46*17+10;
-                break;
-                
-            case 3:
-                height = 46*8+10;
+                height = 46*14+10;
                 break;
                 
             default:
-                height = 46*7+10;
+                height = 46*6+10;
                 break;
         }
     }
@@ -306,7 +296,7 @@
 #pragma mark - button action
 - (void)refreshAction
 {
-    [_request Report:_tel ny:_lTop[_index].text];
+    [_request NewReport:_tel ny:_lTop[_index].text];
     [SVProgressHUD show];
 }
 
@@ -323,7 +313,7 @@
     }
     [btn setSelected:YES];
     
-    [_request Report:_tel ny:_lTop[_index].text];
+    [_request NewReport:_tel ny:_lTop[_index].text];
     [SVProgressHUD show];
 }
 
@@ -335,7 +325,6 @@
 - (void)httpRequesSucess:(NSDictionary *)pDic operation:(int)pOperation
 {
     [SVProgressHUD dismiss];
-    
     [_dataList removeAllObjects];
     [_dataList addObjectsFromArray:[pDic objectForKey:@"data"]];
     [_tableView reloadData];
