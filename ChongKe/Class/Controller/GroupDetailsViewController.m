@@ -222,6 +222,7 @@
             [btn addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
         }
         
+        
         switch ( i ) {
             case 0:
                 textField.text = [_dic objectForKey:@"gname"];
@@ -230,7 +231,10 @@
                 textField.text = [_dic objectForKey:@"job"];
             break;
             case 2:
-                textField.text =  @"";//[_dataLevel objectAtIndex: [[_dic objectForKey:@"level_s"] intValue]-1];
+            {
+                int level_s = [[_dic objectForKey:@"level_s"] intValue] - 1;
+                textField.text =  level_s < 0 ?@"":[_dataLevel objectAtIndex: level_s ];
+            }
             break;
             case 3:
                 textField.text = [_dic objectForKey:@"yd"];
@@ -250,6 +254,9 @@
             case 8:
                 textField.text = [_dic objectForKey:@"interest"];
             break;
+            case 9:
+                textField.text = [_dic objectForKey:@"client"];
+                break;
         }
     }
 }
@@ -277,6 +284,7 @@
     [view addSubview:textView];
     textView.delegate = self;
     textView.tag = 100 + 0;
+    textView.text = [_dic objectForKey:@"work"];
 }
 
 #pragma mark - textfield delegate

@@ -202,11 +202,21 @@
 
     NSDictionary *dic = [_searchList objectAtIndex:indexPath.row];
 
-    level_c.text = [dic objectForKey:@"level_c"];
-    dept.text = [dic objectForKey:@"dept"];
-    job.text = [dic objectForKey:@"job"];
+    NSArray *dataLevel = [NSArray arrayWithObjects:@"正厅以上",@"正厅",@"副厅",@"厅级",@"正处",@"副处",@"处级",@"其它", nil];
+    int level_s = [[dic objectForKey:@"level_s"] intValue] - 1;
+    
+    NSString *sJob = [dic objectForKey:@"job"];
+    sJob = sJob.length <= 0 ? @"请编辑更新":sJob;
+    NSString *sDept = [dic objectForKey:@"dept"];
+    sDept = sDept.length <= 0 ? @"请编辑更新":sDept;
+    NSString *sGname = [dic objectForKey:@"gname"];
+    sGname = sGname.length <= 0 ? @"请编辑更新":sGname;
+    
+    level_c.text =  level_s < 0 ?@"": [dataLevel objectAtIndex: level_s ];
+    dept.text = sDept;
+    job.text = sJob;
     yd.text = [dic objectForKey:@"yd"];
-    gname.text = [dic objectForKey:@"gname"];
+    gname.text = sGname;
     
     
     return cell;

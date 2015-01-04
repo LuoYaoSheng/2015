@@ -18,6 +18,7 @@
 typedef NS_ENUM(NSInteger, NetType) {
     Type_Login = 100,//登录
     Type_Login_newpwd,
+    Type_Login_resetpwd,
     Type_User_list,
     Type_Group_search,
     Type_Group_list,
@@ -38,7 +39,7 @@ typedef NS_ENUM(NSInteger, NetType) {
 #pragma mark - 业务
 - (void)Login:(NSString *)tel pwd:(NSString *)pwd;
 - (void)Login_newpwd:(NSString *)tel pwd:(NSString *)pwd;
-- (void)Login_newpwd:(NSString *)userId;
+- (void)Login_resetpwd:(NSString *)userId;
 - (void)User_list:(NSString *)name;//管理员用id
 - (void)Group_search:(NSString *)ename level_s:(int)level_s fs:(NSString *)fs name:(NSString *)name;
 - (void)Group_list:(NSString *)ecode;

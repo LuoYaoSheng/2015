@@ -211,7 +211,7 @@
     int index = alertView.tag - 100;
     if ( buttonIndex == 0) {
         NSDictionary *dic = [_searchList objectAtIndex: index ];
-        [_request Login_newpwd:[dic objectForKey:@"id"]];
+        [_request Login_resetpwd:[dic objectForKey:@"id"]];
         [SVProgressHUD show];
     }
 }

@@ -229,7 +229,7 @@
                 textField.text = [_dic objectForKey:@"job"];
             break;
             case 2:
-                textField.text =  [_dataLevel objectAtIndex: [[_dic objectForKey:@"level_s"] intValue]-1];
+//                textField.text =  [_dataLevel objectAtIndex: [[_dic objectForKey:@"level_s"] intValue]-1];
             break;
             case 3:
                 textField.text = [_dic objectForKey:@"yd"];

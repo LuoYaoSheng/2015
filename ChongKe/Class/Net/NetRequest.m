@@ -11,7 +11,7 @@
 #import "JSON.h"
 #import <CommonCrypto/CommonDigest.h>
 
-#define URL_BASIC                   @"http://218.207.182.227:8080/ics/clientInterface?act="
+#define URL_BASIC                   @"http://218.207.182.227:8080/ics/clientInterface?type=ios&act="
 
 @implementation NSString (MD5_)
 
@@ -147,9 +147,9 @@
     [self requestPost:url data:postData operation:Type_Login_newpwd];
 }
 
-- (void)Login_newpwd:(NSString *)userId
+- (void)Login_resetpwd:(NSString *)userId
 {
-    NSString *url = [NSString stringWithFormat:@"%@%@", URL_BASIC, @"a_login_newpwd"];
+    NSString *url = [NSString stringWithFormat:@"%@%@", URL_BASIC, @"a_login_resetpwd"];
     NSString *sJon = [NSString stringWithFormat:@"{\"id\":\"%@\"}", userId ];
     NSData *postData = [sJon dataUsingEncoding:NSUTF8StringEncoding];
     [self requestPost:url data:postData operation:Type_Login_newpwd];
