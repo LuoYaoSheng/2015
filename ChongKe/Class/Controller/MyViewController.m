@@ -179,7 +179,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSDictionary *dic = [_dataList objectAtIndex:indexPath.row];
+    NSDictionary *dic = [_searchList objectAtIndex:indexPath.row];
     GroupListViewController *controller = [[GroupListViewController alloc]initWithDic:dic];
     controller.title = @"集团领导";
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_TO_CONTROLLER object:controller];

@@ -54,7 +54,7 @@
     
     
     UILabel *copyright = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-45, self.view.frame.size.width, 21)];
-    copyright.text = [NSString stringWithFormat:@"%@ 版权所有", @"中国移动" ];
+    copyright.text = [NSString stringWithFormat:@"%@ 版权所有", @"中国移动通信集团福建有限公司" ];
     [copyright setBackgroundColor:[UIColor clearColor]];
     copyright.textAlignment = NSTextAlignmentCenter;
     copyright.font = [UIFont systemFontOfSize:9];

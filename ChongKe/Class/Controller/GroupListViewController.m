@@ -76,7 +76,7 @@
     _ecodeList = [[NSMutableArray alloc]init];
     _enameList = [[NSMutableArray alloc]init];
     [_ecodeList addObject:[_dic objectForKey:@"ecode"]];
-    [_enameList addObject:@"全部"];
+    [_enameList addObject:@"全部部门"];
     _searchList = [[NSMutableArray alloc]init];
     
     _mIsRefresh = YES;
@@ -87,12 +87,15 @@
     [_searchList removeAllObjects];
     for (NSDictionary *dic in _dataList) {
         
-        NSString *name = [dic objectForKey:@"dept"];
+        NSString *name = [dic objectForKey:@"gname"];
         NSRange range_name = [name rangeOfString: text ];
         
         if ( range_name.length > 0 || text.length <= 0)
         {
-            [_searchList addObject:dic];
+            NSString *key = [_btnEcode titleForState:UIControlStateNormal];
+            if ( [key isEqualToString:@"全部部门"] || [key isEqualToString: [dic objectForKey:@"dept"]] ) {
+                [_searchList addObject:dic];
+            }
         }
     }
 }
@@ -129,7 +132,7 @@
     
     _btnEcode = [UIButton createRedRadius:CGRectMake( self.view.frame.size.width-90, height, 80, 42)];
     [self.view addSubview:_btnEcode];
-    [_btnEcode setTitle:@"全  部" forState:UIControlStateNormal];
+    [_btnEcode setTitle:@"全部部门" forState:UIControlStateNormal];
     [_btnEcode addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
     
     float oY = _textField.frame.origin.y + _textField.frame.size.height + 10;
@@ -232,7 +235,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     _mIsRefresh = NO;
-    NSDictionary *dic = [_dataList objectAtIndex:indexPath.row];
+    NSDictionary *dic = [_searchList objectAtIndex:indexPath.row];
     GroupDetailsViewController *controller = [[GroupDetailsViewController alloc]initWithDic:dic];
     controller.title = @"详情";
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_TO_CONTROLLER object:controller];
@@ -269,8 +272,12 @@
     if ( 0 == buttonIndex) {
         return;
     }
-    [_request Group_list:[_ecodeList objectAtIndex:buttonIndex-1]];
-    [SVProgressHUD show];
+//    [_request Group_list:[_ecodeList objectAtIndex:buttonIndex-1]];
+//    [SVProgressHUD show];
+    
+    [_btnEcode setTitle:[_enameList objectAtIndex:buttonIndex-1] forState:UIControlStateNormal];
+    [self DATA_collator: [_textField text] ];
+    [_tableView reloadData];
 }
 #pragma mark - button action
 - (void)searchAction
@@ -315,12 +322,12 @@
     [_ecodeList removeAllObjects];
     [_enameList removeAllObjects];
     [_ecodeList addObject:[_dic objectForKey:@"ecode"]];
-    [_enameList addObject:@"全部"];
+    [_enameList addObject:@"全部部门"];
     
     for (NSDictionary *dic in _dataList) {
-
-        if ( [_ecodeList indexOfObject:[dic objectForKey:@"ecode"]] < _ecodeList.count || [[dic objectForKey:@"dept"] length] <= 0 ) {
-            break;
+        
+        if ( [[dic objectForKey:@"dept"] length] <= 0 ) {
+            continue;
         }
         
         [_ecodeList addObject:[dic objectForKey:@"ecode"]];

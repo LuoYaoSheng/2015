@@ -391,7 +391,7 @@
     textField = (UITextField *)[[_scrollView viewWithTag:1002] viewWithTag:101];
     NSString *job = textField.text;
     textField = (UITextField *)[[_scrollView viewWithTag:1002] viewWithTag:102];
-    int level_s = [_dataLevel indexOfObject: textField.text ];
+    int level_s = [_dataLevel indexOfObject: textField.text ]+1;
     textField = (UITextField *)[[_scrollView viewWithTag:1002] viewWithTag:103];
     NSString *yd = textField.text;
     textField = (UITextField *)[[_scrollView viewWithTag:1002] viewWithTag:104];

@@ -48,7 +48,7 @@
     [hello  setBackgroundColor:[UIColor clearColor]];
     hello.font = UIFont_NAME;
     hello.textColor = [StyleKit colorOfGreen];
-    hello.text = @"你好，";
+    hello.text = @"您好，";
     
     _lName = [[UILabel alloc]initWithFrame:CGRectMake(hello.frame.origin.x+hello.frame.size.width-10, 0, 100, 21)];
     [self addSubview:_lName];
@@ -63,7 +63,7 @@
     frame.size.width = size.width;
     _lName.frame = frame;
     
-    NSString *introduce = @"欢迎使用重客管理平台";
+    NSString *introduce = @"欢迎回来！";
     float originX = frame.origin.x+frame.size.width;
     size = [introduce sizeWithFont:UIFont_NAME constrainedToSize:CGSizeMake(CGFLOAT_MAX, 21) lineBreakMode:NSLineBreakMode_NAME];
     
