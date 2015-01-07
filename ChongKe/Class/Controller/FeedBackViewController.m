@@ -83,6 +83,7 @@
     _textView.delegate = self;
 //    [_textView becomeFirstResponder];
     _textView.text = Title_Home;
+    _textView.font = [UIFont systemFontOfSize:15];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

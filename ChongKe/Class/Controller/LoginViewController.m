@@ -153,6 +153,9 @@
 //        return;
 //    }
     
+    _tfTel.text = @"15080495236";
+    _tfPwd.text = @"111111";
+    
     [_request Login:_tfTel.text pwd:_tfPwd.text];
     [SVProgressHUD show];
 }

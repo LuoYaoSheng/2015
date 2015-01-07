@@ -283,6 +283,7 @@
     UITextView *textView = [[UITextView alloc]initWithFrame:view.bounds];
     [view addSubview:textView];
     textView.delegate = self;
+    textView.font = [UIFont systemFontOfSize:15];
     textView.tag = 100 + 0;
     textView.text = [_dic objectForKey:@"work"];
 }

@@ -88,7 +88,7 @@
         
     }else{
         imgs = [NSArray arrayWithObjects:@"yd.png",@"ic_my.png", @"ic_pic_pwd.png", @"ic_login_pwd.png", @"ic_update.png", @"ic_feedback.png", @"ic_about.png",@"", nil];
-        titles = [NSArray arrayWithObjects:@"",@"我的重客集团", @"修改图形密码", @"修改登录密码", @"检查更新", @"意见反馈", @"关于我们",@"退出登录", nil];
+        titles = [NSArray arrayWithObjects:@"",@"我的重客集团", @"修改图形密码", @"修改登录密码", @"检查更新", @"意见反馈", @"关于我们",@"注销登录", nil];
         types = [NSArray arrayWithObjects:[NSNumber numberWithInteger:ImgTitleTypeImg],[NSNumber numberWithInteger:ImgTitleTypeAll], [NSNumber numberWithInteger:ImgTitleTypeAll], [NSNumber numberWithInteger:ImgTitleTypeAll], [NSNumber numberWithInteger:ImgTitleTypeAll], [NSNumber numberWithInteger:ImgTitleTypeAll],[NSNumber numberWithInteger:ImgTitleTypeAll],[NSNumber numberWithInteger:ImgTitleTypeTitle], nil];
         funTypes = [NSArray arrayWithObjects:[NSNumber numberWithInteger:FunctionTypeEmpty],
                     [NSNumber numberWithInteger:FunctionTypeViewController],

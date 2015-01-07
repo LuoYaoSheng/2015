@@ -53,7 +53,7 @@
     [view addSubview:version];
     
     
-    UILabel *copyright = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-45, self.view.frame.size.width, 21)];
+    UILabel *copyright = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-30, self.view.frame.size.width, 21)];
     copyright.text = [NSString stringWithFormat:@"%@ 版权所有", @"中国移动通信集团福建有限公司" ];
     [copyright setBackgroundColor:[UIColor clearColor]];
     copyright.textAlignment = NSTextAlignmentCenter;
@@ -61,13 +61,13 @@
     copyright.textColor = [UIColor grayColor];
     [self.view addSubview:copyright];
     
-    UILabel *copyright2 = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-30, self.view.frame.size.width, 21)];
-    copyright2.text = [NSString stringWithFormat:@"Copyright (c) 2014年 %@. All rights reserved.", @"China Mobile" ];
-    [copyright2 setBackgroundColor:[UIColor clearColor]];
-    copyright2.textAlignment = NSTextAlignmentCenter;
-    copyright2.font = [UIFont systemFontOfSize:9];
-    copyright2.textColor = [UIColor grayColor];
-    [self.view addSubview:copyright2];
+//    UILabel *copyright2 = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-30, self.view.frame.size.width, 21)];
+//    copyright2.text = [NSString stringWithFormat:@"Copyright (c) 2014年 %@. All rights reserved.", @"China Mobile" ];
+//    [copyright2 setBackgroundColor:[UIColor clearColor]];
+//    copyright2.textAlignment = NSTextAlignmentCenter;
+//    copyright2.font = [UIFont systemFontOfSize:9];
+//    copyright2.textColor = [UIColor grayColor];
+//    [self.view addSubview:copyright2];
 }
 
 - (void)didReceiveMemoryWarning
