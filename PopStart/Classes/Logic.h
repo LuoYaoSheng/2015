@@ -11,9 +11,9 @@
 
 #include <stdio.h>
 
-#define ROW_NUM             3
-#define COL_NUM             3
-#define COLOR_MAX_NUM       2
+#define ROW_NUM             10
+#define COL_NUM             10
+#define COLOR_MAX_NUM       5
 #define SCORE               5
 #define LEFT                10
 
