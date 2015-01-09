@@ -40,24 +40,18 @@ void Logic::store_graph()
 {
     for (int i = 0; i < ROW_NUM; i++) {
         for (int j = 0; j < COL_NUM; j++) {
-            
-            int color = abs(rand()% COLOR_MAX_NUM );
-            _graph[i][j] = color;
+            _graph[i][j] = abs(rand()% COLOR_MAX_NUM );
         }
     }
-
-    _graph[0][2] = 0;
-    _graph[1][2] = 0;
-    _graph[1][1] = 0;
 }
 
 bool Logic::adjoin(int row, int col) //是否邻接点
 {
-    if ( row < 0 || col < 0) return false;          //越界检测
-    if ( _graph[ row ][ col ] < 0) return false;    //数值检测
-    for (int idx = 0; idx < _visitedCount; idx++)   //包含检测
+    if ( row < 0 || col < 0 || row >= ROW_NUM || col >= COL_NUM) return false;          //越界检测
+    if ( _graph[ row ][ col ] < 0) return false;                                        //数值检测
+    for (int idx = 0; idx < _visitedCount; idx++)                                       //包含检测
         if ( ROW2COL(row,col) == _visited[ idx] ) return false;
-
+    
     return _target == _graph[ row ][ col ] ;
 }
 
@@ -106,22 +100,17 @@ void Logic::regroup()
     for (int idx = 0; idx < _visitedCount; idx++) {
         mCurGraph[ _visited[ idx ]/MULTIPLE ][ _visited[ idx ]%MULTIPLE ] = -1;
     }
-
-    memcpy( _graph, mCurGraph, sizeof( int )*ROW_NUM*COL_NUM );
-    descriptionGraph();
     
     for (int col = 0; col < COL_NUM; col++) move_down( col );//向下迁移
     for (int col = COL_NUM-1; col >= 0; col--) move_left( col );//向左迁移
-
-    memcpy( _graph, mCurGraph, sizeof( int )*ROW_NUM*COL_NUM );
-    descriptionGraph();
     
+    memcpy( _graph, mCurGraph, sizeof( int )*ROW_NUM*COL_NUM );
 }
 
 int Logic::pitchOn(int row, int col)
 {
     _target = _graph[ row ][ col ];
-
+    
     memset( _visited, -1, sizeof( int )*ROW_NUM*COL_NUM );
     _visitedCount = 0;
     dfs_graph( row, col);
@@ -137,10 +126,22 @@ int Logic::leftAward()
     return SCORE * count * count;
 }
 
-bool Logic::isOver()
+int Logic::isOver()
 {
-
-    return false;
+    int iLeft = 0;
+    int tmp[ ROW_NUM ][ COL_NUM ];
+    memcpy( tmp, _graph, sizeof( int )*ROW_NUM*COL_NUM );
+    
+    for (int row = ROW_NUM-1; row >= 0; row--) {
+        for (int col = 0; col < COL_NUM; col++) {
+            int icount = pitchOn( row, col);
+            memcpy( _graph, tmp, sizeof( int )*ROW_NUM*COL_NUM );
+            if ( icount > 1) return -1;
+            if ( _graph[ row ][ col ] > -1) iLeft++;
+        }
+    }
+    memcpy( _graph, tmp, sizeof( int )*ROW_NUM*COL_NUM );
+    return iLeft;
 }
 
 void Logic::setVisited(int row, int col)

@@ -30,7 +30,7 @@ public:
     void regroup();
     int pitchOn(int row, int col);
     int leftAward();
-    bool isOver();
+    int isOver();
     
     void descriptionGraph();
 

@@ -55,7 +55,7 @@ bool HelloWorld::init()
     // add a label shows "Hello World"
     // create and initialize a label
     
-    auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
+    auto label = Label::createWithTTF("--------", "fonts/Marker Felt.ttf", 24);
     
     // position the label on the center of the screen
     label->setPosition(Vec2(origin.x + visibleSize.width/2,
@@ -75,7 +75,12 @@ bool HelloWorld::init()
     
     
     Logic::getInstance()->descriptionGraph();
-    Logic::getInstance()->pitchOn( 2, 0);
+    Logic::getInstance()->pitchOn( 9, 0);
+    Logic::getInstance()->descriptionGraph();
+    int left =  Logic::getInstance()->isOver();
+    Logic::getInstance()->descriptionGraph();
+    
+    CCLOG("left:%d", left);
     
     return true;
 }
