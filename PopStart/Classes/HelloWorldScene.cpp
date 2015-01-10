@@ -1,5 +1,8 @@
 #include "HelloWorldScene.h"
 #include "Logic.h"
+#include "TouchLayer.h"
+#include "TestSprite.h"
+#include "SpriteTouchLayer.h"
 
 USING_NS_CC;
 
@@ -34,7 +37,7 @@ bool HelloWorld::init()
     /////////////////////////////
     // 2. add a menu item with "X" image, which is clicked to quit the program
     //    you may modify it.
-
+/*
     // add a "close" icon to exit the progress. it's an autorelease object
     auto closeItem = MenuItemImage::create(
                                            "CloseNormal.png",
@@ -75,12 +78,28 @@ bool HelloWorld::init()
     
     
     Logic::getInstance()->descriptionGraph();
-    Logic::getInstance()->pitchOn( 9, 0);
+    Logic::getInstance()->pitchOn( 0, 0);
     Logic::getInstance()->descriptionGraph();
+
+    Logic::getInstance()->pitchOn( 2, 0);
+    
     int left =  Logic::getInstance()->isOver();
     Logic::getInstance()->descriptionGraph();
     
     CCLOG("left:%d", left);
+    
+    */
+    
+//    TouchLayer *touchLayer = TouchLayer::create( true );
+//    this->addChild( touchLayer );
+    
+    TestSprite *sprite = TestSprite::create( "red.png" );
+    this->addChild( sprite );
+    sprite->setPosition( Vec2( visibleSize.width*0.5, visibleSize.height*0.5) );
+    
+    Rect rt = Rect(0, 0, 50, 50);
+    SpriteTouchLayer *layer = SpriteTouchLayer::create( rt );
+    this->addChild( layer );
     
     return true;
 }

@@ -21,8 +21,7 @@ class Logic {
 public:
 
     static Logic* getInstance();
-    
-    
+
     void store_graph();//邻接矩阵存储图
     
     void move_down(int col);
