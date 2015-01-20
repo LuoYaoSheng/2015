@@ -60,7 +60,6 @@ void LoginScene::menuCloseCallback(Ref* pSender, Widget::TouchEventType type)
         ui::Button *btn =  static_cast<ui::Button*>(pSender);
         
         if ( btn->getTag() == 100) {
-            CCLOG("---");
             auto scene = LobbyScene::createScene();
             Director::getInstance()->runWithScene( scene );
         }else{

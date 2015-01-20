@@ -11,10 +11,12 @@
 #include "ui/CocosGUI.h"
 #include "LobbyScene.h"
 #include "LoginScene.h"
+#include "SinglegameScene.h"
 
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
+
 
 Scene* WelcomeScene::createScene()
 {
@@ -63,23 +65,23 @@ bool WelcomeScene::init()
 void WelcomeScene::menuCloseCallback(Ref* pSender, Widget::TouchEventType type)
 {
     if ( cocos2d::ui::Widget::TouchEventType::ENDED == type) {
-    ui::Button* btn = static_cast<ui::Button*>(pSender);
-    switch ( btn->getTag() ) {
-        case 100:
-        {
-            auto scene = LoginScene::createScene();
-            Director::getInstance()->runWithScene( scene );
-        }
-            break;
+        ui::Button* btn = static_cast<ui::Button*>(pSender);
+        switch ( btn->getTag() ) {
+            case 100:
+            {
+                auto scene = LoginScene::createScene();
+                Director::getInstance()->runWithScene( scene );
+            }
+                break;
             case 101:
-        {
-            auto scene = LobbyScene::createScene();
-            Director::getInstance()->runWithScene( scene );
+            {
+                auto scene = SinglegameScene::createScene();
+                Director::getInstance()->runWithScene( scene );
+            }
+                break;
+                
+            default:
+                break;
         }
-            break;
-            
-        default:
-            break;
-    }
     }
 }

@@ -28,17 +28,34 @@
           <Image Name="IMG_0079.PNG" />
           <Image Name="IMG_0080.PNG" />
           <Image Name="clear.png" />
+          <Image Name="BgSinglegame.png" />
         </Folder>
         <Folder Name="Login">
           <Image Name="logo.png" />
-          <Image Name="slice28_28.png" />
-          <Image Name="slice29_29.png" />
-          <Image Name="slice30_30.png" />
-          <Image Name="slice32_32.png" />
+          <Image Name="BtnCommon.png" />
         </Folder>
         <Project Name="WelcomeScene.csd" />
         <Project Name="LobbyScene.csd" />
         <Project Name="LoginScene.csd" />
+        <Project Name="SinglegameScene.csd" />
+        <Folder Name="imgs">
+          <Image Name="BgToolbar.png" />
+          <Image Name="slice02_02.png" />
+          <Image Name="slice03_03.png" />
+          <Image Name="slice04_04.png" />
+          <Image Name="slice05_05.png" />
+          <Image Name="slice06_06.png" />
+          <Image Name="BtnMsgNor.png" />
+          <Image Name="BtnSetNor.png" />
+          <Image Name="BtnBackNo.png" />
+          <Image Name="BtnRobotNor.png" />
+          <Image Name="BtnMsgSel.png" />
+          <Image Name="BtnRobotSel.png" />
+          <Image Name="BtnSetSel.png" />
+          <Image Name="BtnBackSel.png" />
+          <Image Name="BtnRobotDis.png" />
+          <Image Name="BtnMsgDis.png" />
+        </Folder>
       </RootFolder>
     </Group>
   </SolutionFolder>

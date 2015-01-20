@@ -22,18 +22,18 @@
             <PreSize X="0" Y="0" />
             <FileData Type="Normal" Path="bgs/IMG_0073.PNG" />
           </NodeObjectData>
-          <NodeObjectData Name="Net" ActionTag="44" FrameEvent="" Tag="100" ObjectIndex="3" TouchEnable="True" FontSize="48" ButtonText="网络游戏" Scale9Width="412" Scale9Height="176" ctype="ButtonObjectData">
-            <Position X="795.1449" Y="602.1593" />
+          <NodeObjectData Name="Net" ActionTag="44" FrameEvent="" Tag="100" ObjectIndex="3" TouchEnable="True" FontSize="48" ButtonText="网络游戏" Scale9Enable="True" Scale9Width="380" Scale9Height="151" ctype="ButtonObjectData">
+            <Position X="792.6525" Y="603.6511" />
             <Scale ScaleX="0.8648066" ScaleY="0.6985933" />
             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
             <CColor A="255" R="255" G="255" B="255" />
-            <Size X="412" Y="176" />
-            <PrePosition X="0.7765087" Y="0.7840616" />
-            <PreSize X="0" Y="0" />
+            <Size X="412" Y="178" />
+            <PrePosition X="0.7740747" Y="0.786004" />
+            <PreSize X="0.4023438" Y="0.2317708" />
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
             <PressedFileData Type="Default" Path="Default/Button_Press.png" />
-            <NormalFileData Type="Normal" Path="Login/slice28_28.png" />
+            <NormalFileData Type="Normal" Path="Login/BtnCommon.png" />
           </NodeObjectData>
           <NodeObjectData Name="Sprite_3" ActionTag="45" FrameEvent="" Tag="16" ObjectIndex="3" ctype="SpriteObjectData">
             <Position X="289.864" Y="387.3162" />
@@ -45,7 +45,7 @@
             <PreSize X="0" Y="0" />
             <FileData Type="Normal" Path="Login/logo.png" />
           </NodeObjectData>
-          <NodeObjectData Name="Signal" ActionTag="47" FrameEvent="" Tag="101" ObjectIndex="4" TouchEnable="True" FontSize="48" ButtonText="单机游戏" Scale9Width="412" Scale9Height="176" ctype="ButtonObjectData">
+          <NodeObjectData Name="Signal" ActionTag="47" FrameEvent="" Tag="101" ObjectIndex="4" TouchEnable="True" FontSize="48" ButtonText="单机游戏" Scale9Enable="True" Scale9Width="380" Scale9Height="151" ctype="ButtonObjectData">
             <Position X="793.8234" Y="466.8888" />
             <Scale ScaleX="0.8648066" ScaleY="0.6985933" />
             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -56,9 +56,9 @@
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
             <PressedFileData Type="Default" Path="Default/Button_Press.png" />
-            <NormalFileData Type="Normal" Path="Login/slice28_28.png" />
+            <NormalFileData Type="Normal" Path="Login/BtnCommon.png" />
           </NodeObjectData>
-          <NodeObjectData Name="Set" ActionTag="48" FrameEvent="" Tag="102" ObjectIndex="5" TouchEnable="True" FontSize="48" ButtonText="游戏设置" Scale9Width="412" Scale9Height="176" ctype="ButtonObjectData">
+          <NodeObjectData Name="Set" ActionTag="48" FrameEvent="" Tag="102" ObjectIndex="5" TouchEnable="True" FontSize="48" ButtonText="游戏设置" Scale9Enable="True" Scale9Width="380" Scale9Height="151" ctype="ButtonObjectData">
             <Position X="792.5007" Y="331.6178" />
             <Scale ScaleX="0.8648066" ScaleY="0.6985933" />
             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -69,9 +69,9 @@
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
             <PressedFileData Type="Default" Path="Default/Button_Press.png" />
-            <NormalFileData Type="Normal" Path="Login/slice28_28.png" />
+            <NormalFileData Type="Normal" Path="Login/BtnCommon.png" />
           </NodeObjectData>
-          <NodeObjectData Name="Help" ActionTag="49" FrameEvent="" Tag="103" ObjectIndex="6" TouchEnable="True" FontSize="48" ButtonText="帮助" Scale9Width="412" Scale9Height="176" ctype="ButtonObjectData">
+          <NodeObjectData Name="Help" ActionTag="49" FrameEvent="" Tag="103" ObjectIndex="6" TouchEnable="True" FontSize="48" ButtonText="帮助" Scale9Enable="True" Scale9Width="380" Scale9Height="151" ctype="ButtonObjectData">
             <Position X="795.1508" Y="202.9755" />
             <Scale ScaleX="0.8648066" ScaleY="0.6985933" />
             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -82,7 +82,7 @@
             <TextColor A="255" R="255" G="255" B="255" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
             <PressedFileData Type="Default" Path="Default/Button_Press.png" />
-            <NormalFileData Type="Normal" Path="Login/slice28_28.png" />
+            <NormalFileData Type="Normal" Path="Login/BtnCommon.png" />
           </NodeObjectData>
         </Children>
       </ObjectData>
