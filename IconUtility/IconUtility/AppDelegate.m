@@ -2,21 +2,24 @@
 //  AppDelegate.m
 //  IconUtility
 //
-//  Created by 罗耀生 on 15/1/17.
-//  Copyright (c) 2015年 LuoYaoSheng. All rights reserved.
+//  Created by Air on 15/1/19.
+//  Copyright (c) 2015年 罗耀生. All rights reserved.
 //
 
 #import "AppDelegate.h"
 
-@interface AppDelegate()
+@interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+}
+
+- (void)applicationWillTerminate:(NSNotification *)aNotification {
+    // Insert code here to tear down your application
 }
 
 @end

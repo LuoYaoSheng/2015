@@ -1,0 +1,45 @@
+<Solution>
+  <PropertyGroup Name="CocosProject" Version="2.0.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="ipad">
+          <Image Name="CloseNormal.png" />
+          <Image Name="CloseSelected.png" />
+          <Image Name="HelloWorld.png" />
+        </Folder>
+        <Folder Name="ipadhd">
+          <Image Name="CloseNormal.png" />
+          <Image Name="CloseSelected.png" />
+          <Image Name="HelloWorld.png" />
+        </Folder>
+        <Folder Name="iphone">
+          <Image Name="CloseNormal.png" />
+          <Image Name="CloseSelected.png" />
+          <Image Name="HelloWorld.png" />
+        </Folder>
+        <Folder Name="bgs">
+          <Image Name="IMG_0073.PNG" />
+          <Image Name="IMG_0074.PNG" />
+          <Image Name="IMG_0075.PNG" />
+          <Image Name="IMG_0076.PNG" />
+          <Image Name="IMG_0077.PNG" />
+          <Image Name="IMG_0078.PNG" />
+          <Image Name="IMG_0079.PNG" />
+          <Image Name="IMG_0080.PNG" />
+          <Image Name="clear.png" />
+        </Folder>
+        <Folder Name="Login">
+          <Image Name="logo.png" />
+          <Image Name="slice28_28.png" />
+          <Image Name="slice29_29.png" />
+          <Image Name="slice30_30.png" />
+          <Image Name="slice32_32.png" />
+        </Folder>
+        <Project Name="WelcomeScene.csd" />
+        <Project Name="LobbyScene.csd" />
+        <Project Name="LoginScene.csd" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>
