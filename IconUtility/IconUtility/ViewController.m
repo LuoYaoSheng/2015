@@ -27,7 +27,7 @@ static NSString * const NoSelectAnyItems    = @"Did not select any items";
     // Do any additional setup after loading the view.
     
     _checkArray= [[NSMutableArray alloc]init];
-    for (int idx = 0; idx < TAG_defalut - TAG_osx; idx++) {
+    for (int idx = 0; idx < TAG_round - TAG_osx; idx++) {
         [_checkArray addObject:[NSNumber numberWithInt:0]];
     }
     
@@ -98,6 +98,7 @@ static NSString * const NoSelectAnyItems    = @"Did not select any items";
         return;
     }
     
+    _viewManager.icons = _checkArray;
     if ([ _viewManager saveImages:self]){
         [self showLabelWithTitle:ImagesDidSaveString textColor:[NSColor blueColor]];
         return;
@@ -109,6 +110,7 @@ static NSString * const NoSelectAnyItems    = @"Did not select any items";
 - (IBAction)chekcAction:(id)sender
 {
     NSButton *btn = (NSButton *)sender;
+    
     switch ( btn.tag ) {
         case TAG_defalut:
         {
@@ -132,8 +134,15 @@ static NSString * const NoSelectAnyItems    = @"Did not select any items";
         }
             break;
             
+            case TAG_shine:
+            case TAG_round:
+        {
+            
+        }
+            break;
+            
         default:
-            [_checkArray replaceObjectAtIndex: btn.tag - TAG_img_icon withObject: [NSNumber numberWithInt:btn.state]];
+            [_checkArray replaceObjectAtIndex: btn.tag - TAG_osx withObject: [NSNumber numberWithInt:btn.state]];
             break;
     }
 }

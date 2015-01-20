@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>OSX</key>
+	<array>
+		<dict>
+			<key>Width</key>
+			<string>512</string>
+			<key>Hight</key>
+			<string>512</string>
+			<key>Name</key>
+			<string>iTunesArtwork</string>
+		</dict>
+	</array>
+	<key>iPhone</key>
+	<array>
+		<dict>
+			<key>Width</key>
+			<string>512</string>
+			<key>Hight</key>
+			<string>512</string>
+			<key>Name</key>
+			<string>iTunesArtwork</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string>1024</string>
+			<key>Hight</key>
+			<string> 1024 </string>
+			<key>Name</key>
+			<string>iTunesArtwork@2x</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 120 </string>
+			<key>Hight</key>
+			<string> 120 </string>
+			<key>Name</key>
+			<string>icon-60@2x.png</string>
+		</dict>
+	</array>
+	<key>iPad</key>
+	<array>
+		<dict>
+			<key>Size</key>
+			<string>1024</string>
+			<key>Name</key>
+			<string>osx.icns</string>
+		</dict>
+	</array>
+	<key>Android</key>
+	<array>
+		<dict>
+			<key>Size</key>
+			<string>1024</string>
+			<key>Name</key>
+			<string>osx.icns</string>
+		</dict>
+	</array>
+	<key>defalut</key>
+	<array>
+		<dict>
+			<key>Size</key>
+			<string>1024</string>
+			<key>Name</key>
+			<string>osx.icns</string>
+		</dict>
+	</array>
+</dict>
+</plist>

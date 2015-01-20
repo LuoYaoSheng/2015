@@ -9,29 +9,43 @@
 #import "ViewManager-SaveImages.h"
 #import "NSBitmapImageRep-Additions.h"
 #import "IconImageView.h"
+#import "Common.h"
 
 //Private
-static NSString * const DefaultDirectoryName = @"com.borealkiss.IconUtility";
+static NSString * const DefaultDirectoryName = @"Lys---Lys";
 
 @implementation ViewManager (SaveImages)
 
 -(BOOL)saveImages:(id)sender
 {
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"IconsName" ofType:@"plist"];
+    // 读取到一个NSDictionary
+    NSDictionary *dictionary = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+
     for (IconImageView *aView in self.childViews){
         if ([aView targetImage] == nil) {
             return NO;
         }
     }
     
-    //Creates a directory for all images.
-    NSString *path2Directory = [self pathToDirectory];
-    
-    for (IconImageView *aView in self.childViews){
-        NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithPixelsWide:aView.imageWidth pixelsHigh:aView.imageHeight hasAlpha:YES];
-        [imageRep setImage:aView.image];
-        NSData *imageData = [imageRep representationUsingType:NSPNGFileType properties:nil];
-        NSString *path2File = [path2Directory stringByAppendingPathComponent:aView.imageName];
-        [imageData writeToFile:path2File atomically:NO];
+    for (int idx = 0; idx < self.icons.count; idx++) {
+        BOOL b = [[self.icons objectAtIndex:idx]boolValue];
+        if ( b ) {
+            NSString *iconName = [FILENAMELIST objectAtIndex:idx];
+            NSString *path2Directory = [self pathToDirectory: iconName ];
+            NSArray *array = [dictionary objectForKey: iconName ];
+            for (NSDictionary *dic in array) {
+                NSString *name = [dic objectForKey:@"Name"];
+                float width = [[dic objectForKey:@"Width"]floatValue];
+                float hight = [[dic objectForKey:@"Hight"]floatValue];
+                
+                NSBitmapImageRep *imageRep = [NSBitmapImageRep imageRepWithPixelsWide:width pixelsHigh:hight hasAlpha:YES];
+                [imageRep setImage: self.mImage ];
+                NSData *imageData = [imageRep representationUsingType:NSPNGFileType properties:nil];
+                NSString *path2File = [path2Directory stringByAppendingPathComponent: name ];
+                [imageData writeToFile:path2File atomically:NO];
+            }
+        }
     }
     
     return YES;
@@ -53,7 +67,8 @@ static NSString * const DefaultDirectoryName = @"com.borealkiss.IconUtility";
 /**
  * Returns a path to the existing directory that images are saved in.
  */
--(NSString *)pathToDirectory{
+-(NSString *)pathToDirectory:(NSString *)pName
+{
     NSString *path2Desktop = [NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES) lastObject];
     NSString *path2ParentDirectory = [path2Desktop stringByAppendingPathComponent:DefaultDirectoryName];
     
@@ -63,23 +78,18 @@ static NSString * const DefaultDirectoryName = @"com.borealkiss.IconUtility";
     }
     
     int index = 1;
-    NSString *aPath = [path2ParentDirectory stringByAppendingPathComponent:[self untitleDirectoryNameWithIndex:index]];
+    NSString *aPath = [path2ParentDirectory stringByAppendingPathComponent: pName ];
     
     while ([[NSFileManager defaultManager] fileExistsAtPath:aPath]) {
         //Changes a search path.
         index++;
-        aPath = [path2ParentDirectory stringByAppendingPathComponent:[self untitleDirectoryNameWithIndex:index]];
+        aPath = [path2ParentDirectory stringByAppendingPathComponent: pName ];
     }
     
     //Create a directory.
     [[NSFileManager defaultManager] createDirectoryAtPath:aPath withIntermediateDirectories:NO attributes:nil error:nil];
     
     return aPath;
-}
-
--(NSString *)untitleDirectoryNameWithIndex:(NSUInteger)index{
-    static NSString *Untitle = @"Untitle";
-    return [NSString stringWithFormat:@"%@%ld", Untitle, index];;
 }
 
 @end

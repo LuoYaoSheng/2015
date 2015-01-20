@@ -31,7 +31,7 @@ static id _instance = nil;
     }
     
     if (self = [super init]){
-        [self _setup];
+        [self setup];
     }
     return self;
 }
@@ -43,7 +43,7 @@ static id _instance = nil;
     return [super alloc];
 }
 
--(void)_setup{
+-(void)setup{
     _quality = kCGInterpolationDefault;
 }
 

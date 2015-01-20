@@ -26,7 +26,7 @@
 
 -(void)draggingConcludedHandler:(NSNotification *)aNotification{
     DraggingView *aView = (DraggingView *)[aNotification object];
-    
+    self.mImage = [aView targetImage];
     for (IconImageView *childView in self.childViews){
         [childView setTargetImage:[aView targetImage]];
     }

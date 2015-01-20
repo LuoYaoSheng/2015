@@ -743,7 +743,7 @@
                                     <action selector="chekcAction:" target="XfG-lQ-9wD" id="Vzm-za-VmI"/>
                                 </connections>
                             </button>
-                            <button fixedFrame="YES" tag="104" translatesAutoresizingMaskIntoConstraints="NO" id="fCW-bB-NfK">
+                            <button fixedFrame="YES" tag="105" translatesAutoresizingMaskIntoConstraints="NO" id="fCW-bB-NfK">
                                 <rect key="frame" x="18" y="320" width="55" height="18"/>
                                 <buttonCell key="cell" type="check" title="shine" bezelStyle="regularSquare" imagePosition="left" inset="2" id="eNL-KE-D6k">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -753,7 +753,7 @@
                                     <action selector="chekcAction:" target="XfG-lQ-9wD" id="Zcm-ou-jfR"/>
                                 </connections>
                             </button>
-                            <button fixedFrame="YES" tag="105" translatesAutoresizingMaskIntoConstraints="NO" id="2NP-db-u9R">
+                            <button fixedFrame="YES" tag="106" translatesAutoresizingMaskIntoConstraints="NO" id="2NP-db-u9R">
                                 <rect key="frame" x="83" y="320" width="58" height="18"/>
                                 <buttonCell key="cell" type="check" title="round" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Ev6-CA-eVf">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -763,7 +763,7 @@
                                     <action selector="chekcAction:" target="XfG-lQ-9wD" id="abd-6U-7um"/>
                                 </connections>
                             </button>
-                            <button fixedFrame="YES" tag="106" translatesAutoresizingMaskIntoConstraints="NO" id="bgs-ri-P4k">
+                            <button fixedFrame="YES" tag="104" translatesAutoresizingMaskIntoConstraints="NO" id="bgs-ri-P4k">
                                 <rect key="frame" x="18" y="300" width="65" height="18"/>
                                 <buttonCell key="cell" type="check" title="defalut" bezelStyle="regularSquare" imagePosition="left" inset="2" id="aJs-gc-6pY">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>

@@ -27,6 +27,7 @@
 		45E9E61B1A6D0CEB0091D748 /* DraggingNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E9E61A1A6D0CEB0091D748 /* DraggingNotification.m */; };
 		45E9E61E1A6D0D140091D748 /* DraggingView-NSDraggingDestination.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E9E61D1A6D0D140091D748 /* DraggingView-NSDraggingDestination.m */; };
 		45E9E6211A6D0D360091D748 /* DraggingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E9E6201A6D0D360091D748 /* DraggingView.m */; };
+		45F409BB1A6E22E1004FC426 /* IconsName.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45F409BA1A6E22E1004FC426 /* IconsName.plist */; };
 		A048DDE11A6D45ED000F2F94 /* Hint.png in Resources */ = {isa = PBXBuildFile; fileRef = A048DDE01A6D45ED000F2F94 /* Hint.png */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		45E9E61D1A6D0D140091D748 /* DraggingView-NSDraggingDestination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DraggingView-NSDraggingDestination.m"; sourceTree = "<group>"; };
 		45E9E61F1A6D0D360091D748 /* DraggingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggingView.h; sourceTree = "<group>"; };
 		45E9E6201A6D0D360091D748 /* DraggingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggingView.m; sourceTree = "<group>"; };
+		45F409BA1A6E22E1004FC426 /* IconsName.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = IconsName.plist; sourceTree = "<group>"; };
 		A048DDE01A6D45ED000F2F94 /* Hint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hint.png; sourceTree = "<group>"; };
 		A048DDE21A6D4CC5000F2F94 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +180,7 @@
 				45E9E6011A6CFC550091D748 /* ViewManager */,
 				45E9E5EF1A6CF8940091D748 /* NSBitmapImageRep-Additions */,
 				A048DDE21A6D4CC5000F2F94 /* Common.h */,
+				45F409BA1A6E22E1004FC426 /* IconsName.plist */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			files = (
 				A048DDE11A6D45ED000F2F94 /* Hint.png in Resources */,
 				45E9E5D61A6CF8660091D748 /* Images.xcassets in Resources */,
+				45F409BB1A6E22E1004FC426 /* IconsName.plist in Resources */,
 				45E9E5D91A6CF8660091D748 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,9 +13,10 @@
  */
 @interface ViewManager : NSObject
 
-@property (nonatomic, retain) NSView *contentView;
-@property (nonatomic, retain) NSArray *icons;
-@property (nonatomic, retain) NSArray *childViews;
+@property (nonatomic, strong) NSView *contentView;
+@property (nonatomic, strong) NSArray *icons;
+@property (nonatomic, strong) NSArray *childViews;
+@property (nonatomic, strong) NSImage *mImage;
 
 - (id)initWithContentView:(NSView *)aView;
 - (void)redraw:(id)sender;

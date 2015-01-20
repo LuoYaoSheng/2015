@@ -14,10 +14,10 @@ enum{
     TAG_iPhone  ,
     TAG_iPad    ,
     TAG_Android ,
+    TAG_defalut ,
     TAG_shine   ,
     TAG_round   ,
-    TAG_defalut ,
-    
+
     TAG_export  = 300,
 };
 
@@ -26,8 +26,9 @@ enum{
     TAG_img_defalut,
 };
 
-
 #define ICON_WIDTH(isIcon)   isIcon?280:100
 #define ICON_HIGHT(isIcon)   isIcon?280:100
+
+#define FILENAMELIST        @[@"OSX",@"iPhone",@"iPad",@"Android",@"defalut"]
 
 #endif
