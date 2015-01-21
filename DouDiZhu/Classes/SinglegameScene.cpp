@@ -88,6 +88,15 @@ bool SinglegameScene::init()
     return true;
 }
 
+void SinglegameScene::onEnterTransitionDidFinish()
+{
+    Layer::onEnterTransitionDidFinish();
+    
+    _Toolbar->setPosition( Vec2( 162, 980) );
+    MoveTo *to = MoveTo::create(0.6, Vec2(162, 678));
+    _Toolbar->runAction( to );
+}
+
 #pragma mark - Listener
 void SinglegameScene::Listener_Toolbar()
 {

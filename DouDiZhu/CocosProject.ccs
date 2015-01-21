@@ -378,6 +378,7 @@
             <Audio Name="start.wav" />
           </Folder>
         </Folder>
+        <Project Name="userHandleGameLayer.csd" />
       </RootFolder>
     </Group>
   </SolutionFolder>
