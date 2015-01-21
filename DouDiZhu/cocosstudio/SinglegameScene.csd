@@ -22,16 +22,6 @@
             <PreSize X="0" Y="0" />
             <FileData Type="Normal" Path="bgs/BgSinglegame.png" />
           </NodeObjectData>
-          <NodeObjectData Name="Sprite_9" ActionTag="96" FrameEvent="" Tag="27" ObjectIndex="9" ctype="SpriteObjectData">
-            <Position X="512" Y="384" />
-            <Scale ScaleX="1" ScaleY="1" />
-            <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <Size X="1024" Y="768" />
-            <PrePosition X="0.5" Y="0.5" />
-            <PreSize X="0" Y="0" />
-            <FileData Type="Normal" Path="bgs/IMG_0074.PNG" />
-          </NodeObjectData>
           <NodeObjectData Name="Panel_Basic" ActionTag="94" FrameEvent="" Tag="25" ObjectIndex="10" TouchEnable="True" BackColorAlpha="102" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
             <Position X="512" Y="384" />
             <Scale ScaleX="1" ScaleY="1" />
@@ -41,7 +31,7 @@
             <PrePosition X="0.5" Y="0.5" />
             <PreSize X="1" Y="1" />
             <Children>
-              <NodeObjectData Name="Panel_user_0" ActionTag="95" FrameEvent="" Tag="26" ObjectIndex="11" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90" ctype="PanelObjectData">
+              <NodeObjectData Name="Panel_user_0" ActionTag="95" FrameEvent="" Tag="26" ObjectIndex="11" TouchEnable="True" BackColorAlpha="102" ColorAngle="90" ctype="PanelObjectData">
                 <Position X="10.35637" Y="560.1697" />
                 <Scale ScaleX="1" ScaleY="1" />
                 <AnchorPoint />
@@ -50,20 +40,32 @@
                 <PrePosition X="0.01011364" Y="0.7293876" />
                 <PreSize X="0" Y="0" />
                 <Children>
-                  <NodeObjectData Name="Button_11" ActionTag="97" FrameEvent="" Tag="28" ObjectIndex="11" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
+                  <NodeObjectData Name="BtnHead" ActionTag="97" FrameEvent="" Tag="28" ObjectIndex="11" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="120" Scale9Height="119" ctype="ButtonObjectData">
                     <Position X="54.13911" Y="140.4167" />
                     <Scale ScaleX="1" ScaleY="1" />
                     <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
                     <CColor A="255" R="255" G="255" B="255" />
-                    <Size X="46" Y="36" />
+                    <Size X="120" Y="119" />
                     <PrePosition X="0.2706956" Y="0.7020834" />
                     <PreSize X="0" Y="0" />
+                    <Children>
+                      <NodeObjectData Name="head" ActionTag="131" FrameEvent="" Tag="44" ObjectIndex="1" Scale9Width="88" Scale9Height="88" ctype="ImageViewObjectData">
+                        <Position X="59.99992" Y="64.00012" />
+                        <Scale ScaleX="1" ScaleY="1" />
+                        <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <Size X="88" Y="88" />
+                        <PrePosition X="0.4999994" Y="0.5378162" />
+                        <PreSize X="0" Y="0" />
+                        <FileData Type="Normal" Path="imgs/portrait/imgPortrait02.png" />
+                      </NodeObjectData>
+                    </Children>
                     <TextColor A="255" R="65" G="65" B="70" />
                     <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
                     <PressedFileData Type="Default" Path="Default/Button_Press.png" />
-                    <NormalFileData Type="Default" Path="Default/Button_Normal.png" />
+                    <NormalFileData Type="Normal" Path="imgs/portrait/bgPortrait.png" />
                   </NodeObjectData>
-                  <NodeObjectData Name="Text_1" ActionTag="98" FrameEvent="" Tag="29" ObjectIndex="1" FontSize="20" LabelText="文西" IsCustomSize="True" ctype="TextObjectData">
+                  <NodeObjectData Name="name" ActionTag="98" FrameEvent="" Tag="29" ObjectIndex="1" FontSize="20" LabelText="文西" IsCustomSize="True" ctype="TextObjectData">
                     <Position X="98.81891" Y="78.23889" />
                     <Scale ScaleX="1" ScaleY="1" />
                     <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -72,7 +74,7 @@
                     <PrePosition X="0.4940946" Y="0.3911945" />
                     <PreSize X="0.9" Y="0.16" />
                   </NodeObjectData>
-                  <NodeObjectData Name="Text_1_Copy" ActionTag="99" FrameEvent="" Tag="30" ObjectIndex="2" FontSize="20" LabelText="长工" IsCustomSize="True" ctype="TextObjectData">
+                  <NodeObjectData Name="level" ActionTag="99" FrameEvent="" Tag="30" ObjectIndex="2" FontSize="20" LabelText="长工" IsCustomSize="True" ctype="TextObjectData">
                     <Position X="98.81917" Y="51.37982" />
                     <Scale ScaleX="1" ScaleY="1" />
                     <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -81,11 +83,216 @@
                     <PrePosition X="0.4940958" Y="0.2568991" />
                     <PreSize X="0" Y="0" />
                   </NodeObjectData>
+                  <NodeObjectData Name="ok" ActionTag="130" FrameEvent="" Tag="43" ObjectIndex="14" ctype="SpriteObjectData">
+                    <Position X="176.798" Y="33.18134" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="49" Y="49" />
+                    <PrePosition X="0.8839902" Y="0.1659067" />
+                    <PreSize X="0" Y="0" />
+                    <FileData Type="Normal" Path="imgs/layout/imgLayoutOk.png" />
+                  </NodeObjectData>
                 </Children>
                 <SingleColor A="255" R="150" G="200" B="255" />
                 <FirstColor A="255" R="150" G="200" B="255" />
                 <EndColor A="255" R="255" G="255" B="255" />
                 <ColorVector ScaleY="1" />
+              </NodeObjectData>
+              <NodeObjectData Name="Panel_user_1" ActionTag="132" FrameEvent="" Tag="45" ObjectIndex="12" TouchEnable="True" BackColorAlpha="102" ColorAngle="90" ctype="PanelObjectData">
+                <Position X="814.5666" Y="557.0103" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <AnchorPoint />
+                <CColor A="255" R="255" G="255" B="255" />
+                <Size X="200" Y="200" />
+                <PrePosition X="0.7954752" Y="0.7252738" />
+                <PreSize X="0" Y="0" />
+                <Children>
+                  <NodeObjectData Name="BtnHead" ActionTag="133" FrameEvent="" Tag="46" ObjectIndex="16" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="120" Scale9Height="119" ctype="ButtonObjectData">
+                    <Position X="148.001" Y="141.4169" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="120" Y="119" />
+                    <PrePosition X="0.7400049" Y="0.7070847" />
+                    <PreSize X="0" Y="0" />
+                    <Children>
+                      <NodeObjectData Name="head" ActionTag="134" FrameEvent="" Tag="47" ObjectIndex="2" Scale9Width="76" Scale9Height="87" ctype="ImageViewObjectData">
+                        <Position X="59.99992" Y="64.00012" />
+                        <Scale ScaleX="1" ScaleY="1" />
+                        <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <Size X="76" Y="87" />
+                        <PrePosition X="0" Y="0" />
+                        <PreSize X="0" Y="0" />
+                        <FileData Type="Normal" Path="imgs/portrait/imgPortrait03.png" />
+                      </NodeObjectData>
+                    </Children>
+                    <TextColor A="255" R="65" G="65" B="70" />
+                    <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
+                    <PressedFileData Type="Default" Path="Default/Button_Press.png" />
+                    <NormalFileData Type="Normal" Path="imgs/portrait/bgPortrait.png" />
+                  </NodeObjectData>
+                  <NodeObjectData Name="name" ActionTag="135" FrameEvent="" Tag="48" ObjectIndex="3" FontSize="20" LabelText="文西" IsCustomSize="True" HorizontalAlignmentType="HT_Right" ctype="TextObjectData">
+                    <Position X="98.81891" Y="78.23889" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="180" Y="32" />
+                    <PrePosition X="0" Y="0" />
+                    <PreSize X="0" Y="0" />
+                  </NodeObjectData>
+                  <NodeObjectData Name="level" ActionTag="136" FrameEvent="" Tag="49" ObjectIndex="4" FontSize="20" LabelText="知县" IsCustomSize="True" HorizontalAlignmentType="HT_Right" ctype="TextObjectData">
+                    <Position X="98.81917" Y="51.37982" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="17" G="119" B="240" />
+                    <Size X="180" Y="32" />
+                    <PrePosition X="0" Y="0" />
+                    <PreSize X="0" Y="0" />
+                  </NodeObjectData>
+                  <NodeObjectData Name="ok" ActionTag="137" FrameEvent="" Tag="50" ObjectIndex="15" ctype="SpriteObjectData">
+                    <Position X="38.00031" Y="35.18042" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="49" Y="49" />
+                    <PrePosition X="0.1900015" Y="0.1759021" />
+                    <PreSize X="0" Y="0" />
+                    <FileData Type="Normal" Path="imgs/layout/imgLayoutOk.png" />
+                  </NodeObjectData>
+                </Children>
+                <SingleColor A="255" R="150" G="200" B="255" />
+                <FirstColor A="255" R="150" G="200" B="255" />
+                <EndColor A="255" R="255" G="255" B="255" />
+                <ColorVector ScaleY="1" />
+              </NodeObjectData>
+              <NodeObjectData Name="Panel_user_2" ActionTag="142" FrameEvent="" Tag="55" ObjectIndex="13" TouchEnable="True" BackColorAlpha="102" ColorAngle="90" ctype="PanelObjectData">
+                <Position X="413.5477" Y="73.53649" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <AnchorPoint />
+                <CColor A="255" R="255" G="255" B="255" />
+                <Size X="200" Y="200" />
+                <PrePosition X="0.4038552" Y="0.09575064" />
+                <PreSize X="0" Y="0" />
+                <Children>
+                  <NodeObjectData Name="BtnHead" ActionTag="143" FrameEvent="" Tag="56" ObjectIndex="19" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="120" Scale9Height="119" ctype="ButtonObjectData">
+                    <Position X="100.0018" Y="139.417" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="120" Y="119" />
+                    <PrePosition X="0.5000092" Y="0.6970848" />
+                    <PreSize X="0" Y="0" />
+                    <Children>
+                      <NodeObjectData Name="head" ActionTag="144" FrameEvent="" Tag="57" ObjectIndex="5" Scale9Width="76" Scale9Height="87" ctype="ImageViewObjectData">
+                        <Position X="59.99992" Y="64.00012" />
+                        <Scale ScaleX="1" ScaleY="1" />
+                        <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <Size X="76" Y="87" />
+                        <PrePosition X="0" Y="0" />
+                        <PreSize X="0" Y="0" />
+                        <FileData Type="Normal" Path="imgs/portrait/imgPortrait03.png" />
+                      </NodeObjectData>
+                    </Children>
+                    <TextColor A="255" R="65" G="65" B="70" />
+                    <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
+                    <PressedFileData Type="Default" Path="Default/Button_Press.png" />
+                    <NormalFileData Type="Normal" Path="imgs/portrait/bgPortrait.png" />
+                  </NodeObjectData>
+                  <NodeObjectData Name="name" ActionTag="145" FrameEvent="" Tag="58" ObjectIndex="5" FontSize="20" LabelText="文西" IsCustomSize="True" HorizontalAlignmentType="HT_Center" ctype="TextObjectData">
+                    <Position X="98.81891" Y="78.23889" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="180" Y="32" />
+                    <PrePosition X="0" Y="0" />
+                    <PreSize X="0" Y="0" />
+                  </NodeObjectData>
+                  <NodeObjectData Name="level" ActionTag="146" FrameEvent="" Tag="59" ObjectIndex="6" FontSize="20" LabelText="包身工" IsCustomSize="True" HorizontalAlignmentType="HT_Center" ctype="TextObjectData">
+                    <Position X="98.81917" Y="51.37982" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="17" G="119" B="240" />
+                    <Size X="180" Y="32" />
+                    <PrePosition X="0" Y="0" />
+                    <PreSize X="0" Y="0" />
+                  </NodeObjectData>
+                  <NodeObjectData Name="ok" ActionTag="147" FrameEvent="" Tag="60" ObjectIndex="16" ctype="SpriteObjectData">
+                    <Position X="38.00031" Y="35.18042" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="49" Y="49" />
+                    <PrePosition X="0" Y="0" />
+                    <PreSize X="0" Y="0" />
+                    <FileData Type="Normal" Path="imgs/layout/imgLayoutOk.png" />
+                  </NodeObjectData>
+                </Children>
+                <SingleColor A="255" R="150" G="200" B="255" />
+                <FirstColor A="255" R="150" G="200" B="255" />
+                <EndColor A="255" R="255" G="255" B="255" />
+                <ColorVector ScaleY="1" />
+              </NodeObjectData>
+              <NodeObjectData Name="BtnStart" ActionTag="138" FrameEvent="" Tag="51" ObjectIndex="17" TouchEnable="True" FontSize="24" ButtonText="" Scale9Width="179" Scale9Height="106" ctype="ButtonObjectData">
+                <Position X="512.2104" Y="321.0109" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <Size X="179" Y="106" />
+                <PrePosition X="0.5002055" Y="0.417983" />
+                <PreSize X="0" Y="0" />
+                <Children>
+                  <NodeObjectData Name="Image_3" ActionTag="140" FrameEvent="" Tag="53" ObjectIndex="3" Scale9Width="84" Scale9Height="42" ctype="ImageViewObjectData">
+                    <Position X="87.8996" Y="63.19968" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="84" Y="42" />
+                    <PrePosition X="0.4910592" Y="0.5962234" />
+                    <PreSize X="0" Y="0" />
+                    <FileData Type="Normal" Path="imgs/button/slice03_03.png" />
+                  </NodeObjectData>
+                </Children>
+                <TextColor A="255" R="255" G="255" B="255" />
+                <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
+                <PressedFileData Type="Default" Path="Default/Button_Press.png" />
+                <NormalFileData Type="Normal" Path="imgs/button/btnBlue.png" />
+              </NodeObjectData>
+              <NodeObjectData Name="BtnNet" ActionTag="139" FrameEvent="" Tag="52" ObjectIndex="18" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="112" Scale9Height="99" ctype="ButtonObjectData">
+                <Position X="512.79" Y="583.8682" />
+                <Scale ScaleX="2.0157" ScaleY="1.255352" />
+                <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <Size X="112" Y="99" />
+                <PrePosition X="0.5007715" Y="0.760245" />
+                <PreSize X="0" Y="0" />
+                <Children>
+                  <NodeObjectData Name="Image_4" ActionTag="141" FrameEvent="" Tag="54" ObjectIndex="4" Scale9Width="182" Scale9Height="56" ctype="ImageViewObjectData">
+                    <Position X="55.93991" Y="46.56918" />
+                    <Scale ScaleX="0.4999998" ScaleY="0.6797985" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="182" Y="56" />
+                    <PrePosition X="0.4994635" Y="0.4703958" />
+                    <PreSize X="0" Y="0" />
+                    <FileData Type="Normal" Path="imgs/button/imgNetNor.png" />
+                  </NodeObjectData>
+                </Children>
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
+                <PressedFileData Type="Normal" Path="imgs/button/slice53_53.png" />
+                <NormalFileData Type="Normal" Path="imgs/button/slice11_11.png" />
+              </NodeObjectData>
+              <NodeObjectData Name="Audio_1" ActionTag="148" FrameEvent="" Tag="61" ObjectIndex="1" IconVisible="True" Volume="0.5" ctype="SimpleAudioObjectData">
+                <Position X="75.13539" Y="308.9509" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <AnchorPoint />
+                <CColor A="255" R="255" G="255" B="255" />
+                <Size X="0" Y="0" />
+                <PrePosition X="0" Y="0" />
+                <PreSize X="0" Y="0" />
               </NodeObjectData>
             </Children>
             <SingleColor A="255" R="150" G="200" B="255" />
