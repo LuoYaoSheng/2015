@@ -91,23 +91,27 @@
     switch (_nLockViewType) {
         case LLLockViewTypeCheck:
         {
+            [SVProgressHUD dismissWithSuccess: @"请输入解锁密码" ];
             _tipLable.text = @"请输入解锁密码";
             _btnQuit.hidden = NO;
         }
             break;
         case LLLockViewTypeCreate:
         {
+            [SVProgressHUD dismissWithSuccess: @"创建手势密码" ];
             _tipLable.text = @"创建手势密码";
         }
             break;
         case LLLockViewTypeModify:
         {
+            [SVProgressHUD dismissWithSuccess: @"请输入原来的密码" ];
             _tipLable.text = @"请输入原来的密码";
         }
             break;
         case LLLockViewTypeClean:
         default:
         {
+            [SVProgressHUD dismissWithSuccess: @"请输入密码以清除密码" ];
             _tipLable.text = @"请输入密码以清除密码";
         }
     }
@@ -275,6 +279,7 @@
 #pragma mark - 显示提示
 - (void)setTip:(NSString*)tip
 {
+    [SVProgressHUD dismissWithSuccess: tip ];
     [_tipLable setText:tip];
     [_tipLable setTextColor:kTipColorNormal];
     
@@ -516,11 +521,13 @@
 #pragma mark - 提示信息
 - (void)showAlert:(NSString*)string
 {
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
-                                                    message:string
-                                                   delegate:nil
-                                          cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
-    [alert show];
+    [SVProgressHUD showSuccessWithStatus: string duration:0.6];
+    
+//    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
+//                                                    message:string
+//                                                   delegate:nil
+//                                          cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+//    [alert show];
 }
 
 - (void)quitAction

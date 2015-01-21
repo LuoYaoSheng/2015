@@ -28,15 +28,7 @@
     
     [self DATA_init];
     [self UI_init];
-    
-    
-    NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
-    int level_s = [[ud objectForKey:@"level_s"]intValue];
-    NSString *fs = [ud objectForKey:@"fs"];
-
-    [_request Group_search:@"" level_s:level_s fs:fs name:@""];
-//    [_request Group_search:@"" level_s:10 fs:@"" name:@""];
-    [SVProgressHUD show];
+    [self refreshAction];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -219,7 +211,9 @@
     NSUserDefaults* ud = [NSUserDefaults standardUserDefaults];
     int level_s = [[ud objectForKey:@"level_s"]intValue];
     NSString *fs = [ud objectForKey:@"fs"];
-    [_request Group_search:@"" level_s:level_s fs:fs name:@""];
+    NSString *name = [ud objectForKey:@"name"];
+    
+    [_request Group_search:@"" level_s:level_s fs:fs name:name];
     [SVProgressHUD show];
 }
 

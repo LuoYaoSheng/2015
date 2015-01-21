@@ -131,30 +131,29 @@
 - (void)loginAction
 {
     [self UI_hideKeyboard];
-    
 
     
-//    if ( _tfTel.text.length <= 0 || _tfPwd.text.length <= 0) {
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
-//                                                            message:@"账号或密码不能为空！"
-//                                                           delegate:nil
-//                                                  cancelButtonTitle:@"确定"
-//                                                  otherButtonTitles:nil];
-//        [alertView show];
-//        return;
-//    }
-//    if ( ![NSString isValid:IdentifierTypePhone value:_tfTel.text] ) {
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
-//                                                            message:@"请填入正确手机号！"
-//                                                           delegate:nil
-//                                                  cancelButtonTitle:@"确定"
-//                                                  otherButtonTitles:nil];
-//        [alertView show];
-//        return;
-//    }
+    if ( _tfTel.text.length <= 0 || _tfPwd.text.length <= 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                            message:@"账号或密码不能为空！"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"确定"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+        return;
+    }
+    if ( ![NSString isValid:IdentifierTypePhone value:_tfTel.text] ) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                            message:@"请填入正确手机号！"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"确定"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+        return;
+    }
     
-    _tfTel.text = @"15080495236";
-    _tfPwd.text = @"111111";
+//    _tfTel.text = @"15080495236";
+//    _tfPwd.text = @"111111";
     
     [_request Login:_tfTel.text pwd:_tfPwd.text];
     [SVProgressHUD show];
