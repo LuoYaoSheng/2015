@@ -55,6 +55,21 @@
           <Image Name="BtnBackSel.png" />
           <Image Name="BtnRobotDis.png" />
           <Image Name="BtnMsgDis.png" />
+          <Folder Name="layout">
+            <Image Name="imgLayoutOk.png" />
+            <Image Name="imgLayoutPoker.png" />
+          </Folder>
+          <Folder Name="portrait">
+            <Image Name="bgPortrait.png" />
+            <Image Name="imgPortrait01.png" />
+            <Image Name="imgPortrait02.png" />
+            <Image Name="imgPortrait03.png" />
+            <Image Name="imgPortraitBoy.png" />
+            <Image Name="imgPortraitGirl.png" />
+            <Image Name="imgPortraitLandlord.png" />
+            <Image Name="imgPortraitNull.png" />
+            <Image Name="slice12_12.png" />
+          </Folder>
         </Folder>
       </RootFolder>
     </Group>

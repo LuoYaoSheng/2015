@@ -22,7 +22,78 @@
             <PreSize X="0" Y="0" />
             <FileData Type="Normal" Path="bgs/BgSinglegame.png" />
           </NodeObjectData>
-          <NodeObjectData Name="Toolbar" ActionTag="68" FrameEvent="" Tag="100" ObjectIndex="1" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
+          <NodeObjectData Name="Sprite_9" ActionTag="96" FrameEvent="" Tag="27" ObjectIndex="9" ctype="SpriteObjectData">
+            <Position X="512" Y="384" />
+            <Scale ScaleX="1" ScaleY="1" />
+            <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <Size X="1024" Y="768" />
+            <PrePosition X="0.5" Y="0.5" />
+            <PreSize X="0" Y="0" />
+            <FileData Type="Normal" Path="bgs/IMG_0074.PNG" />
+          </NodeObjectData>
+          <NodeObjectData Name="Panel_Basic" ActionTag="94" FrameEvent="" Tag="25" ObjectIndex="10" TouchEnable="True" BackColorAlpha="102" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
+            <Position X="512" Y="384" />
+            <Scale ScaleX="1" ScaleY="1" />
+            <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <Size X="1024" Y="768" />
+            <PrePosition X="0.5" Y="0.5" />
+            <PreSize X="1" Y="1" />
+            <Children>
+              <NodeObjectData Name="Panel_user_0" ActionTag="95" FrameEvent="" Tag="26" ObjectIndex="11" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90" ctype="PanelObjectData">
+                <Position X="10.35637" Y="560.1697" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <AnchorPoint />
+                <CColor A="255" R="255" G="255" B="255" />
+                <Size X="200" Y="200" />
+                <PrePosition X="0.01011364" Y="0.7293876" />
+                <PreSize X="0" Y="0" />
+                <Children>
+                  <NodeObjectData Name="Button_11" ActionTag="97" FrameEvent="" Tag="28" ObjectIndex="11" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="46" Scale9Height="36" ctype="ButtonObjectData">
+                    <Position X="54.13911" Y="140.4167" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="46" Y="36" />
+                    <PrePosition X="0.2706956" Y="0.7020834" />
+                    <PreSize X="0" Y="0" />
+                    <TextColor A="255" R="65" G="65" B="70" />
+                    <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
+                    <PressedFileData Type="Default" Path="Default/Button_Press.png" />
+                    <NormalFileData Type="Default" Path="Default/Button_Normal.png" />
+                  </NodeObjectData>
+                  <NodeObjectData Name="Text_1" ActionTag="98" FrameEvent="" Tag="29" ObjectIndex="1" FontSize="20" LabelText="文西" IsCustomSize="True" ctype="TextObjectData">
+                    <Position X="98.81891" Y="78.23889" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="180" Y="32" />
+                    <PrePosition X="0.4940946" Y="0.3911945" />
+                    <PreSize X="0.9" Y="0.16" />
+                  </NodeObjectData>
+                  <NodeObjectData Name="Text_1_Copy" ActionTag="99" FrameEvent="" Tag="30" ObjectIndex="2" FontSize="20" LabelText="长工" IsCustomSize="True" ctype="TextObjectData">
+                    <Position X="98.81917" Y="51.37982" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="17" G="119" B="240" />
+                    <Size X="180" Y="32" />
+                    <PrePosition X="0.4940958" Y="0.2568991" />
+                    <PreSize X="0" Y="0" />
+                  </NodeObjectData>
+                </Children>
+                <SingleColor A="255" R="150" G="200" B="255" />
+                <FirstColor A="255" R="150" G="200" B="255" />
+                <EndColor A="255" R="255" G="255" B="255" />
+                <ColorVector ScaleY="1" />
+              </NodeObjectData>
+            </Children>
+            <SingleColor A="255" R="150" G="200" B="255" />
+            <FirstColor A="255" R="150" G="200" B="255" />
+            <EndColor A="255" R="255" G="255" B="255" />
+            <ColorVector ScaleY="1" />
+          </NodeObjectData>
+          <NodeObjectData Name="Toolbar" ActionTag="68" Visible="False" FrameEvent="" Tag="100" ObjectIndex="1" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
             <Position X="162" Y="678" />
             <Scale ScaleX="1" ScaleY="1" />
             <AnchorPoint />
@@ -109,7 +180,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1" />
           </NodeObjectData>
-          <NodeObjectData Name="Panel_Back" ActionTag="75" VisibleForFrame="False" FrameEvent="" Tag="32" ObjectIndex="2" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" ctype="PanelObjectData">
+          <NodeObjectData Name="Panel_Back" ActionTag="75" Visible="False" VisibleForFrame="False" FrameEvent="" Tag="32" ObjectIndex="2" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" ctype="PanelObjectData">
             <Position X="512" Y="384" />
             <Scale ScaleX="1" ScaleY="1" />
             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -178,7 +249,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1" />
           </NodeObjectData>
-          <NodeObjectData Name="Panel_Msg" ActionTag="82" VisibleForFrame="False" FrameEvent="" Tag="39" ObjectIndex="4" TouchEnable="True" BackColorAlpha="102" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
+          <NodeObjectData Name="Panel_Msg" ActionTag="82" Visible="False" VisibleForFrame="False" FrameEvent="" Tag="39" ObjectIndex="4" TouchEnable="True" BackColorAlpha="102" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
             <Position X="512" Y="384" />
             <Scale ScaleX="1" ScaleY="1" />
             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -219,7 +290,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1" />
           </NodeObjectData>
-          <NodeObjectData Name="Panel_Robot" ActionTag="84" VisibleForFrame="False" FrameEvent="" Tag="41" ObjectIndex="6" TouchEnable="True" BackColorAlpha="102" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
+          <NodeObjectData Name="Panel_Robot" ActionTag="84" Visible="False" VisibleForFrame="False" FrameEvent="" Tag="41" ObjectIndex="6" TouchEnable="True" BackColorAlpha="102" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
             <Position X="512" Y="384" />
             <Scale ScaleX="1" ScaleY="1" />
             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -260,7 +331,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1" />
           </NodeObjectData>
-          <NodeObjectData Name="Panel_Set" ActionTag="83" VisibleForFrame="False" FrameEvent="" Tag="40" ObjectIndex="5" TouchEnable="True" BackColorAlpha="102" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
+          <NodeObjectData Name="Panel_Set" ActionTag="83" Visible="False" VisibleForFrame="False" FrameEvent="" Tag="40" ObjectIndex="5" TouchEnable="True" BackColorAlpha="102" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
             <Position X="512" Y="384" />
             <Scale ScaleX="1" ScaleY="1" />
             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
