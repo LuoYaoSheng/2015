@@ -38,12 +38,15 @@ public:
     CREATE_FUNC(SinglegameScene);
     
 protected:
+    void Listener_PanelBaisc();
     void Listener_Toolbar();
     void Listener_PanelBack();
     void Listener_PanelMsg();
     void Listener_PanelSet();
     void Listener_PanelRobot();
     
+    void PanelBasicCallback(cocos2d::Ref* pSender, Widget::TouchEventType);
+    void PanelBasicPanelUserCallback(cocos2d::Ref* pSender, Widget::TouchEventType);
     void ToolbarCallback(cocos2d::Ref* pSender, Widget::TouchEventType);
     void PanelBackCallback(cocos2d::Ref* pSender, Widget::TouchEventType);
     void PanelBackPanelMenuCallback(cocos2d::Ref* pSender, Widget::TouchEventType);
@@ -54,7 +57,14 @@ protected:
     void PanelRobotCallback(cocos2d::Ref* pSender, Widget::TouchEventType);
     void PanelRobotPanelMenuCallback(cocos2d::Ref* pSender, Widget::TouchEventType);
     
+protected:
+    void UI_update_basic(bool isStart);
+    
+    void delCallback(Node* node);
+    
 private:
+    ui::Layout* _Panel_Basic;
+    ui::Layout* _Panel_Basic_User[3];
     ui::Layout* _Toolbar;
     ui::Layout* _Panel_Back;
     ui::Layout* _Panel_Back_Menu;

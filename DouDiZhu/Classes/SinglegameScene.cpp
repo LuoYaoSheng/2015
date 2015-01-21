@@ -17,6 +17,11 @@ USING_NS_CC;
 using namespace cocostudio::timeline;
 
 enum{
+    PBasic_start = 100,
+    PBasic_net ,
+};
+
+enum{
     ToolBar_msg = 100,
     ToolBar_robot,
     ToolBar_set,
@@ -63,6 +68,11 @@ bool SinglegameScene::init()
     auto rootNode = CSLoader::createNode("SinglegameScene.csb");
     addChild(rootNode);
     
+    _Panel_Basic = static_cast<ui::Layout*>(rootNode->getChildByName("Panel_Basic"));
+    _Panel_Basic_User[0] = static_cast<ui::Layout*>(_Panel_Basic->getChildByName("Panel_user_0"));
+    _Panel_Basic_User[1] = static_cast<ui::Layout*>(_Panel_Basic->getChildByName("Panel_user_1"));
+    _Panel_Basic_User[2] = static_cast<ui::Layout*>(_Panel_Basic->getChildByName("Panel_user_2"));
+    
     _Toolbar = static_cast<ui::Layout*>(rootNode->getChildByName("Toolbar"));
     
     _Panel_Back = static_cast<ui::Layout*>(rootNode->getChildByName("Panel_Back"));
@@ -79,6 +89,7 @@ bool SinglegameScene::init()
     
     
     //界面事件绑定
+    this->Listener_PanelBaisc();
     this->Listener_Toolbar();
     this->Listener_PanelBack();
     this->Listener_PanelMsg();
@@ -98,6 +109,18 @@ void SinglegameScene::onEnterTransitionDidFinish()
 }
 
 #pragma mark - Listener
+void SinglegameScene::Listener_PanelBaisc()
+{
+    auto startItem = static_cast<ui::Button*>(_Panel_Basic->getChildByName("BtnStart"));
+    startItem->addTouchEventListener(CC_CALLBACK_2(SinglegameScene::PanelBasicCallback, this));
+    auto netItem = static_cast<ui::Button*>(_Panel_Basic->getChildByName("BtnNet"));
+    netItem->addTouchEventListener(CC_CALLBACK_2(SinglegameScene::PanelBasicCallback, this));
+    
+    for (int idx = 0; idx < 3; idx++) {
+        auto item = static_cast<ui::Button*>(_Panel_Basic_User[idx]->getChildByName("BtnHead") );
+        item->addTouchEventListener(CC_CALLBACK_2(SinglegameScene::PanelBasicPanelUserCallback, this));
+    }
+}
 void SinglegameScene::Listener_Toolbar()
 {
     for (int idx = ToolBar_msg; idx <= ToolBar_back; idx++) {
@@ -132,6 +155,30 @@ void SinglegameScene::Listener_PanelRobot()
 }
 
 #pragma mark - btn action
+void SinglegameScene::PanelBasicCallback(cocos2d::Ref* pSender, Widget::TouchEventType type)
+{
+    if ( cocos2d::ui::Widget::TouchEventType::ENDED == type) {
+        ui::Button* btn = static_cast<ui::Button*>(pSender);
+        switch ( btn->getTag() ) {
+            case PBasic_start:
+            {
+                CCLOG("开始");
+                this->UI_update_basic( true );
+            }
+                break;
+            default:
+            {
+                auto scene = LoginScene::createScene();
+                Director::getInstance()->runWithScene( scene );
+            }
+                break;
+        }
+    }
+}
+void SinglegameScene::PanelBasicPanelUserCallback(cocos2d::Ref* pSender, Widget::TouchEventType type)
+{
+    
+}
 void SinglegameScene::menuCloseCallback(Ref* pSender, Widget::TouchEventType type)
 {
     if ( cocos2d::ui::Widget::TouchEventType::ENDED == type) {
@@ -179,7 +226,8 @@ void SinglegameScene::PanelBackPanelMenuCallback(cocos2d::Ref* pSender, Widget::
             case PBM_net:
             {
                 auto scene = LoginScene::createScene();
-                Director::getInstance()->runWithScene( scene );
+                //                Director::getInstance()->runWithScene( scene );
+                Director::getInstance()->pushScene( scene );
             }
                 break;
             default:
@@ -215,4 +263,127 @@ void SinglegameScene::PanelRobotCallback(cocos2d::Ref* pSender, Widget::TouchEve
 void SinglegameScene::PanelRobotPanelMenuCallback(cocos2d::Ref* pSender, Widget::TouchEventType type)
 {
     
+}
+
+#pragma mark - ui update
+void SinglegameScene::UI_update_basic(bool isStart)
+{
+    //等robot洗牌
+    //=========
+    
+    //提示按钮去除
+    auto startItem = static_cast<ui::Button*>(_Panel_Basic->getChildByName("BtnStart"));
+    auto netItem = static_cast<ui::Button*>(_Panel_Basic->getChildByName("BtnNet"));
+    startItem->setVisible( !isStart );
+    netItem->setVisible( !isStart );
+    
+    //ok去除
+    for (int idx = 0; idx < 3; idx++) {
+        auto item = static_cast<ui::ImageView*>(_Panel_Basic_User[ idx ]->getChildByName("ok"));
+        item->setVisible( !isStart );
+    }
+    
+    //添加非自己的牌和分数
+    for (int idx = 0; idx < 2; idx++) {
+        auto item0 = static_cast<ui::ImageView*>(_Panel_Basic_User[ idx ]->getChildByName("score"));
+        item0->setVisible( !isStart );
+        auto item1 = static_cast<ui::ImageView*>(_Panel_Basic_User[ idx ]->getChildByName("pork"));
+        item1->setVisible( isStart );
+        auto item2 = static_cast<ui::ImageView*>(_Panel_Basic_User[ idx ]->getChildByName("pokerNum"));
+        item2->setVisible( isStart );
+    }
+    
+    //自己去除头像外的数据
+    auto item0 = static_cast<ui::ImageView*>(_Panel_Basic_User[ 2 ]->getChildByName("score"));
+    item0->setVisible( !isStart );
+    auto item1 = static_cast<ui::ImageView*>(_Panel_Basic_User[ 2 ]->getChildByName("pork"));
+    item1->setVisible( !isStart );
+    auto item2 = static_cast<ui::ImageView*>(_Panel_Basic_User[ 2 ]->getChildByName("pokerNum"));
+    item2->setVisible( !isStart );
+    auto item3 = static_cast<ui::ImageView*>(_Panel_Basic_User[ 2 ]->getChildByName("name"));
+    item3->setVisible( !isStart );
+    auto item4 = static_cast<ui::ImageView*>(_Panel_Basic_User[ 2 ]->getChildByName("level"));
+    item4->setVisible( !isStart );
+    
+    auto action = MoveTo::create(0.4, Vec2(-50, 150 ));
+    _Panel_Basic_User[ 2 ]->runAction( action );
+    
+    
+    //设置数值
+    int user[3][17] = { 0 };
+    for (int idx = 0; idx < 54; idx++) {
+        user[ idx%3 ][ idx%17 ] = idx;
+    }
+    
+    float dt = 0.23;
+    //播放发牌动画
+    for (int idx = 0; idx < 52; idx++) {
+        
+        
+        
+        switch ( idx%3 ) {
+            case 0:
+            {
+                if ( idx%9 == 0) {
+                    Sprite *poker = Sprite::create( "imgs/poker/cover_big.png" );
+                    poker->setPosition( Vec2(512,434) );
+                    this->addChild( poker );
+                    poker->setScale( 0.8 );
+                    
+                    auto to = MoveTo::create( dt, Vec2( 80, 630) );
+                    auto scale = ScaleTo::create( dt, 1);
+                    auto fadeout = FadeOut::create( dt );
+                    auto sp = Spawn::create(to,scale,fadeout,NULL);
+                    auto callFuncAction = CallFuncN::create( CC_CALLBACK_1(SinglegameScene::delCallback, this) );
+                    auto delay = DelayTime::create( dt* (idx/3) );
+                    auto sqe = Sequence::create( delay, sp, callFuncAction, NULL);
+                    poker->runAction( sqe );
+                }
+            }
+                break;
+            case 1:
+            {
+                if ( idx%9 == 1) {
+                    Sprite *poker = Sprite::create( "imgs/poker/cover_big.png" );
+                    poker->setPosition( Vec2(512,434) );
+                    this->addChild( poker );
+                    poker->setScale( 0.8 );
+                    
+                    auto to = MoveTo::create( dt, Vec2( 900, 630) );
+                    auto scale = ScaleTo::create( dt, 1);
+                    auto fadeout = FadeOut::create( dt );
+                    auto sp = Spawn::create(to,scale,fadeout,NULL);
+                    auto callFuncAction = CallFuncN::create( CC_CALLBACK_1(SinglegameScene::delCallback, this) );
+                    auto delay = DelayTime::create( dt* (idx/3) + 0.2 );
+                    auto sqe = Sequence::create( delay, sp, callFuncAction, NULL);
+                    poker->runAction( sqe );
+                }
+            }
+                break;
+            default:
+            {
+                Sprite *poker = Sprite::create( "imgs/poker/cover_big.png" );
+                poker->setPosition( Vec2(512,434) );
+                this->addChild( poker );
+                poker->setScale( 0.8 );
+                
+                auto to = MoveTo::create( dt, Vec2( 125.00 + 48* (idx/3), 120.00 ) );
+                auto scale = ScaleTo::create( dt, 1);
+                //                auto fadeout = FadeOut::create( dt );
+                auto sp = Spawn::create(to,scale,NULL);
+                //                auto callFuncAction = CallFuncN::create( CC_CALLBACK_1(SinglegameScene::delCallback, this) );
+                auto delay = DelayTime::create( dt* (idx/3) + 0.2 );
+                auto sqe = Sequence::create( delay, sp, NULL);
+                poker->runAction( sqe );
+            }
+                break;
+        }
+        
+    }
+}
+
+#pragma mark - del callback
+void SinglegameScene::delCallback(Node* node)
+{
+    node->removeFromParentAndCleanup(true);
 }

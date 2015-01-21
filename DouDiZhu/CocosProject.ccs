@@ -233,6 +233,10 @@
               <Audio Name="start.wav" />
             </Folder>
           </Folder>
+          <Folder Name="poker">
+            <Image Name="cover_big.png" />
+            <Image Name="cover_small.png" />
+          </Folder>
         </Folder>
         <Folder Name="sound">
           <Folder Name="Woman">
@@ -378,7 +382,7 @@
             <Audio Name="start.wav" />
           </Folder>
         </Folder>
-        <Project Name="userHandleGameLayer.csd" />
+        <Project Name="TestNode.csd" />
       </RootFolder>
     </Group>
   </SolutionFolder>

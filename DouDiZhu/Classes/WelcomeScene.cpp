@@ -70,7 +70,8 @@ void WelcomeScene::menuCloseCallback(Ref* pSender, Widget::TouchEventType type)
             case 100:
             {
                 auto scene = LoginScene::createScene();
-                Director::getInstance()->runWithScene( scene );
+//                Director::getInstance()->runWithScene( scene );
+                Director::getInstance()->pushScene( scene );
             }
                 break;
             case 101:

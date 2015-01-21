@@ -63,8 +63,9 @@ void LoginScene::menuCloseCallback(Ref* pSender, Widget::TouchEventType type)
             auto scene = LobbyScene::createScene();
             Director::getInstance()->runWithScene( scene );
         }else{
-            auto scene = WelcomeScene::createScene();
-            Director::getInstance()->runWithScene( scene );
+//            auto scene = WelcomeScene::createScene();
+//            Director::getInstance()->runWithScene( scene );
+            Director::getInstance()->popScene();
         }
     }
 
