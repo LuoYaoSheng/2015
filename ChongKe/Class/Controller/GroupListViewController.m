@@ -205,7 +205,7 @@
 
     NSDictionary *dic = [_searchList objectAtIndex:indexPath.row];
 
-    NSArray *dataLevel = [NSArray arrayWithObjects:@"正厅以上",@"正厅",@"副厅",@"厅级",@"正处",@"副处",@"处级",@"其它", nil];
+    NSArray *dataLevel = [NSArray arrayWithObjects:@"司令",@"副司令",@"正军级",@"副军级",@"正师级",@"副师级",@"正团级",@"副团级",@"正省",@"副省",@"正部",@"副部",@"正厅",@"副厅",@"正处",@"副处",@"其它", nil];
     int level_s = [[dic objectForKey:@"level_s"] intValue] - 1;
     
     NSString *sJob = [dic objectForKey:@"job"];

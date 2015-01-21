@@ -51,7 +51,7 @@
 - (void)DATA_init{
     _request = [[NetRequest alloc]init];
     _request.delegate = self;
-    _dataLevel = [[NSMutableArray alloc]initWithObjects:@"正厅以上",@"正厅",@"副厅",@"厅级",@"正处",@"副处",@"处级",@"其它", nil];
+    _dataLevel = [[NSMutableArray alloc]initWithObjects:@"司令",@"副司令",@"正军级",@"副军级",@"正师级",@"副师级",@"正团级",@"副团级",@"正省",@"副省",@"正部",@"副部",@"正厅",@"副厅",@"正处",@"副处",@"其它", nil];
     _isScroller = NO;
     _fHeight = 10;
 }
