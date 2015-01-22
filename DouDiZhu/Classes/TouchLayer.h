@@ -25,6 +25,9 @@ protected:
     virtual void onSingleCLick();           //单击
     virtual void onDoubleClick();           //双击
     virtual void onMove(cocos2d::Point);    //移动
+    virtual void onLongPressed();           //长按 --- 还未写
+    
+    virtual void onTouchEnd();
     
     virtual void onEnter();
     virtual void onExit();
@@ -36,6 +39,7 @@ private:
     cocos2d::Point _startTouch;
     bool _clicked;
     bool _isMoved;
+    bool _isLongProgress;
 };
 
 
@@ -44,6 +48,8 @@ public:
     virtual void onSingleCLick(cocos2d::Vec2){};             //单击
     virtual void onDoubleClick(cocos2d::Vec2){};             //双击
     virtual void onMove(cocos2d::Vec2){};                    //移动
+    virtual void onLongPressed(cocos2d::Vec2){};             //长按
+    virtual void onTouchEnd(){};
 };
 
 #endif /* defined(__lys__TouchLayer__) */

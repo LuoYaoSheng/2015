@@ -40,6 +40,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setAnimationInterval(1.0 / 60);
 
     FileUtils::getInstance()->addSearchPath("res");
+    
+//    SpriteFrameCache::getInstance()->addSpriteFramesWithFile( "res/PokerPlist/Pokers.plist" );
 
     // create a scene. it's an autorelease object
     auto scene = WelcomeScene::createScene();

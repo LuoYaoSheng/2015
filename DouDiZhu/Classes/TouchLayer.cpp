@@ -17,6 +17,7 @@ bool TouchLayer::init(){
     
     _isMoved = false;
     _clicked = false;
+    _isLongProgress = false;
     
     return true;
 }
@@ -55,13 +56,23 @@ void TouchLayer::addTouchEvent()
     
     _myListener->onTouchMoved = [=](Touch* touch,Event* event)
     {
+        _isMoved = true;
         _myListener->setSwallowTouches( true );
         this->onMove( touch->getLocation() );
     };
     
     _myListener->onTouchEnded = [=](Touch* touch,Event* event)
     {
+        _isMoved = false;
         _myListener->setSwallowTouches( false );
+        this->onTouchEnd();
+    };
+    
+    _myListener->onTouchCancelled = [=](Touch* touch,Event* event)
+    {
+        _isMoved = false;
+        _myListener->setSwallowTouches( false );
+        this->onTouchEnd();
     };
     
     //注册监听
@@ -80,9 +91,12 @@ void TouchLayer::onSingleCLick(float tt)
 
 void TouchLayer::onSingleCLick()
 {
-    if ( delegate != nullptr) {
-        delegate->onSingleCLick( _startTouch );
+    if ( !_isMoved ) {
+        if ( delegate != nullptr) {
+            delegate->onSingleCLick( _startTouch );
+        }
     }
+    this->onTouchEnd();//回调一次结束
 }
 void TouchLayer::onDoubleClick()
 {
@@ -99,3 +113,16 @@ void TouchLayer::onMove(cocos2d::Point pt)
     }
 }
 
+void TouchLayer::onLongPressed()
+{
+    if ( delegate != nullptr) {
+        delegate->onLongPressed( _startTouch );
+    }
+}
+
+void TouchLayer::onTouchEnd()
+{
+    if ( delegate != nullptr) {
+        delegate->onTouchEnd();
+    }
+}

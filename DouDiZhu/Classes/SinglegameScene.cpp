@@ -99,7 +99,7 @@ bool SinglegameScene::init()
     this->Listener_PanelMsg();
     this->Listener_PanelSet();
     this->Listener_PanelRobot();
-
+    
     //添加手势层
     _touchLayer = TouchLayer::create();
     this->addChild( _touchLayer );
@@ -326,7 +326,7 @@ void SinglegameScene::UI_update_basic(bool isStart)
     float dt = 0.23;
     //播放发牌动画
     for (int idx = 0; idx < 52; idx++) {
-
+        
         switch ( idx%3 ) {
             case 0:
             {
@@ -369,21 +369,24 @@ void SinglegameScene::UI_update_basic(bool isStart)
             default:
             {
                 
-                Poker *poker = Poker::createPoker( "imgs/poker/cover_big.png" );
+//                Poker *poker = Poker::createPoker( StringUtils::format("poker_%d.png", testPoker[idx] ).c_str()  );
+                Poker *poker = Poker::createPoker( StringUtils::format("PokerPlist/poker%d.png", testPoker[idx] ).c_str()  );
                 poker->setTag( idx );
-                
-//                Sprite *poker = Sprite::create( "imgs/poker/cover_big.png" );
+
+                //                Sprite *poker = Sprite::create( "imgs/poker/cover_big.png" );
                 poker->setPosition( Vec2(512,434) );
                 this->addChild( poker );
                 poker->setScale( 0.8 );
+                poker->setVisible(false);
                 
                 auto to = MoveTo::create( dt, Vec2( 125.00 + 48* (idx/3), 120.00 ) );
                 auto scale = ScaleTo::create( dt, 1);
                 //                auto fadeout = FadeOut::create( dt );
                 auto sp = Spawn::create(to,scale,NULL);
-                //                auto callFuncAction = CallFuncN::create( CC_CALLBACK_1(SinglegameScene::delCallback, this) );
+                auto callFuncAction = CallFuncN::create( CC_CALLBACK_1(SinglegameScene::showCallback, this) );
                 auto delay = DelayTime::create( dt* (idx/3) + 0.2 );
-                auto sqe = Sequence::create( delay, sp, NULL);
+                
+                auto sqe = Sequence::create( delay,callFuncAction, sp, NULL);
                 poker->runAction( sqe );
                 
                 _vector.pushBack( poker );
@@ -399,14 +402,15 @@ void SinglegameScene::delCallback(Node* node)
 {
     node->removeFromParentAndCleanup(true);
 }
-
+void SinglegameScene::showCallback(Node* node)
+{
+    node->setVisible( true );
+}
 #pragma mark - TouchLayer delegate
 void SinglegameScene::onSingleCLick(cocos2d::Vec2 pt)
 {
-    //需要倒序处理
-    for (Vector<Poker*>::const_iterator it = _vector.end(); it == _vector.begin(); it--)
-    {
-        Poker *sp = *it;
+    for (int idx = _vector.size()-1; idx >= 0; idx--) {
+        auto sp = _vector.at( idx );
         Rect rt ;
         rt.size = sp->getContSize();
         rt.origin = this->convertToNodeSpace( Vec2( sp->getPosition().x - rt.size.width*0.5, sp->getPosition().y - rt.size.height*0.5) );
@@ -414,11 +418,9 @@ void SinglegameScene::onSingleCLick(cocos2d::Vec2 pt)
         
         if ( rt.containsPoint( local ) )
         {
-            bool select = ! sp->getSelect();
-            sp->setSelect( select );
+            sp->setSelect( true );
             break;
         }
-        
     }
     
 }
@@ -428,5 +430,50 @@ void SinglegameScene::onDoubleClick(cocos2d::Vec2 pt)
 }
 void SinglegameScene::onMove(cocos2d::Vec2 pt)
 {
-    CCLOG("移动");
+    for( auto sp : _vector)
+    {
+        Rect rt ;
+        rt.size = sp->getContSize();
+        rt.origin = this->convertToNodeSpace( Vec2( sp->getPosition().x - rt.size.width*0.5, sp->getPosition().y - rt.size.height*0.5) );
+        Vec2 local = this->convertToNodeSpace( pt );
+        
+        if ( rt.containsPoint( local ) )
+            
+            if ( !sp->getSelect() ) {
+                sp->setSelect( true );
+            }
+        break;
+    }
+    
+    for (int idx = _vector.size()-1; idx >= 0; idx--) {
+        auto sp = _vector.at( idx );
+        Rect rt ;
+        rt.size = sp->getContSize();
+        rt.origin = this->convertToNodeSpace( Vec2( sp->getPosition().x - rt.size.width*0.5, sp->getPosition().y - rt.size.height*0.5) );
+        Vec2 local = this->convertToNodeSpace( pt );
+        
+        if ( rt.containsPoint( local ) )
+        {
+            if ( !sp->getSelect() ) {
+                sp->setSelect( true );
+            }
+            break;
+        }
+    }
+}
+
+void SinglegameScene::onLongPressed(cocos2d::Vec2)
+{
+    
+}
+void SinglegameScene::onTouchEnd()
+{
+    for (int idx = _vector.size()-1; idx >= 0; idx--) {
+        auto sp = _vector.at( idx );
+        
+        if ( sp->getSelect() ) {
+            sp->setSelect( false );
+            sp->setUp( !sp->getUp() );
+        }
+    }
 }

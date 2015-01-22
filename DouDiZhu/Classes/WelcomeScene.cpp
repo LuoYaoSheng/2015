@@ -13,9 +13,6 @@
 #include "LoginScene.h"
 #include "SinglegameScene.h"
 
-#include "Poker.h"
-
-
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
@@ -61,6 +58,7 @@ bool WelcomeScene::init()
     
     auto helpItem = static_cast<ui::Button*>(rootNode->getChildByName("Help"));
     helpItem->addTouchEventListener(CC_CALLBACK_2(WelcomeScene::menuCloseCallback, this));
+    
     
     return true;
 }

@@ -63,6 +63,7 @@ protected:
     void UI_update_basic(bool isStart);
     
     void delCallback(Node* node);
+    void showCallback(Node* node);
     
 private:
     ui::Layout* _Panel_Basic;
@@ -84,6 +85,8 @@ private:
     void onDoubleClick(cocos2d::Vec2);             //双击
     void onMove(cocos2d::Vec2);                    //移动
     
+    void onLongPressed(cocos2d::Vec2);             //长按
+    void onTouchEnd();
 private:
     Vector<Poker*> _vector;
 };
