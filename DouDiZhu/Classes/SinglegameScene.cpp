@@ -12,6 +12,10 @@
 #include "LoginScene.h"
 #include "WelcomeScene.h"
 
+#include "Logic.h"
+
+
+
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
@@ -95,6 +99,11 @@ bool SinglegameScene::init()
     this->Listener_PanelMsg();
     this->Listener_PanelSet();
     this->Listener_PanelRobot();
+
+    //添加手势层
+    _touchLayer = TouchLayer::create();
+    this->addChild( _touchLayer );
+    _touchLayer->delegate = this;
     
     return true;
 }
@@ -310,17 +319,14 @@ void SinglegameScene::UI_update_basic(bool isStart)
     
     
     //设置数值
-    int user[3][17] = { 0 };
-    for (int idx = 0; idx < 54; idx++) {
-        user[ idx%3 ][ idx%17 ] = idx;
-    }
+    unsigned char testPoker[FULL_COUNT] ;
+    Logic::initCardList( testPoker, FULL_COUNT);
+    Logic::RandCardList( testPoker, FULL_COUNT);
     
     float dt = 0.23;
     //播放发牌动画
     for (int idx = 0; idx < 52; idx++) {
-        
-        
-        
+
         switch ( idx%3 ) {
             case 0:
             {
@@ -362,7 +368,11 @@ void SinglegameScene::UI_update_basic(bool isStart)
                 break;
             default:
             {
-                Sprite *poker = Sprite::create( "imgs/poker/cover_big.png" );
+                
+                Poker *poker = Poker::createPoker( "imgs/poker/cover_big.png" );
+                poker->setTag( idx );
+                
+//                Sprite *poker = Sprite::create( "imgs/poker/cover_big.png" );
                 poker->setPosition( Vec2(512,434) );
                 this->addChild( poker );
                 poker->setScale( 0.8 );
@@ -375,6 +385,8 @@ void SinglegameScene::UI_update_basic(bool isStart)
                 auto delay = DelayTime::create( dt* (idx/3) + 0.2 );
                 auto sqe = Sequence::create( delay, sp, NULL);
                 poker->runAction( sqe );
+                
+                _vector.pushBack( poker );
             }
                 break;
         }
@@ -386,4 +398,35 @@ void SinglegameScene::UI_update_basic(bool isStart)
 void SinglegameScene::delCallback(Node* node)
 {
     node->removeFromParentAndCleanup(true);
+}
+
+#pragma mark - TouchLayer delegate
+void SinglegameScene::onSingleCLick(cocos2d::Vec2 pt)
+{
+    //需要倒序处理
+    for (Vector<Poker*>::const_iterator it = _vector.end(); it == _vector.begin(); it--)
+    {
+        Poker *sp = *it;
+        Rect rt ;
+        rt.size = sp->getContSize();
+        rt.origin = this->convertToNodeSpace( Vec2( sp->getPosition().x - rt.size.width*0.5, sp->getPosition().y - rt.size.height*0.5) );
+        Vec2 local = this->convertToNodeSpace( pt );
+        
+        if ( rt.containsPoint( local ) )
+        {
+            bool select = ! sp->getSelect();
+            sp->setSelect( select );
+            break;
+        }
+        
+    }
+    
+}
+void SinglegameScene::onDoubleClick(cocos2d::Vec2 pt)
+{
+    CCLOG("双击");
+}
+void SinglegameScene::onMove(cocos2d::Vec2 pt)
+{
+    CCLOG("移动");
 }

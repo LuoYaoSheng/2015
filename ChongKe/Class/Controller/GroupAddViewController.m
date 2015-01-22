@@ -424,6 +424,7 @@
         return;
     }
     
+    level_s = level_s==1?17:level_s;
     [_request Group_add:ecode ename:ename gname:gname dept:dept level_s:level_s job:job yd:yd lt:lt dx:dx interest:interest work:work khjl:khjl fs:fs client:client];
     [SVProgressHUD show];
 }

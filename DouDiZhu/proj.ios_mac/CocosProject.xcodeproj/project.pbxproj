@@ -11,6 +11,14 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		23EB420E9E34B63BF3681AA7 /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6F44AB94788DFDFB07133F /* libcocos2d Mac.a */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		40C119DC1A70A698002DB0FF /* Logic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40C119DA1A70A698002DB0FF /* Logic.cpp */; };
+		40C119DD1A70A698002DB0FF /* Logic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40C119DA1A70A698002DB0FF /* Logic.cpp */; };
+		40C119E01A70AAF7002DB0FF /* Robot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40C119DE1A70AAF7002DB0FF /* Robot.cpp */; };
+		40C119E11A70AAF7002DB0FF /* Robot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40C119DE1A70AAF7002DB0FF /* Robot.cpp */; };
+		40C119E41A70AD8B002DB0FF /* Poker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40C119E21A70AD8B002DB0FF /* Poker.cpp */; };
+		40C119E51A70AD8B002DB0FF /* Poker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40C119E21A70AD8B002DB0FF /* Poker.cpp */; };
+		40C119FE1A70F7D9002DB0FF /* TouchLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40C119FC1A70F7D9002DB0FF /* TouchLayer.cpp */; };
+		40C119FF1A70F7D9002DB0FF /* TouchLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 40C119FC1A70F7D9002DB0FF /* TouchLayer.cpp */; };
 		46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
@@ -72,6 +80,14 @@
 		1D6058910D05DD3D006BFB54 /* CocosProject iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CocosProject iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		40C119DA1A70A698002DB0FF /* Logic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Logic.cpp; sourceTree = "<group>"; };
+		40C119DB1A70A698002DB0FF /* Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logic.h; sourceTree = "<group>"; };
+		40C119DE1A70AAF7002DB0FF /* Robot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Robot.cpp; sourceTree = "<group>"; };
+		40C119DF1A70AAF7002DB0FF /* Robot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Robot.h; sourceTree = "<group>"; };
+		40C119E21A70AD8B002DB0FF /* Poker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Poker.cpp; sourceTree = "<group>"; };
+		40C119E31A70AD8B002DB0FF /* Poker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Poker.h; sourceTree = "<group>"; };
+		40C119FC1A70F7D9002DB0FF /* TouchLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchLayer.cpp; sourceTree = "<group>"; };
+		40C119FD1A70F7D9002DB0FF /* TouchLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchLayer.h; sourceTree = "<group>"; };
 		435C40AC8DC8098A3DFD0FE0 /* res */ = {isa = PBXFileReference; lastKnownFileType = "?"; name = res; path = ../res; sourceTree = "<group>"; };
 		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -232,6 +248,8 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				40C119DA1A70A698002DB0FF /* Logic.cpp */,
+				40C119DB1A70A698002DB0FF /* Logic.h */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				A048DDE31A6D6AC5000F2F94 /* LoginScene.cpp */,
@@ -242,6 +260,12 @@
 				A048DDEC1A6D6E4F000F2F94 /* WelcomeScene.h */,
 				A088D6791A6E8F0D00D52334 /* SinglegameScene.cpp */,
 				A088D67A1A6E8F0D00D52334 /* SinglegameScene.h */,
+				40C119DE1A70AAF7002DB0FF /* Robot.cpp */,
+				40C119DF1A70AAF7002DB0FF /* Robot.h */,
+				40C119E21A70AD8B002DB0FF /* Poker.cpp */,
+				40C119E31A70AD8B002DB0FF /* Poker.h */,
+				40C119FC1A70F7D9002DB0FF /* TouchLayer.cpp */,
+				40C119FD1A70F7D9002DB0FF /* TouchLayer.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -423,14 +447,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40C119E01A70AAF7002DB0FF /* Robot.cpp in Sources */,
+				40C119E41A70AD8B002DB0FF /* Poker.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				A048DDE91A6D6D56000F2F94 /* LobbyScene.cpp in Sources */,
+				40C119DC1A70A698002DB0FF /* Logic.cpp in Sources */,
 				A048DDE51A6D6AC5000F2F94 /* LoginScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				A048DDED1A6D6E4F000F2F94 /* WelcomeScene.cpp in Sources */,
 				A088D67B1A6E8F0D00D52334 /* SinglegameScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
+				40C119FE1A70F7D9002DB0FF /* TouchLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,12 +466,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40C119E11A70AAF7002DB0FF /* Robot.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				A048DDEE1A6D6E4F000F2F94 /* WelcomeScene.cpp in Sources */,
+				40C119E51A70AD8B002DB0FF /* Poker.cpp in Sources */,
 				A088D67C1A6E8F0D00D52334 /* SinglegameScene.cpp in Sources */,
 				A048DDEA1A6D6D56000F2F94 /* LobbyScene.cpp in Sources */,
+				40C119DD1A70A698002DB0FF /* Logic.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				A048DDE61A6D6AC5000F2F94 /* LoginScene.cpp in Sources */,
+				40C119FF1A70F7D9002DB0FF /* TouchLayer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

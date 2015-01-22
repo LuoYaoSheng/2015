@@ -22,7 +22,7 @@
             <PreSize X="0" Y="0" />
             <FileData Type="Normal" Path="bgs/BgSinglegame.png" />
           </NodeObjectData>
-          <NodeObjectData Name="Panel_Basic" ActionTag="94" Visible="False" FrameEvent="" Tag="25" ObjectIndex="10" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
+          <NodeObjectData Name="Panel_Basic" ActionTag="94" FrameEvent="" Tag="25" ObjectIndex="10" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
             <Position X="512" Y="384" />
             <Scale ScaleX="1" ScaleY="1" />
             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -375,7 +375,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1" />
           </NodeObjectData>
-          <NodeObjectData Name="Toolbar" ActionTag="68" Visible="False" FrameEvent="" Tag="100" ObjectIndex="1" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
+          <NodeObjectData Name="Toolbar" ActionTag="68" FrameEvent="" Tag="100" ObjectIndex="1" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
             <Position X="162" Y="678" />
             <Scale ScaleX="1" ScaleY="1" />
             <AnchorPoint />
@@ -462,7 +462,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1" />
           </NodeObjectData>
-          <NodeObjectData Name="Panel_Back" ActionTag="75" Visible="False" VisibleForFrame="False" FrameEvent="" Tag="32" ObjectIndex="2" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" ctype="PanelObjectData">
+          <NodeObjectData Name="Panel_Back" ActionTag="75" VisibleForFrame="False" FrameEvent="" Tag="32" ObjectIndex="2" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" ctype="PanelObjectData">
             <Position X="512" Y="384" />
             <Scale ScaleX="1" ScaleY="1" />
             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -531,7 +531,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1" />
           </NodeObjectData>
-          <NodeObjectData Name="Panel_Msg" ActionTag="82" Visible="False" VisibleForFrame="False" FrameEvent="" Tag="39" ObjectIndex="4" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
+          <NodeObjectData Name="Panel_Msg" ActionTag="82" VisibleForFrame="False" FrameEvent="" Tag="39" ObjectIndex="4" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
             <Position X="512" Y="384" />
             <Scale ScaleX="1" ScaleY="1" />
             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -572,7 +572,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1" />
           </NodeObjectData>
-          <NodeObjectData Name="Panel_Robot" ActionTag="84" Visible="False" VisibleForFrame="False" FrameEvent="" Tag="41" ObjectIndex="6" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
+          <NodeObjectData Name="Panel_Robot" ActionTag="84" VisibleForFrame="False" FrameEvent="" Tag="41" ObjectIndex="6" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
             <Position X="512" Y="384" />
             <Scale ScaleX="1" ScaleY="1" />
             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -613,7 +613,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1" />
           </NodeObjectData>
-          <NodeObjectData Name="Panel_Set" ActionTag="83" Visible="False" VisibleForFrame="False" FrameEvent="" Tag="40" ObjectIndex="5" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
+          <NodeObjectData Name="Panel_Set" ActionTag="83" VisibleForFrame="False" FrameEvent="" Tag="40" ObjectIndex="5" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
             <Position X="512" Y="384" />
             <Scale ScaleX="1" ScaleY="1" />
             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -653,16 +653,6 @@
             <FirstColor A="255" R="150" G="200" B="255" />
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1" />
-          </NodeObjectData>
-          <NodeObjectData Name="Sprite_33" ActionTag="292" FrameEvent="" Tag="123" ObjectIndex="33" ctype="SpriteObjectData">
-            <Position X="512" Y="384" />
-            <Scale ScaleX="1" ScaleY="1" />
-            <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <Size X="1024" Y="768" />
-            <PrePosition X="0.5" Y="0.5" />
-            <PreSize X="0" Y="0" />
-            <FileData Type="Normal" Path="bgs/IMG_0079.PNG" />
           </NodeObjectData>
         </Children>
       </ObjectData>

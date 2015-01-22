@@ -14,12 +14,14 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "extensions/cocos-ext.h"
+#include "TouchLayer.h"
+#include "Poker.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;
 using namespace cocos2d::ui;
 
-class SinglegameScene : public cocos2d::Layer
+class SinglegameScene : public cocos2d::Layer , public TouchLayerDelegate
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
@@ -74,6 +76,16 @@ private:
     ui::Layout* _Panel_Set_Menu;
     ui::Layout* _Panel_Robot;
     ui::Layout* _Panel_Robot_Menu;
+    
+    TouchLayer *_touchLayer;
+    
+private:
+    void onSingleCLick(cocos2d::Vec2);             //单击
+    void onDoubleClick(cocos2d::Vec2);             //双击
+    void onMove(cocos2d::Vec2);                    //移动
+    
+private:
+    Vector<Poker*> _vector;
 };
 
 #endif /* defined(__CocosProject__SinglegameScene__) */

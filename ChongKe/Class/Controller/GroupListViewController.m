@@ -207,6 +207,7 @@
 
     NSArray *dataLevel = [[NSMutableArray alloc]initWithObjects:@"司令",@"副司令",@"正军级",@"副军级",@"正师级",@"副师级",@"正团级",@"副团级",@"正省",@"副省",@"正部",@"副部",@"正厅",@"副厅",@"正处",@"副处",@"其它", nil];
     int level_s = [[dic objectForKey:@"level_s"] intValue] - 1;
+    level_s = level_s==0?16:level_s;
     
     NSString *sJob = [dic objectForKey:@"job"];
     sJob = sJob.length <= 0 ? @"请编辑更新":sJob;
@@ -214,6 +215,7 @@
     sDept = sDept.length <= 0 ? @"请编辑更新":sDept;
     NSString *sGname = [dic objectForKey:@"gname"];
     sGname = sGname.length <= 0 ? @"请编辑更新":sGname;
+    
     
     level_c.text =  level_s < 0 ?@"": [dataLevel objectAtIndex: level_s ];
     dept.text = sDept;

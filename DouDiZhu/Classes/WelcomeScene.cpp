@@ -13,6 +13,9 @@
 #include "LoginScene.h"
 #include "SinglegameScene.h"
 
+#include "Poker.h"
+
+
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
