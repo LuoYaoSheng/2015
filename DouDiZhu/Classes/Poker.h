@@ -27,6 +27,9 @@ public:
     virtual bool getUp();
     virtual cocos2d::Size getContSize();
     
+    int Value;
+    void updateImg(const char* name);
+    
 protected:
     cocos2d::Rect _rect;
     cocos2d::Vec2 _position;

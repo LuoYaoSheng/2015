@@ -12,7 +12,6 @@
 #include "LoginScene.h"
 #include "WelcomeScene.h"
 
-#include "Logic.h"
 
 
 
@@ -171,7 +170,6 @@ void SinglegameScene::PanelBasicCallback(cocos2d::Ref* pSender, Widget::TouchEve
         switch ( btn->getTag() ) {
             case PBasic_start:
             {
-                CCLOG("开始");
                 this->UI_update_basic( true );
             }
                 break;
@@ -319,9 +317,8 @@ void SinglegameScene::UI_update_basic(bool isStart)
     
     
     //设置数值
-    unsigned char testPoker[FULL_COUNT] ;
-    Logic::initCardList( testPoker, FULL_COUNT);
-    Logic::RandCardList( testPoker, FULL_COUNT);
+    Logic::initCardList( _cards, FULL_COUNT);
+    Logic::RandCardList( _cards, FULL_COUNT);
     
     float dt = 0.23;
     //播放发牌动画
@@ -368,10 +365,11 @@ void SinglegameScene::UI_update_basic(bool isStart)
                 break;
             default:
             {
-                
+                _userCards[ idx/3 ] = _cards[ idx ];
 //                Poker *poker = Poker::createPoker( StringUtils::format("poker_%d.png", testPoker[idx] ).c_str()  );
-                Poker *poker = Poker::createPoker( StringUtils::format("PokerPlist/poker%d.png", testPoker[idx] ).c_str()  );
-                poker->setTag( idx );
+                Poker *poker = Poker::createPoker( StringUtils::format("PokerPlist/poker%d.png", _cards[idx] ).c_str()  );
+                poker->setTag( idx/3 );
+                poker->Value = _cards[ idx ];
 
                 //                Sprite *poker = Sprite::create( "imgs/poker/cover_big.png" );
                 poker->setPosition( Vec2(512,434) );
@@ -393,8 +391,12 @@ void SinglegameScene::UI_update_basic(bool isStart)
             }
                 break;
         }
-        
     }
+    
+    auto delay = DelayTime::create( dt + 0.2 * 20 );
+    auto callFuncAction = CallFuncN::create( CC_CALLBACK_1(SinglegameScene::settleCallback, this) );
+    auto sqe = Sequence::create( delay,callFuncAction,  NULL);
+    this->runAction( sqe );
 }
 
 #pragma mark - del callback
@@ -406,6 +408,30 @@ void SinglegameScene::showCallback(Node* node)
 {
     node->setVisible( true );
 }
+void SinglegameScene::settleCallback(Node* node)
+{
+    Logic::SortCardList( _userCards, 17);
+
+    Size size = Director::getInstance()->getWinSize();
+    for (auto sp : _vector) {
+        
+        Vec2 pt = sp->getPosition();
+        
+        auto to1 = MoveTo::create(0.3, Vec2(size.width*0.5, size.height*0.5));
+        auto callFuncAction = CallFuncN::create( CC_CALLBACK_1(SinglegameScene::alertCallback, this) );
+        auto to2 = MoveTo::create(0.3, pt);
+        auto sqe = Sequence::create( to1, callFuncAction, to2, NULL);
+        sp->runAction( sqe );
+    }
+}
+
+void SinglegameScene::alertCallback(Node* node)
+{
+    Poker *sp = (Poker *)node;
+    sp->updateImg( StringUtils::format("PokerPlist/poker%d.png", _userCards[ sp->getTag() ] ).c_str() );
+    sp->Value = _userCards[ sp->Value ];
+}
+
 #pragma mark - TouchLayer delegate
 void SinglegameScene::onSingleCLick(cocos2d::Vec2 pt)
 {

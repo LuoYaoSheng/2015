@@ -59,6 +59,13 @@ Poker* Poker::createPoker(const char* name)
     return nullptr;
 }
 
+void Poker::updateImg(const char* name)
+{
+    _cardNor->removeFromParent();
+    _cardNor = Sprite::create( name );
+    this->addChild( _cardNor );
+}
+
 void Poker::setPosition(const cocos2d::Vec2 &position)
 {
     Node::setPosition( position );

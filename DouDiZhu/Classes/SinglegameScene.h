@@ -17,6 +17,9 @@
 #include "TouchLayer.h"
 #include "Poker.h"
 
+#include "Logic.h"
+
+
 USING_NS_CC;
 USING_NS_CC_EXT;
 using namespace cocos2d::ui;
@@ -64,6 +67,8 @@ protected:
     
     void delCallback(Node* node);
     void showCallback(Node* node);
+    void settleCallback(Node* node);
+    void alertCallback(Node* node);
     
 private:
     ui::Layout* _Panel_Basic;
@@ -89,6 +94,8 @@ private:
     void onTouchEnd();
 private:
     Vector<Poker*> _vector;
+    unsigned char _cards[FULL_COUNT];
+    unsigned char _userCards[17];
 };
 
 #endif /* defined(__CocosProject__SinglegameScene__) */

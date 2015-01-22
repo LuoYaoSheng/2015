@@ -90,7 +90,17 @@ unsigned char Logic::GetCardLogicValue(unsigned char cbCardData){
 	unsigned char bCardValue=GetCardValue(cbCardData);
     
 	//转换数值
-	return (bCardValue==1)?(bCardValue+13):bCardValue;
+    switch ( bCardValue) {
+        case 1:
+            bCardValue += 13;
+            break;
+        case 2:
+            bCardValue += 14;
+            break;
+        default:
+            break;
+    }
+	return bCardValue;
 }
 
 unsigned char Logic::GetCardValue(unsigned char cbCardData){
