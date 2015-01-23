@@ -9,9 +9,23 @@
 #ifndef __CocosProject__Robot__
 #define __CocosProject__Robot__
 
-class Logic {
+#include "User.h"
+
+class Robot {
 public:
-        
+    static Robot* getInstance();
+    Robot();
+    ~Robot();
+    virtual bool init();
+    
+public:
+    User *mUser[3];
+    unsigned char mThreeCards[3];
+    int mTrun;
+    
+    
+protected:
+    int getTrun();
 };
 
 #endif /* defined(__CocosProject__Robot__) */

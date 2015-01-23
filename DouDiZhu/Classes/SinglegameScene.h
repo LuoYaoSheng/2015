@@ -17,8 +17,6 @@
 #include "TouchLayer.h"
 #include "Poker.h"
 
-#include "Logic.h"
-
 
 USING_NS_CC;
 USING_NS_CC_EXT;
@@ -71,6 +69,8 @@ protected:
     void showCallback(Node* node);
     void settleCallback(Node* node);
     void alertCallback(Node* node);
+    void publicCallback(Node* node);
+    void smallCallback(Node* node);
     
 private:
     ui::Layout* _Panel_Basic;
@@ -97,8 +97,9 @@ private:
     void onTouchEnd();
 private:
     Vector<Poker*> _vector;
-    unsigned char _cards[FULL_COUNT];
-    unsigned char _userCards[17];
+    Sprite *_threeCards[3];
+    bool _bCanTouch;
+    
 };
 
 #endif /* defined(__CocosProject__SinglegameScene__) */

@@ -11,9 +11,7 @@
 #include "ui/CocosGUI.h"
 #include "LoginScene.h"
 #include "WelcomeScene.h"
-
-
-
+#include "Robot.h"
 
 USING_NS_CC;
 
@@ -109,6 +107,9 @@ bool SinglegameScene::init()
     _touchLayer = TouchLayer::create();
     this->addChild( _touchLayer );
     _touchLayer->delegate = this;
+    
+    
+    _bCanTouch = false;
     
     return true;
 }
@@ -330,9 +331,10 @@ void SinglegameScene::UI_update_basic(bool isStart)
     auto action = MoveTo::create(0.4, Vec2(-150, 150 ));
     _Panel_Basic_User[ 2 ]->runAction( action );
     
-    //设置数值
-    Logic::initCardList( _cards, FULL_COUNT);
-    Logic::RandCardList( _cards, FULL_COUNT);
+
+    //初始化处理~~~
+    Robot::getInstance()->init();
+    
     
     float dt = 0.23;
     //播放发牌动画
@@ -379,11 +381,10 @@ void SinglegameScene::UI_update_basic(bool isStart)
                 break;
             default:
             {
-                _userCards[ idx/3 ] = _cards[ idx ];
-//                Poker *poker = Poker::createPoker( StringUtils::format("poker_%d.png", testPoker[idx] ).c_str()  );
-                Poker *poker = Poker::createPoker( StringUtils::format("PokerPlist/poker%d.png", _cards[idx] ).c_str()  );
+                int value = Robot::getInstance()->mUser[ 2 ]->mCurCards[ idx/3 ];
+                Poker *poker = Poker::createPoker( StringUtils::format("PokerPlist/poker%d.png", value ).c_str()  );
                 poker->setTag( idx/3 );
-                poker->Value = _cards[ idx ];
+                poker->Value = value;
 
                 //                Sprite *poker = Sprite::create( "imgs/poker/cover_big.png" );
                 poker->setPosition( Vec2(512,434) );
@@ -407,19 +408,17 @@ void SinglegameScene::UI_update_basic(bool isStart)
         }
     }
     
-    for (int idx = 51; idx < 54; idx++) {
-        
-        Sprite *poker = Sprite::create( StringUtils::format("PokerPlist/poker%d.png", _cards[idx] ).c_str() );
-        poker->setPosition( Vec2(512,434) );
-        this->addChild( poker );
-    }
-    
-    
 
     auto delay = DelayTime::create( dt + 0.2 * 20 );
     auto callFuncAction = CallFuncN::create( CC_CALLBACK_1(SinglegameScene::settleCallback, this) );
     auto sqe = Sequence::create( delay,callFuncAction,  NULL);
     this->runAction( sqe );
+    
+    //牌型
+    auto delay1 = DelayTime::create( dt + 0.2 * 20 + 0.6 );
+    auto callFuncAction1 = CallFuncN::create( CC_CALLBACK_1(SinglegameScene::publicCallback, this) );
+    auto sqe1 = Sequence::create( delay1, callFuncAction1,  NULL);
+    this->runAction( sqe1 );
 }
 
 #pragma mark - del callback
@@ -433,7 +432,7 @@ void SinglegameScene::showCallback(Node* node)
 }
 void SinglegameScene::settleCallback(Node* node)
 {
-    Logic::SortCardList( _userCards, 17);
+    Robot::getInstance()->mUser[2]->sortCards();
 
     Size size = Director::getInstance()->getWinSize();
     for (auto sp : _vector) {
@@ -448,16 +447,47 @@ void SinglegameScene::settleCallback(Node* node)
     }
 }
 
+void SinglegameScene::publicCallback(Node* node)
+{
+    Size size = Director::getInstance()->getWinSize();
+    
+    float gap = 80;
+    float oX = size.width*0.5 - gap;
+
+    for (int idx = 51; idx < 54; idx++) {
+        _threeCards[idx-51] = Sprite::create( "imgs/poker/cover_big.png" );
+        _threeCards[idx-51]->setPosition( Vec2( oX + (idx-51)*gap, size.height*0.5+30 ) );
+        this->addChild( _threeCards[idx-51] );
+    }
+}
+
+void SinglegameScene::smallCallback(Node* node)
+{
+//    auto delay = DelayTime::create( 0.3 );
+//    auto to = MoveTo::create( 0.3, Vec2(446+(idx-51)*47, 730) );
+//    auto scale = ScaleTo::create( 0.3, 0.3);
+//    auto fadeIn = FadeIn::create( 0.4 );
+//    auto que = Spawn::create( to ,scale, fadeIn, NULL);
+//    auto callFuncAction = CallFuncN::create( CC_CALLBACK_1(SinglegameScene::smallCallback, this) );
+//    auto sqe = Sequence::create( delay, que, callFuncAction,  NULL);
+//    poker->runAction( sqe );
+}
+
+
 void SinglegameScene::alertCallback(Node* node)
 {
+    unsigned char *cards = Robot::getInstance()->mUser[2]->mCurCards;
+    
     Poker *sp = (Poker *)node;
-    sp->updateImg( StringUtils::format("PokerPlist/poker%d.png", _userCards[ sp->getTag() ] ).c_str() );
-    sp->Value = _userCards[ sp->Value ];
+    sp->updateImg( StringUtils::format("PokerPlist/poker%d.png", cards[ sp->getTag() ] ).c_str() );
+    sp->Value = cards[ sp->Value ];
 }
 
 #pragma mark - TouchLayer delegate
 void SinglegameScene::onSingleCLick(cocos2d::Vec2 pt)
 {
+    if ( !_bCanTouch ) return;
+    
     for (int idx = _vector.size()-1; idx >= 0; idx--) {
         auto sp = _vector.at( idx );
         Rect rt ;
@@ -475,10 +505,12 @@ void SinglegameScene::onSingleCLick(cocos2d::Vec2 pt)
 }
 void SinglegameScene::onDoubleClick(cocos2d::Vec2 pt)
 {
+    if ( !_bCanTouch ) return;
     CCLOG("双击");
 }
 void SinglegameScene::onMove(cocos2d::Vec2 pt)
 {
+    if ( !_bCanTouch ) return;
     for( auto sp : _vector)
     {
         Rect rt ;
@@ -513,10 +545,11 @@ void SinglegameScene::onMove(cocos2d::Vec2 pt)
 
 void SinglegameScene::onLongPressed(cocos2d::Vec2)
 {
-    
+    if ( !_bCanTouch ) return;
 }
 void SinglegameScene::onTouchEnd()
 {
+    if ( !_bCanTouch ) return;
     for (int idx = _vector.size()-1; idx >= 0; idx--) {
         auto sp = _vector.at( idx );
         

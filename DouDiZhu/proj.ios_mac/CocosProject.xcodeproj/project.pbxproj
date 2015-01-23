@@ -62,6 +62,8 @@
 		A048DDEE1A6D6E4F000F2F94 /* WelcomeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A048DDEB1A6D6E4F000F2F94 /* WelcomeScene.cpp */; };
 		A088D67B1A6E8F0D00D52334 /* SinglegameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A088D6791A6E8F0D00D52334 /* SinglegameScene.cpp */; };
 		A088D67C1A6E8F0D00D52334 /* SinglegameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A088D6791A6E8F0D00D52334 /* SinglegameScene.cpp */; };
+		A08FF5B01A7289E500AA3327 /* User.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A08FF5AE1A7289E500AA3327 /* User.cpp */; };
+		A08FF5B11A7289E500AA3327 /* User.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A08FF5AE1A7289E500AA3327 /* User.cpp */; };
 		A26E47D3A498AB0ADAC85CF9 /* res in Resources */ = {isa = PBXBuildFile; fileRef = 435C40AC8DC8098A3DFD0FE0 /* res */; };
 		AD9F4042A3BB98273BCD18C0 /* res in Resources */ = {isa = PBXBuildFile; fileRef = 435C40AC8DC8098A3DFD0FE0 /* res */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -135,6 +137,8 @@
 		A048DDEC1A6D6E4F000F2F94 /* WelcomeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeScene.h; sourceTree = "<group>"; };
 		A088D6791A6E8F0D00D52334 /* SinglegameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SinglegameScene.cpp; sourceTree = "<group>"; };
 		A088D67A1A6E8F0D00D52334 /* SinglegameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinglegameScene.h; sourceTree = "<group>"; };
+		A08FF5AE1A7289E500AA3327 /* User.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = User.cpp; sourceTree = "<group>"; };
+		A08FF5AF1A7289E500AA3327 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -260,12 +264,14 @@
 				A048DDEC1A6D6E4F000F2F94 /* WelcomeScene.h */,
 				A088D6791A6E8F0D00D52334 /* SinglegameScene.cpp */,
 				A088D67A1A6E8F0D00D52334 /* SinglegameScene.h */,
-				40C119DE1A70AAF7002DB0FF /* Robot.cpp */,
-				40C119DF1A70AAF7002DB0FF /* Robot.h */,
 				40C119E21A70AD8B002DB0FF /* Poker.cpp */,
 				40C119E31A70AD8B002DB0FF /* Poker.h */,
 				40C119FC1A70F7D9002DB0FF /* TouchLayer.cpp */,
 				40C119FD1A70F7D9002DB0FF /* TouchLayer.h */,
+				40C119DE1A70AAF7002DB0FF /* Robot.cpp */,
+				40C119DF1A70AAF7002DB0FF /* Robot.h */,
+				A08FF5AE1A7289E500AA3327 /* User.cpp */,
+				A08FF5AF1A7289E500AA3327 /* User.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -456,6 +462,7 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				A048DDED1A6D6E4F000F2F94 /* WelcomeScene.cpp in Sources */,
+				A08FF5B01A7289E500AA3327 /* User.cpp in Sources */,
 				A088D67B1A6E8F0D00D52334 /* SinglegameScene.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				40C119FE1A70F7D9002DB0FF /* TouchLayer.cpp in Sources */,
@@ -466,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A08FF5B11A7289E500AA3327 /* User.cpp in Sources */,
 				40C119E11A70AAF7002DB0FF /* Robot.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				A048DDEE1A6D6E4F000F2F94 /* WelcomeScene.cpp in Sources */,

@@ -105,3 +105,8 @@ Size Poker::getContSize()
     return _rect.size;
 }
 
+void Poker::setContSize(Size size)
+{
+    _rect.size = size;
+}
+

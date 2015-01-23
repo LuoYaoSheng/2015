@@ -26,6 +26,7 @@ public:
     virtual void setUp(bool up);
     virtual bool getUp();
     virtual cocos2d::Size getContSize();
+    virtual void setContSize(cocos2d::Size size);
     
     int Value;
     void updateImg(const char* name);
