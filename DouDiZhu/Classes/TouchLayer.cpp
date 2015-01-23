@@ -84,7 +84,6 @@ void TouchLayer::addTouchEvent()
 void TouchLayer::onSingleCLick(float tt)
 {
     if ( _clicked ) {
-        _clicked = false;
         onSingleCLick();
     }
 }
@@ -95,8 +94,12 @@ void TouchLayer::onSingleCLick()
         if ( delegate != nullptr) {
             delegate->onSingleCLick( _startTouch );
         }
+        
+        if ( _clicked ) {
+            _clicked = false;
+            this->onTouchEnd();//回调一次结束
+        }
     }
-    this->onTouchEnd();//回调一次结束
 }
 void TouchLayer::onDoubleClick()
 {

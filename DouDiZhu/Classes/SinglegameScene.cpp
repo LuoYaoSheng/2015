@@ -20,8 +20,9 @@ USING_NS_CC;
 using namespace cocostudio::timeline;
 
 enum{
-    PBasic_start = 100,
-    PBasic_net ,
+    PBubble_start = 100,
+    PBubble_net ,
+    PBubble_count,
 };
 
 enum{
@@ -39,6 +40,8 @@ enum{
     PBM_net = 100,
     PBM_back ,
 };
+
+
 
 
 Scene* SinglegameScene::createScene()
@@ -90,6 +93,8 @@ bool SinglegameScene::init()
     _Panel_Robot = static_cast<ui::Layout*>(rootNode->getChildByName("Panel_Robot"));
     _Panel_Robot_Menu = static_cast<ui::Layout*>(_Panel_Robot->getChildByName("Panel_Menu"));
     
+    _Panel_Bubble = static_cast<ui::Layout*>(rootNode->getChildByName("Panel_Bubble"));
+    
     
     //界面事件绑定
     this->Listener_PanelBaisc();
@@ -98,6 +103,7 @@ bool SinglegameScene::init()
     this->Listener_PanelMsg();
     this->Listener_PanelSet();
     this->Listener_PanelRobot();
+    this->Listener_PanelBubble();
     
     //添加手势层
     _touchLayer = TouchLayer::create();
@@ -119,13 +125,11 @@ void SinglegameScene::onEnterTransitionDidFinish()
 #pragma mark - Listener
 void SinglegameScene::Listener_PanelBaisc()
 {
-    auto startItem = static_cast<ui::Button*>(_Panel_Basic->getChildByName("BtnStart"));
-    startItem->addTouchEventListener(CC_CALLBACK_2(SinglegameScene::PanelBasicCallback, this));
-    auto netItem = static_cast<ui::Button*>(_Panel_Basic->getChildByName("BtnNet"));
-    netItem->addTouchEventListener(CC_CALLBACK_2(SinglegameScene::PanelBasicCallback, this));
-    
     for (int idx = 0; idx < 3; idx++) {
-        auto item = static_cast<ui::Button*>(_Panel_Basic_User[idx]->getChildByName("BtnHead") );
+        
+        auto panel = static_cast<ui::Button*>( _Panel_Basic_User[idx]->getChildByName("Panel_Head") );
+        auto item = static_cast<ui::Button*>( panel->getChildByName("BtnHead") );
+        
         item->addTouchEventListener(CC_CALLBACK_2(SinglegameScene::PanelBasicPanelUserCallback, this));
     }
 }
@@ -162,25 +166,18 @@ void SinglegameScene::Listener_PanelRobot()
     closeItem->addTouchEventListener(CC_CALLBACK_2(SinglegameScene::PanelRobotCallback, this));
 }
 
+void SinglegameScene::Listener_PanelBubble()
+{
+    for (int idx = PBubble_start; idx < PBubble_count; idx++) {
+        auto item = static_cast<ui::Button*>(_Panel_Bubble->getChildByTag( idx ) );
+        item->addTouchEventListener(CC_CALLBACK_2(SinglegameScene::PanelBubbleCallback, this));
+    }
+}
+
 #pragma mark - btn action
 void SinglegameScene::PanelBasicCallback(cocos2d::Ref* pSender, Widget::TouchEventType type)
 {
-    if ( cocos2d::ui::Widget::TouchEventType::ENDED == type) {
-        ui::Button* btn = static_cast<ui::Button*>(pSender);
-        switch ( btn->getTag() ) {
-            case PBasic_start:
-            {
-                this->UI_update_basic( true );
-            }
-                break;
-            default:
-            {
-                auto scene = LoginScene::createScene();
-                Director::getInstance()->runWithScene( scene );
-            }
-                break;
-        }
-    }
+
 }
 void SinglegameScene::PanelBasicPanelUserCallback(cocos2d::Ref* pSender, Widget::TouchEventType type)
 {
@@ -271,7 +268,25 @@ void SinglegameScene::PanelRobotPanelMenuCallback(cocos2d::Ref* pSender, Widget:
 {
     
 }
-
+void SinglegameScene::PanelBubbleCallback(cocos2d::Ref* pSender, Widget::TouchEventType type)
+{
+    if ( cocos2d::ui::Widget::TouchEventType::ENDED == type) {
+        ui::Button* btn = static_cast<ui::Button*>(pSender);
+        switch ( btn->getTag() ) {
+            case PBubble_start:
+            {
+                this->UI_update_basic( true );
+            }
+                break;
+            default:
+            {
+                auto scene = LoginScene::createScene();
+                Director::getInstance()->runWithScene( scene );
+            }
+                break;
+        }
+    }
+}
 #pragma mark - ui update
 void SinglegameScene::UI_update_basic(bool isStart)
 {
@@ -279,8 +294,8 @@ void SinglegameScene::UI_update_basic(bool isStart)
     //=========
     
     //提示按钮去除
-    auto startItem = static_cast<ui::Button*>(_Panel_Basic->getChildByName("BtnStart"));
-    auto netItem = static_cast<ui::Button*>(_Panel_Basic->getChildByName("BtnNet"));
+    auto startItem = static_cast<ui::Button*>(_Panel_Bubble->getChildByName("BtnStart"));
+    auto netItem = static_cast<ui::Button*>(_Panel_Bubble->getChildByName("BtnNet"));
     startItem->setVisible( !isStart );
     netItem->setVisible( !isStart );
     
@@ -312,9 +327,8 @@ void SinglegameScene::UI_update_basic(bool isStart)
     auto item4 = static_cast<ui::ImageView*>(_Panel_Basic_User[ 2 ]->getChildByName("level"));
     item4->setVisible( !isStart );
     
-    auto action = MoveTo::create(0.4, Vec2(-50, 150 ));
+    auto action = MoveTo::create(0.4, Vec2(-150, 150 ));
     _Panel_Basic_User[ 2 ]->runAction( action );
-    
     
     //设置数值
     Logic::initCardList( _cards, FULL_COUNT);
@@ -393,6 +407,15 @@ void SinglegameScene::UI_update_basic(bool isStart)
         }
     }
     
+    for (int idx = 51; idx < 54; idx++) {
+        
+        Sprite *poker = Sprite::create( StringUtils::format("PokerPlist/poker%d.png", _cards[idx] ).c_str() );
+        poker->setPosition( Vec2(512,434) );
+        this->addChild( poker );
+    }
+    
+    
+
     auto delay = DelayTime::create( dt + 0.2 * 20 );
     auto callFuncAction = CallFuncN::create( CC_CALLBACK_1(SinglegameScene::settleCallback, this) );
     auto sqe = Sequence::create( delay,callFuncAction,  NULL);

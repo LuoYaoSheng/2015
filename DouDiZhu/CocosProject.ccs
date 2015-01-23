@@ -39,17 +39,6 @@
         <Project Name="LoginScene.csd" />
         <Project Name="SinglegameScene.csd" />
         <Folder Name="imgs">
-          <Image Name="BgToolbar.png" />
-          <Image Name="BtnMsgNor.png" />
-          <Image Name="BtnSetNor.png" />
-          <Image Name="BtnBackNo.png" />
-          <Image Name="BtnRobotNor.png" />
-          <Image Name="BtnMsgSel.png" />
-          <Image Name="BtnRobotSel.png" />
-          <Image Name="BtnSetSel.png" />
-          <Image Name="BtnBackSel.png" />
-          <Image Name="BtnRobotDis.png" />
-          <Image Name="BtnMsgDis.png" />
           <Folder Name="layout">
             <Image Name="imgLayoutOk.png" />
             <Image Name="imgLayoutPoker.png" />
@@ -237,6 +226,37 @@
             <Image Name="cover_big.png" />
             <Image Name="cover_small.png" />
           </Folder>
+          <Folder Name="toolbar">
+            <Image Name="BgToolbar.png" />
+            <Image Name="BtnBackNo.png" />
+            <Image Name="BtnBackSel.png" />
+            <Image Name="BtnMsgDis.png" />
+            <Image Name="BtnMsgNor.png" />
+            <Image Name="BtnMsgSel.png" />
+            <Image Name="BtnRobotDis.png" />
+            <Image Name="BtnRobotNor.png" />
+            <Image Name="BtnRobotSel.png" />
+            <Image Name="BtnSetNor.png" />
+            <Image Name="BtnSetSel.png" />
+          </Folder>
+          <Folder Name="bubble">
+            <Image Name="bubble_chat_big.png" />
+            <Image Name="bubble_chat_call.png" />
+            <Image Name="bubble_chat_out.png" />
+            <Image Name="bubble_chat_small.png" />
+            <Image Name="bubble_img_1.png" />
+            <Image Name="bubble_img_2.png" />
+            <Image Name="bubble_img_3.png" />
+            <Image Name="bubble_img_4.png" />
+            <Image Name="bubble_img_5.png" />
+            <Image Name="bubble_img_6.png" />
+            <Image Name="bubble_img_7.png" />
+            <Image Name="bubble_img_8.png" />
+            <Image Name="bubble_num_1.png" />
+            <Image Name="bubble_num_2.png" />
+            <Image Name="bubble_num_3.png" />
+            <Image Name="bubble_num_score.png" />
+          </Folder>
         </Folder>
         <Folder Name="sound">
           <Folder Name="Woman">
@@ -383,6 +403,7 @@
           </Folder>
         </Folder>
         <Project Name="TestNode.csd" />
+        <Project Name="ChatShotLayer.csd" />
       </RootFolder>
     </Group>
   </SolutionFolder>

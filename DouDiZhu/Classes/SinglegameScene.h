@@ -49,6 +49,7 @@ protected:
     void Listener_PanelMsg();
     void Listener_PanelSet();
     void Listener_PanelRobot();
+    void Listener_PanelBubble();
     
     void PanelBasicCallback(cocos2d::Ref* pSender, Widget::TouchEventType);
     void PanelBasicPanelUserCallback(cocos2d::Ref* pSender, Widget::TouchEventType);
@@ -61,6 +62,7 @@ protected:
     void PanelSetPanelMenuCallback(cocos2d::Ref* pSender, Widget::TouchEventType);
     void PanelRobotCallback(cocos2d::Ref* pSender, Widget::TouchEventType);
     void PanelRobotPanelMenuCallback(cocos2d::Ref* pSender, Widget::TouchEventType);
+    void PanelBubbleCallback(cocos2d::Ref* pSender, Widget::TouchEventType);
     
 protected:
     void UI_update_basic(bool isStart);
@@ -82,6 +84,7 @@ private:
     ui::Layout* _Panel_Set_Menu;
     ui::Layout* _Panel_Robot;
     ui::Layout* _Panel_Robot_Menu;
+    ui::Layout* _Panel_Bubble;
     
     TouchLayer *_touchLayer;
     
