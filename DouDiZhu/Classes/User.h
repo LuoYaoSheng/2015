@@ -17,6 +17,7 @@ public:
     virtual bool init();
     virtual void setUserCards(unsigned char cards[] );
     virtual void sortCards();
+    virtual void setCallPoints();
 public:
     unsigned char mPreCards[ 20 ];  //之前牌
     unsigned char mCurCards[ 20 ];  //当前牌

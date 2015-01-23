@@ -145,43 +145,64 @@
                     <PrePosition X="0.25" Y="0" />
                     <PreSize X="0.75" Y="1" />
                     <Children>
-                      <NodeObjectData Name="Panel_bubble_short" ActionTag="279" FrameEvent="" Tag="63" ObjectIndex="21" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" ctype="PanelObjectData">
-                        <Position X="0.5037689" Y="145.0793" />
+                      <NodeObjectData Name="Panel_bubble_short" ActionTag="473" FrameEvent="" Tag="113" ObjectIndex="39" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" ctype="PanelObjectData">
+                        <Position X="1.954651" Y="147.0967" />
                         <Scale ScaleX="1" ScaleY="1" />
                         <AnchorPoint />
                         <CColor A="255" R="255" G="255" B="255" />
                         <Size X="122" Y="97" />
-                        <PrePosition X="0.001311898" Y="0.3778108" />
-                        <PreSize X="0.3177083" Y="0.2526042" />
+                        <PrePosition X="0.005090237" Y="0.3830643" />
+                        <PreSize X="0" Y="0" />
                         <Children>
-                          <NodeObjectData Name="Sprite_30" ActionTag="277" FrameEvent="" Tag="61" ObjectIndex="30" ctype="SpriteObjectData">
+                          <NodeObjectData Name="Sprite_30" ActionTag="474" FrameEvent="" Tag="114" ObjectIndex="75" ctype="SpriteObjectData">
                             <Position X="62.51097" Y="47.89432" />
                             <Scale ScaleX="1" ScaleY="1" />
                             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
                             <CColor A="255" R="255" G="255" B="255" />
                             <Size X="122" Y="97" />
-                            <PrePosition X="0.512385" Y="0.4937558" />
+                            <PrePosition X="0" Y="0" />
                             <PreSize X="0" Y="0" />
                             <FileData Type="Normal" Path="imgs/bubble/bubble_chat_small.png" />
                           </NodeObjectData>
-                          <NodeObjectData Name="Sprite_31" ActionTag="278" FrameEvent="" Tag="62" ObjectIndex="31" ctype="SpriteObjectData">
-                            <Position X="9.903992" Y="74.8942" />
+                          <NodeObjectData Name="Sprite_31" ActionTag="475" FrameEvent="" Tag="115" ObjectIndex="76" ctype="SpriteObjectData">
+                            <Position X="8.915833" Y="74.17657" />
                             <Scale ScaleX="1" ScaleY="1" />
                             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
                             <CColor A="255" R="255" G="255" B="255" />
                             <Size X="14" Y="19" />
-                            <PrePosition X="0.08118026" Y="0.7721051" />
+                            <PrePosition X="0.07308059" Y="0.764707" />
                             <PreSize X="0" Y="0" />
                             <FileData Type="Normal" Path="imgs/bubble/bubble_img_6.png" />
                           </NodeObjectData>
-                          <NodeObjectData Name="Text" ActionTag="313" FrameEvent="" Tag="97" ObjectIndex="28" FontSize="36" LabelText="不叫" HorizontalAlignmentType="HT_Center" ctype="TextObjectData">
-                            <Position X="62.42859" Y="53.92761" />
+                          <NodeObjectData Name="NoCall" ActionTag="476" VisibleForFrame="False" FrameEvent="" Tag="116" ObjectIndex="77" ctype="SpriteObjectData">
+                            <Position X="60" Y="50" />
                             <Scale ScaleX="1" ScaleY="1" />
                             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
                             <CColor A="255" R="255" G="255" B="255" />
-                            <Size X="72" Y="57" />
-                            <PrePosition X="0.5117097" Y="0.5559548" />
+                            <Size X="67" Y="33" />
+                            <PrePosition X="0" Y="0" />
                             <PreSize X="0" Y="0" />
+                            <FileData Type="Normal" Path="imgs/bubble/bubble_chat_call.png" />
+                          </NodeObjectData>
+                          <NodeObjectData Name="Num" ActionTag="477" VisibleForFrame="False" FrameEvent="" Tag="117" ObjectIndex="78" ctype="SpriteObjectData">
+                            <Position X="44.34851" Y="50.16943" />
+                            <Scale ScaleX="1" ScaleY="1" />
+                            <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <Size X="19" Y="28" />
+                            <PrePosition X="0" Y="0" />
+                            <PreSize X="0" Y="0" />
+                            <FileData Type="Normal" Path="imgs/bubble/bubble_num_1.png" />
+                          </NodeObjectData>
+                          <NodeObjectData Name="Score" ActionTag="478" VisibleForFrame="False" FrameEvent="" Tag="118" ObjectIndex="79" ctype="SpriteObjectData">
+                            <Position X="75.10553" Y="50.11948" />
+                            <Scale ScaleX="1" ScaleY="1" />
+                            <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <Size X="35" Y="34" />
+                            <PrePosition X="0" Y="0" />
+                            <PreSize X="0" Y="0" />
+                            <FileData Type="Normal" Path="imgs/bubble/bubble_num_score.png" />
                           </NodeObjectData>
                         </Children>
                         <SingleColor A="255" R="150" G="200" B="255" />
@@ -315,43 +336,64 @@
                     <PrePosition X="0.25" Y="0" />
                     <PreSize X="0" Y="0" />
                     <Children>
-                      <NodeObjectData Name="Panel_bubble_short" ActionTag="338" FrameEvent="" Tag="122" ObjectIndex="29" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" ctype="PanelObjectData">
-                        <Position X="120" Y="145.0793" />
+                      <NodeObjectData Name="Panel_bubble_short" ActionTag="467" FrameEvent="" Tag="107" ObjectIndex="38" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" ctype="PanelObjectData">
+                        <Position X="120.6108" Y="145.231" />
                         <Scale ScaleX="1" ScaleY="1" />
                         <AnchorPoint />
                         <CColor A="255" R="255" G="255" B="255" />
                         <Size X="122" Y="97" />
-                        <PrePosition X="0.3125" Y="0.3778108" />
+                        <PrePosition X="0.3140906" Y="0.3782058" />
                         <PreSize X="0" Y="0" />
                         <Children>
-                          <NodeObjectData Name="Sprite_30" ActionTag="339" FrameEvent="" Tag="123" ObjectIndex="47" ctype="SpriteObjectData">
+                          <NodeObjectData Name="Sprite_30" ActionTag="468" FrameEvent="" Tag="108" ObjectIndex="70" ctype="SpriteObjectData">
                             <Position X="62.51097" Y="47.89432" />
                             <Scale ScaleX="1" ScaleY="1" />
                             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
                             <CColor A="255" R="255" G="255" B="255" />
                             <Size X="122" Y="97" />
-                            <PrePosition X="0.512385" Y="0.4937558" />
+                            <PrePosition X="0" Y="0" />
                             <PreSize X="0" Y="0" />
                             <FileData Type="Normal" Path="imgs/bubble/bubble_chat_small.png" />
                           </NodeObjectData>
-                          <NodeObjectData Name="Sprite_31" ActionTag="340" FrameEvent="" Tag="124" ObjectIndex="48" FlipX="True" ctype="SpriteObjectData">
-                            <Position X="115" Y="74.8942" />
+                          <NodeObjectData Name="Sprite_31" ActionTag="469" FrameEvent="" Tag="109" ObjectIndex="71" FlipX="True" ctype="SpriteObjectData">
+                            <Position X="114.8357" Y="74.61963" />
                             <Scale ScaleX="1" ScaleY="1" />
                             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
                             <CColor A="255" R="255" G="255" B="255" />
                             <Size X="14" Y="19" />
-                            <PrePosition X="0.942623" Y="0.7721051" />
+                            <PrePosition X="0.9412763" Y="0.7692745" />
                             <PreSize X="0" Y="0" />
                             <FileData Type="Normal" Path="imgs/bubble/bubble_img_6.png" />
                           </NodeObjectData>
-                          <NodeObjectData Name="Text" ActionTag="341" FrameEvent="" Tag="125" ObjectIndex="38" FontSize="36" LabelText="不叫" HorizontalAlignmentType="HT_Center" ctype="TextObjectData">
-                            <Position X="62.42859" Y="53.92761" />
+                          <NodeObjectData Name="NoCall" ActionTag="470" VisibleForFrame="False" FrameEvent="" Tag="110" ObjectIndex="72" ctype="SpriteObjectData">
+                            <Position X="60" Y="50" />
                             <Scale ScaleX="1" ScaleY="1" />
                             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
                             <CColor A="255" R="255" G="255" B="255" />
-                            <Size X="72" Y="57" />
+                            <Size X="67" Y="33" />
                             <PrePosition X="0" Y="0" />
                             <PreSize X="0" Y="0" />
+                            <FileData Type="Normal" Path="imgs/bubble/bubble_chat_call.png" />
+                          </NodeObjectData>
+                          <NodeObjectData Name="Num" ActionTag="471" VisibleForFrame="False" FrameEvent="" Tag="111" ObjectIndex="73" ctype="SpriteObjectData">
+                            <Position X="44.34851" Y="50.16943" />
+                            <Scale ScaleX="1" ScaleY="1" />
+                            <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <Size X="19" Y="28" />
+                            <PrePosition X="0" Y="0" />
+                            <PreSize X="0" Y="0" />
+                            <FileData Type="Normal" Path="imgs/bubble/bubble_num_1.png" />
+                          </NodeObjectData>
+                          <NodeObjectData Name="Score" ActionTag="472" VisibleForFrame="False" FrameEvent="" Tag="112" ObjectIndex="74" ctype="SpriteObjectData">
+                            <Position X="75.10553" Y="50.11948" />
+                            <Scale ScaleX="1" ScaleY="1" />
+                            <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <Size X="35" Y="34" />
+                            <PrePosition X="0" Y="0" />
+                            <PreSize X="0" Y="0" />
+                            <FileData Type="Normal" Path="imgs/bubble/bubble_num_score.png" />
                           </NodeObjectData>
                         </Children>
                         <SingleColor A="255" R="150" G="200" B="255" />
@@ -494,7 +536,7 @@
                         <PrePosition X="0.4302696" Y="0.4957023" />
                         <PreSize X="0.3177083" Y="0.2526042" />
                         <Children>
-                          <NodeObjectData Name="Sprite_30" CanEdit="False" ActionTag="353" FrameEvent="" Tag="137" ObjectIndex="51" ctype="SpriteObjectData">
+                          <NodeObjectData Name="Sprite_30" ActionTag="353" FrameEvent="" Tag="137" ObjectIndex="51" ctype="SpriteObjectData">
                             <Position X="62.51097" Y="47.89432" />
                             <Scale ScaleX="1" ScaleY="1" />
                             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -504,7 +546,7 @@
                             <PreSize X="0" Y="0" />
                             <FileData Type="Normal" Path="imgs/bubble/bubble_chat_small.png" />
                           </NodeObjectData>
-                          <NodeObjectData Name="Sprite_31" CanEdit="False" ActionTag="354" FrameEvent="" Tag="138" ObjectIndex="52" FlipY="True" ctype="SpriteObjectData">
+                          <NodeObjectData Name="Sprite_31" ActionTag="354" FrameEvent="" Tag="138" ObjectIndex="52" FlipY="True" ctype="SpriteObjectData">
                             <Position X="7.915817" Y="27.17588" />
                             <Scale ScaleX="1" ScaleY="1" />
                             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -514,14 +556,35 @@
                             <PreSize X="0" Y="0" />
                             <FileData Type="Normal" Path="imgs/bubble/bubble_img_6.png" />
                           </NodeObjectData>
-                          <NodeObjectData Name="Text" CanEdit="False" ActionTag="355" FrameEvent="" Tag="139" ObjectIndex="43" FontSize="36" LabelText="不叫" HorizontalAlignmentType="HT_Center" ctype="TextObjectData">
-                            <Position X="62.42859" Y="50.44817" />
+                          <NodeObjectData Name="NoCall" ActionTag="464" VisibleForFrame="False" FrameEvent="" Tag="104" ObjectIndex="67" ctype="SpriteObjectData">
+                            <Position X="60" Y="50" />
                             <Scale ScaleX="1" ScaleY="1" />
                             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
                             <CColor A="255" R="255" G="255" B="255" />
-                            <Size X="72" Y="57" />
-                            <PrePosition X="0.5117097" Y="0.5200842" />
+                            <Size X="67" Y="33" />
+                            <PrePosition X="0.4918033" Y="0.5154639" />
                             <PreSize X="0" Y="0" />
+                            <FileData Type="Normal" Path="imgs/bubble/bubble_chat_call.png" />
+                          </NodeObjectData>
+                          <NodeObjectData Name="Num" ActionTag="465" VisibleForFrame="False" FrameEvent="" Tag="105" ObjectIndex="68" ctype="SpriteObjectData">
+                            <Position X="44.34851" Y="50.16943" />
+                            <Scale ScaleX="1" ScaleY="1" />
+                            <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <Size X="19" Y="28" />
+                            <PrePosition X="0.3635124" Y="0.5172107" />
+                            <PreSize X="0" Y="0" />
+                            <FileData Type="Normal" Path="imgs/bubble/bubble_num_1.png" />
+                          </NodeObjectData>
+                          <NodeObjectData Name="Score" ActionTag="466" VisibleForFrame="False" FrameEvent="" Tag="106" ObjectIndex="69" ctype="SpriteObjectData">
+                            <Position X="75.10553" Y="50.11948" />
+                            <Scale ScaleX="1" ScaleY="1" />
+                            <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                            <CColor A="255" R="255" G="255" B="255" />
+                            <Size X="35" Y="34" />
+                            <PrePosition X="0.6156191" Y="0.5166957" />
+                            <PreSize X="0" Y="0" />
+                            <FileData Type="Normal" Path="imgs/bubble/bubble_num_score.png" />
                           </NodeObjectData>
                         </Children>
                         <SingleColor A="255" R="150" G="200" B="255" />
@@ -605,6 +668,136 @@
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
                 <PressedFileData Type="Normal" Path="imgs/button/slice53_53.png" />
                 <NormalFileData Type="Normal" Path="imgs/button/slice11_11.png" />
+              </NodeObjectData>
+              <NodeObjectData Name="BtnNoCall" ActionTag="439" VisibleForFrame="False" FrameEvent="" Tag="102" ObjectIndex="37" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="179" Scale9Height="106" ctype="ButtonObjectData">
+                <Position X="224.5901" Y="299.381" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <Size X="179" Y="106" />
+                <PrePosition X="0.2193262" Y="0.3898189" />
+                <PreSize X="0" Y="0" />
+                <Children>
+                  <NodeObjectData Name="Sprite_55" ActionTag="444" FrameEvent="" Tag="84" ObjectIndex="55" ctype="SpriteObjectData">
+                    <Position X="87.70061" Y="62.98495" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="67" Y="33" />
+                    <PrePosition X="0.4899475" Y="0.5941976" />
+                    <PreSize X="0" Y="0" />
+                    <FileData Type="Normal" Path="imgs/bubble/bubble_chat_call.png" />
+                  </NodeObjectData>
+                </Children>
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="imgs/button/btnGreen.png" />
+                <PressedFileData Type="Normal" Path="imgs/button/btnGreen.png" />
+                <NormalFileData Type="Normal" Path="imgs/button/btnBlue.png" />
+              </NodeObjectData>
+              <NodeObjectData Name="BtnOne" ActionTag="451" VisibleForFrame="False" FrameEvent="" Tag="103" ObjectIndex="44" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="179" Scale9Height="106" ctype="ButtonObjectData">
+                <Position X="527.4077" Y="302.1218" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <Size X="179" Y="106" />
+                <PrePosition X="0.5150466" Y="0.3933878" />
+                <PreSize X="0" Y="0" />
+                <Children>
+                  <NodeObjectData Name="Sprite_55_Copy" ActionTag="452" FrameEvent="" Tag="92" ObjectIndex="59" ctype="SpriteObjectData">
+                    <Position X="75.34778" Y="64.69104" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="19" Y="28" />
+                    <PrePosition X="0.4209373" Y="0.6102929" />
+                    <PreSize X="0.3743017" Y="0.3113208" />
+                    <FileData Type="Normal" Path="imgs/bubble/bubble_num_1.png" />
+                  </NodeObjectData>
+                  <NodeObjectData Name="Sprite_55_Copy_Copy" ActionTag="457" FrameEvent="" Tag="97" ObjectIndex="62" ctype="SpriteObjectData">
+                    <Position X="112.9322" Y="64.16546" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="35" Y="34" />
+                    <PrePosition X="0.6309063" Y="0.6053345" />
+                    <PreSize X="0" Y="0" />
+                    <FileData Type="Normal" Path="imgs/bubble/bubble_num_score.png" />
+                  </NodeObjectData>
+                </Children>
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="imgs/button/btnGreen.png" />
+                <PressedFileData Type="Normal" Path="imgs/button/btnGreen.png" />
+                <NormalFileData Type="Normal" Path="imgs/button/btnBlue.png" />
+              </NodeObjectData>
+              <NodeObjectData Name="BtnTwo" ActionTag="458" VisibleForFrame="False" FrameEvent="" Tag="104" ObjectIndex="47" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="179" Scale9Height="106" ctype="ButtonObjectData">
+                <Position X="717.6424" Y="298.8277" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <Size X="179" Y="106" />
+                <PrePosition X="0.7008227" Y="0.3890986" />
+                <PreSize X="0" Y="0" />
+                <Children>
+                  <NodeObjectData Name="Sprite_55" ActionTag="459" FrameEvent="" Tag="99" ObjectIndex="63" ctype="SpriteObjectData">
+                    <Position X="75.34778" Y="64.69104" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="20" Y="28" />
+                    <PrePosition X="0" Y="0" />
+                    <PreSize X="0" Y="0" />
+                    <FileData Type="Normal" Path="imgs/bubble/bubble_num_2.png" />
+                  </NodeObjectData>
+                  <NodeObjectData Name="Sprite_55_" ActionTag="460" FrameEvent="" Tag="100" ObjectIndex="64" ctype="SpriteObjectData">
+                    <Position X="112.9322" Y="64.16546" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="35" Y="34" />
+                    <PrePosition X="0" Y="0" />
+                    <PreSize X="0" Y="0" />
+                    <FileData Type="Normal" Path="imgs/bubble/bubble_num_score.png" />
+                  </NodeObjectData>
+                </Children>
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="imgs/button/btnGreen.png" />
+                <PressedFileData Type="Normal" Path="imgs/button/btnGreen.png" />
+                <NormalFileData Type="Normal" Path="imgs/button/btnBlue.png" />
+              </NodeObjectData>
+              <NodeObjectData Name="Btnhree" ActionTag="461" VisibleForFrame="False" FrameEvent="" Tag="105" ObjectIndex="48" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="179" Scale9Height="106" ctype="ButtonObjectData">
+                <Position X="910.3479" Y="298.0043" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <Size X="179" Y="106" />
+                <PrePosition X="0.8890116" Y="0.3880264" />
+                <PreSize X="0" Y="0" />
+                <Children>
+                  <NodeObjectData Name="Sprite" ActionTag="462" FrameEvent="" Tag="102" ObjectIndex="65" ctype="SpriteObjectData">
+                    <Position X="75.34778" Y="64.69104" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="19" Y="29" />
+                    <PrePosition X="0" Y="0" />
+                    <PreSize X="0" Y="0" />
+                    <FileData Type="Normal" Path="imgs/bubble/bubble_num_3.png" />
+                  </NodeObjectData>
+                  <NodeObjectData Name="Sprite_" ActionTag="463" FrameEvent="" Tag="103" ObjectIndex="66" ctype="SpriteObjectData">
+                    <Position X="112.9322" Y="64.16546" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="35" Y="34" />
+                    <PrePosition X="0" Y="0" />
+                    <PreSize X="0" Y="0" />
+                    <FileData Type="Normal" Path="imgs/bubble/bubble_num_score.png" />
+                  </NodeObjectData>
+                </Children>
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="imgs/button/btnGreen.png" />
+                <PressedFileData Type="Normal" Path="imgs/button/btnGreen.png" />
+                <NormalFileData Type="Normal" Path="imgs/button/btnBlue.png" />
               </NodeObjectData>
             </Children>
             <SingleColor A="255" R="150" G="200" B="255" />

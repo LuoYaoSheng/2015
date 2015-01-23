@@ -8,11 +8,14 @@
 
 #include "User.h"
 #include "Logic.h"
+#include "cocos2d.h"
+
+USING_NS_CC;
 
 User::User()
 {
     mLandlord = false;
-    mCallPoints = false;
+    mCallPoints = -10;
 }
 User::~User()
 {
@@ -38,4 +41,9 @@ void User::setUserCards(unsigned char cards[] )
 void User::sortCards()
 {
     Logic::SortCardList( mCurCards, 17);
+}
+
+void User::setCallPoints()
+{
+    mCallPoints = (int)(rand_0_1()*4-1);
 }

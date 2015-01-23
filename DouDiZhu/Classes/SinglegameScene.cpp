@@ -20,6 +20,10 @@ using namespace cocostudio::timeline;
 enum{
     PBubble_start = 100,
     PBubble_net ,
+    PBubble_noCall ,
+    PBubble_one ,
+    PBubble_two ,
+    PBubble_three ,
     PBubble_count,
 };
 
@@ -279,10 +283,15 @@ void SinglegameScene::PanelBubbleCallback(cocos2d::Ref* pSender, Widget::TouchEv
                 this->UI_update_basic( true );
             }
                 break;
-            default:
+                case PBubble_net:
             {
                 auto scene = LoginScene::createScene();
                 Director::getInstance()->runWithScene( scene );
+            }
+                break;
+            default:
+            {
+                CCLOG("测试");
             }
                 break;
         }
@@ -456,9 +465,11 @@ void SinglegameScene::publicCallback(Node* node)
 
     for (int idx = 51; idx < 54; idx++) {
         _threeCards[idx-51] = Sprite::create( "imgs/poker/cover_big.png" );
-        _threeCards[idx-51]->setPosition( Vec2( oX + (idx-51)*gap, size.height*0.5+30 ) );
+        _threeCards[idx-51]->setPosition( Vec2( oX + (idx-51)*gap, size.height*0.5+100 ) );
         this->addChild( _threeCards[idx-51] );
     }
+    
+    this->trunCallback( Robot::getInstance()->mTrun );
 }
 
 void SinglegameScene::smallCallback(Node* node)
@@ -481,6 +492,66 @@ void SinglegameScene::alertCallback(Node* node)
     Poker *sp = (Poker *)node;
     sp->updateImg( StringUtils::format("PokerPlist/poker%d.png", cards[ sp->getTag() ] ).c_str() );
     sp->Value = cards[ sp->Value ];
+}
+
+void SinglegameScene::trunCallback(int trun)
+{
+    int iMax = Robot::getInstance()->getMaxCallPoints();
+    int iLandlord = Robot::getInstance()->getLandlord();
+    
+    CCLOG("trun:%d iMax:%d iLandlord:%d", trun, iMax, iLandlord);
+    
+    
+    if ( iLandlord > 0 ) {
+        CCLOG("确定地主---%d", iLandlord);
+    }else{
+        int iTrum = trun > 2 ? 0:trun;
+        if ( iTrum == 2) {
+            
+            for (int idx = PBubble_noCall; idx < PBubble_count; idx++) {
+                auto item = static_cast<ui::Button*>(_Panel_Bubble->getChildByTag( idx ) );
+                item->setVisible( true );
+                
+                if ( idx != PBubble_noCall) {
+                    int index = idx - PBubble_noCall;
+                    if ( index <= iMax) {
+                        item->setBright(false);
+                        item->setTouchEnabled(false);
+                    }
+                }
+            }
+        }else{
+            
+            ui::Layout* Panel_bubble = static_cast<ui::Layout*>(  _Panel_Basic_User[ iTrum ]->getChildByName("Panel_bubble") );
+            Panel_bubble->setVisible( true );
+            
+            ui::Layout* Panel_bubble_short = static_cast<ui::Layout*>(  Panel_bubble->getChildByName("Panel_bubble_short") );
+            
+            auto noCall = static_cast<Sprite*>(  Panel_bubble_short->getChildByName("NoCall") );
+            auto num = static_cast<Sprite*>(  Panel_bubble_short->getChildByName("Num") );
+            auto score = static_cast<Sprite*>(  Panel_bubble_short->getChildByName("Score") );
+            
+            
+            Robot::getInstance()->mUser[ iTrum ]->setCallPoints();
+            int callPoints = Robot::getInstance()->mUser[ iTrum ]->mCallPoints;
+            if ( callPoints == 0 ) {
+                noCall->setVisible( true );
+            }else{
+                num->setVisible( true );
+                score->setVisible( true );
+                
+                Sprite * temp_obj = Sprite::create( StringUtils::format("imgs/bubble/bubble_num_%d.png", callPoints ).c_str() );
+                num->setTexture( temp_obj->getTexture() );
+            }
+
+            
+            CCLOG(" %d", Robot::getInstance()->mUser[ iTrum ]->mCallPoints );
+            this->trunCallback( trun+1 );
+        }
+        
+        
+        
+    }
 }
 
 #pragma mark - TouchLayer delegate

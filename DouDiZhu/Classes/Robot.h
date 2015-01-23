@@ -17,12 +17,14 @@ public:
     Robot();
     ~Robot();
     virtual bool init();
+    virtual int getMaxCallPoints();
+    virtual int getLandlord();
     
 public:
     User *mUser[3];
     unsigned char mThreeCards[3];
     int mTrun;
-    
+    int mMaxCallPoints;
     
 protected:
     int getTrun();

@@ -72,6 +72,8 @@ protected:
     void publicCallback(Node* node);
     void smallCallback(Node* node);
     
+    void trunCallback(int trun);
+    
 private:
     ui::Layout* _Panel_Basic;
     ui::Layout* _Panel_Basic_User[3];
