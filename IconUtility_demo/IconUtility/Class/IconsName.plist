@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>OSX</key>
+	<array>
+		<dict>
+			<key>Width</key>
+			<string>512</string>
+			<key>Hight</key>
+			<string>512</string>
+			<key>Name</key>
+			<string>Icon-512.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string>1024</string>
+			<key>Hight</key>
+			<string> 1024 </string>
+			<key>Name</key>
+			<string>Icon-512@2x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string>256</string>
+			<key>Hight</key>
+			<string>256</string>
+			<key>Name</key>
+			<string>Icon-256.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string>512</string>
+			<key>Hight</key>
+			<string>512</string>
+			<key>Name</key>
+			<string>Icon-256@2x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string>128</string>
+			<key>Hight</key>
+			<string>128</string>
+			<key>Name</key>
+			<string>Icon-64@.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string>128</string>
+			<key>Hight</key>
+			<string>128</string>
+			<key>Name</key>
+			<string>Icon-128.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string>256</string>
+			<key>Hight</key>
+			<string>256</string>
+			<key>Name</key>
+			<string>Icon-128@2x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string>32</string>
+			<key>Hight</key>
+			<string>32</string>
+			<key>Name</key>
+			<string>Icon-32.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string>64</string>
+			<key>Hight</key>
+			<string>64</string>
+			<key>Name</key>
+			<string>Icon-32@2x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string>16</string>
+			<key>Hight</key>
+			<string>16</string>
+			<key>Name</key>
+			<string>Icon-16.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string>32</string>
+			<key>Hight</key>
+			<string>32</string>
+			<key>Name</key>
+			<string>Icon-16@2x.png</string>
+		</dict>
+	</array>
+	<key>iPhone</key>
+	<array>
+		<dict>
+			<key>Width</key>
+			<string> 512 </string>
+			<key>Hight</key>
+			<string> 512 </string>
+			<key>Name</key>
+			<string>iTunesArtwork</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 1024 </string>
+			<key>Hight</key>
+			<string> 1024 </string>
+			<key>Name</key>
+			<string>iTunesArtwork@2x</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 60 </string>
+			<key>Hight</key>
+			<string> 60 </string>
+			<key>Name</key>
+			<string>icon-60.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 120 </string>
+			<key>Hight</key>
+			<string> 120 </string>
+			<key>Name</key>
+			<string>icon-60@2x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 180 </string>
+			<key>Hight</key>
+			<string> 180 </string>
+			<key>Name</key>
+			<string>icon-60@3x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 57 </string>
+			<key>Hight</key>
+			<string> 57 </string>
+			<key>Name</key>
+			<string>icon-57.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 114 </string>
+			<key>Hight</key>
+			<string> 114 </string>
+			<key>Name</key>
+			<string>icon-57@2x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 171 </string>
+			<key>Hight</key>
+			<string> 171 </string>
+			<key>Name</key>
+			<string>icon-57@3x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 40 </string>
+			<key>Hight</key>
+			<string> 40 </string>
+			<key>Name</key>
+			<string>icon-Spotlight-40.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 80 </string>
+			<key>Hight</key>
+			<string> 80 </string>
+			<key>Name</key>
+			<string>icon-Spotlight-40@2x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 120 </string>
+			<key>Hight</key>
+			<string> 120 </string>
+			<key>Name</key>
+			<string>icon-Spotlight-40@3x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 29 </string>
+			<key>Hight</key>
+			<string> 29 </string>
+			<key>Name</key>
+			<string>icon-Small-29.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 58 </string>
+			<key>Hight</key>
+			<string> 58 </string>
+			<key>Name</key>
+			<string>icon-Small-29@2x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 87 </string>
+			<key>Hight</key>
+			<string> 87 </string>
+			<key>Name</key>
+			<string>icon-Small-29@3x.png</string>
+		</dict>
+	</array>
+	<key>iPad</key>
+	<array>
+		<dict>
+			<key>Width</key>
+			<string> 512 </string>
+			<key>Hight</key>
+			<string> 512 </string>
+			<key>Name</key>
+			<string>iTunesArtwork</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 1024 </string>
+			<key>Hight</key>
+			<string> 1024 </string>
+			<key>Name</key>
+			<string>iTunesArtwork@2x</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 76 </string>
+			<key>Hight</key>
+			<string> 76 </string>
+			<key>Name</key>
+			<string>icon-76.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 152 </string>
+			<key>Hight</key>
+			<string> 152 </string>
+			<key>Name</key>
+			<string>icon-76@2x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 228 </string>
+			<key>Hight</key>
+			<string> 228 </string>
+			<key>Name</key>
+			<string>icon-76@3x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 72 </string>
+			<key>Hight</key>
+			<string> 72 </string>
+			<key>Name</key>
+			<string>icon-72.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 114 </string>
+			<key>Hight</key>
+			<string> 114 </string>
+			<key>Name</key>
+			<string>icon-72@2x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 216 </string>
+			<key>Hight</key>
+			<string> 216 </string>
+			<key>Name</key>
+			<string>icon-72@3x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 50 </string>
+			<key>Hight</key>
+			<string> 50 </string>
+			<key>Name</key>
+			<string>icon-Small-50.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 100 </string>
+			<key>Hight</key>
+			<string> 100 </string>
+			<key>Name</key>
+			<string>icon-Small-50@2x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 150 </string>
+			<key>Hight</key>
+			<string> 150 </string>
+			<key>Name</key>
+			<string>icon-Small-50@3x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 40 </string>
+			<key>Hight</key>
+			<string> 40 </string>
+			<key>Name</key>
+			<string>icon-Spotlight-40.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 80 </string>
+			<key>Hight</key>
+			<string> 80 </string>
+			<key>Name</key>
+			<string>icon-Spotlight-40@2x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 120 </string>
+			<key>Hight</key>
+			<string> 120 </string>
+			<key>Name</key>
+			<string>icon-Spotlight-40@3x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 29 </string>
+			<key>Hight</key>
+			<string> 29 </string>
+			<key>Name</key>
+			<string>icon-Small-29.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 58 </string>
+			<key>Hight</key>
+			<string> 58 </string>
+			<key>Name</key>
+			<string>icon-Small-29@2x.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 87 </string>
+			<key>Hight</key>
+			<string> 87 </string>
+			<key>Name</key>
+			<string>icon-Small-29@3x.png</string>
+		</dict>
+	</array>
+	<key>Android</key>
+	<array>
+		<dict>
+			<key>Width</key>
+			<string> 19 </string>
+			<key>Hight</key>
+			<string> 19 </string>
+			<key>Name</key>
+			<string>icon-19.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 24 </string>
+			<key>Hight</key>
+			<string> 24 </string>
+			<key>Name</key>
+			<string>icon-24.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 25 </string>
+			<key>Hight</key>
+			<string> 25 </string>
+			<key>Name</key>
+			<string>icon-25.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 32 </string>
+			<key>Hight</key>
+			<string> 32 </string>
+			<key>Name</key>
+			<string>icon-32.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 36 </string>
+			<key>Hight</key>
+			<string> 36 </string>
+			<key>Name</key>
+			<string>icon-36.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 38 </string>
+			<key>Hight</key>
+			<string> 38 </string>
+			<key>Name</key>
+			<string>icon-38.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 48 </string>
+			<key>Hight</key>
+			<string> 48 </string>
+			<key>Name</key>
+			<string>icon-48.png</string>
+		</dict>
+		<dict>
+			<key>Width</key>
+			<string> 72 </string>
+			<key>Hight</key>
+			<string> 72 </string>
+			<key>Name</key>
+			<string>icon-72.png</string>
+		</dict>
+	</array>
+</dict>
+</plist>
