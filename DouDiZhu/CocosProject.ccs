@@ -54,6 +54,7 @@
             <Image Name="imgPortraitLandlord.png" />
             <Image Name="imgPortraitNull.png" />
             <Image Name="slice12_12.png" />
+            <Image Name="yellow.png" />
           </Folder>
           <Folder Name="button">
             <Image Name="btnBlue.png" />

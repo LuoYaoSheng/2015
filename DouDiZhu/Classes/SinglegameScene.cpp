@@ -11,7 +11,6 @@
 #include "ui/CocosGUI.h"
 #include "LoginScene.h"
 #include "WelcomeScene.h"
-#include "Robot.h"
 #include "Logic.h"
 
 USING_NS_CC;
@@ -56,7 +55,6 @@ static bool dsc(const Poker *p1, Poker *p2)
     int v1 = Logic::GetCardLogicValue( p1->Value );
     int v2 = Logic::GetCardLogicValue( p2->Value );
     
-    
     return v1 > v2;
 }
 
@@ -86,8 +84,9 @@ bool SinglegameScene::init()
     {
         return false;
     }
-    
-    
+
+    _robot = new Robot();
+    _robot->init();
     
     auto rootNode = CSLoader::createNode("SinglegameScene.csb");
     addChild(rootNode);
@@ -223,7 +222,9 @@ void SinglegameScene::ToolbarCallback(cocos2d::Ref* pSender, Widget::TouchEventT
         switch ( btn->getTag() ) {
             case ToolBar_msg:
             {
-                _Panel_Msg->setVisible( true );
+//                _Panel_Msg->setVisible( true );
+                auto scene = SinglegameScene::createScene();
+                Director::getInstance()->runWithScene( scene );
             }
                 break;
             case ToolBar_robot:
@@ -317,7 +318,7 @@ void SinglegameScene::PanelBubbleCallback(cocos2d::Ref* pSender, Widget::TouchEv
             case PBubble_two:
             case PBubble_three:
             {
-                Robot::getInstance()->mUser[2]->mCallPoints = btn->getTag() - PBubble_noCall;
+                _robot->mUser[2]->mCallPoints = btn->getTag() - PBubble_noCall;
                 this->trunCallback( 0 );
             }
                 break;
@@ -375,9 +376,7 @@ void SinglegameScene::UI_update_basic(bool isStart)
     
 
     //初始化处理~~~
-    Robot::getInstance()->init();
-    
-    
+
     float dt = 0.23;
     //播放发牌动画
     for (int idx = 0; idx < 52; idx++) {
@@ -423,7 +422,7 @@ void SinglegameScene::UI_update_basic(bool isStart)
                 break;
             default:
             {
-                int value = Robot::getInstance()->mUser[ 2 ]->mCurCards[ idx/3 ];
+                int value = _robot->mUser[ 2 ]->mCurCards[ idx/3 ];
                 Poker *poker = Poker::createPoker( StringUtils::format("PokerPlist/poker%d.png", value ).c_str()  );
                 poker->setTag( idx/3 );
                 poker->Value = value;
@@ -474,7 +473,7 @@ void SinglegameScene::showCallback(Node* node)
 }
 void SinglegameScene::settleCallback(Node* node)
 {
-    Robot::getInstance()->mUser[2]->sortCards();
+    _robot->mUser[2]->sortCards();
 
     Size size = Director::getInstance()->getWinSize();
     for (auto sp : _vector) {
@@ -502,7 +501,7 @@ void SinglegameScene::publicCallback(Node* node)
         this->addChild( _threeCards[idx-51] );
     }
     
-    this->trunCallback( Robot::getInstance()->mTrun );
+    this->trunCallback( _robot->mTrun );
 }
 
 void SinglegameScene::smallCallback(Node* node)
@@ -513,20 +512,37 @@ void SinglegameScene::smallCallback(Node* node)
 
 void SinglegameScene::alertCallback(Node* node)
 {
-    unsigned char *cards = Robot::getInstance()->mUser[2]->mCurCards;
+    unsigned char *cards = _robot->mUser[2]->mCurCards;
     
     Poker *sp = (Poker *)node;
     sp->updateImg( StringUtils::format("PokerPlist/poker%d.png", cards[ sp->getTag() ] ).c_str() );
-    sp->Value = cards[ sp->Value ];
+    sp->Value = cards[ sp->getTag() ];
 }
 
 void SinglegameScene::trunCallback(int trun)
 {
-    int iMax = Robot::getInstance()->getMaxCallPoints();
-    int iLandlord = Robot::getInstance()->getLandlord();
+    int iMax = _robot->getMaxCallPoints();
+    int iLandlord = _robot->getLandlord();
     
-    if ( iLandlord > 0 ) {
-        CCLOG("确定地主---%d", iLandlord);
+    if ( iLandlord >= 0 ) {
+
+        _robot->mTrun = iLandlord; //重置用户操作顺序
+
+        auto Panel_Head = static_cast<ui::Layout*>( _Panel_Basic_User[ iLandlord ]->getChildByName("Panel_Head") );
+        auto BtnHead = static_cast<ui::Button*>( Panel_Head->getChildByName("BtnHead") );
+        auto sp = Sprite::create( "imgs/portrait/imgPortraitLandlord.png"  );
+        auto head = static_cast<Sprite*>( BtnHead->getChildByName("head") );
+        head->removeFromParent();
+        sp->setPosition( head->getPosition() );
+        sp->setName("head");
+        BtnHead->addChild( sp );
+        
+        auto yellow = static_cast<ui::Layout*>( Panel_Head->getChildByName("Yellow") );
+        yellow->setVisible( true );
+        auto bllink = Blink::create( 1, 1);
+        auto repeate = Repeat::create(bllink, 10000);
+        yellow->runAction( repeate );
+    
         
         for (int idx = PBubble_noCall; idx < PBubble_count; idx++) {
             auto item = static_cast<ui::Button*>(_Panel_Bubble->getChildByTag( idx ) );
@@ -535,7 +551,7 @@ void SinglegameScene::trunCallback(int trun)
         
         for (int idx = 0; idx < 3; idx++) {
             
-            Sprite *sp = Sprite::create( StringUtils::format("PokerPlist/poker%d.png", Robot::getInstance()->mThreeCards[ idx ]  ).c_str() );
+            Sprite *sp = Sprite::create( StringUtils::format("PokerPlist/poker%d.png", _robot->mThreeCards[ idx ]  ).c_str() );
             _threeCards[ idx ]->setTexture( sp->getTexture() ) ;
             
             auto delay = DelayTime::create( 0.5 );
@@ -548,41 +564,38 @@ void SinglegameScene::trunCallback(int trun)
             _threeCards[ idx ]->runAction( sqe );
         }
         
-        if ( Robot::getInstance()->mUser[2]->mLandlord ) {
-            unsigned char *cards = Robot::getInstance()->mUser[2]->mCurCards;
+        if ( _robot->mUser[2]->mLandlord ) {
+            unsigned char *cards = _robot->mUser[2]->mCurCards;
             for (int idx = 0; idx < 3; idx++) {
-                cards[17+idx] = Robot::getInstance()->mThreeCards[ idx ];
-                int value = Robot::getInstance()->mThreeCards[ idx ];
+                cards[17+idx] = _robot->mThreeCards[ idx ];
+                int value = _robot->mThreeCards[ idx ];
                 Poker *poker = Poker::createPoker( StringUtils::format("PokerPlist/poker%d.png", value ).c_str()  );
                 poker->setTag( idx+17 );
                 poker->Value = value;
                 this->addChild( poker );
                 _vector.pushBack( poker );
             }
-            Robot::getInstance()->mUser[2]->setUserCards( cards, 20);
-            Robot::getInstance()->mUser[2]->sortCards();
+            _robot->mUser[2]->setUserCards( cards, 20);
+            _robot->mUser[2]->sortCards();
             
             std::sort( _vector.begin(), _vector.end(), dsc);
-            
             for (int idx = 0; idx < 20; idx++) {
                 
                 auto sp = _vector.at( idx );
                 sp->setPosition( Vec2( 77 + 46* idx, 120.00 ) );
                 sp->setZOrder( idx );
                 
-            }
-            
-            
+                if ( sp->Value == _robot->mThreeCards[0] || sp->Value == _robot->mThreeCards[1] || sp->Value == _robot->mThreeCards[2]) {
 
-            
-            //获得地主
-            
-            
-            
+                    Vec2 pt = sp->getPosition();
+                    sp->setPosition( Vec2( pt.x, pt.y + 30 ) );
+
+                    auto jump = JumpTo::create(0.4, pt, 60, 1);
+                    sp->runAction( jump );
+                }
+            }
         }
-        _bCanTouch = true;
-        
-        
+
         for (int idx = 0; idx < 3; idx++) {
             ui::Layout* Panel_bubble = static_cast<ui::Layout*>(  _Panel_Basic_User[ idx ]->getChildByName("Panel_bubble") );
             Panel_bubble->setVisible( true );
@@ -609,6 +622,9 @@ void SinglegameScene::trunCallback(int trun)
         reset->setVisible( true );
         hint->setVisible( true );
         pull->setVisible( true );
+        
+        
+        _bCanTouch = true;
         
         
         
@@ -641,8 +657,8 @@ void SinglegameScene::trunCallback(int trun)
             auto score = static_cast<Sprite*>(  Panel_bubble_short->getChildByName("Score") );
             
             
-            Robot::getInstance()->mUser[ iTrum ]->setCallPoints();
-            int callPoints = Robot::getInstance()->mUser[ iTrum ]->mCallPoints;
+            _robot->mUser[ iTrum ]->setCallPoints();
+            int callPoints = _robot->mUser[ iTrum ]->mCallPoints;
             if ( callPoints == 0 ) {
                 noCall->setVisible( true );
             }else{

@@ -16,6 +16,7 @@
 #include "extensions/cocos-ext.h"
 #include "TouchLayer.h"
 #include "Poker.h"
+#include "Robot.h"
 
 
 USING_NS_CC;
@@ -101,6 +102,8 @@ private:
     Vector<Poker*> _vector;
     Sprite *_threeCards[3];
     bool _bCanTouch;
+    
+    Robot *_robot;
     
 };
 

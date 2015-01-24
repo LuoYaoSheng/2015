@@ -43,11 +43,10 @@ void User::setUserCards(unsigned char cards[] , int count)
 
 void User::sortCards()
 {
-    CCLOG("-----%d",_iLeft);
     Logic::SortCardList( mCurCards, _iLeft);
 }
 
 void User::setCallPoints()
 {
-    mCallPoints = (int)(rand_0_1()*4-1);
+    mCallPoints = (int)(rand_0_1()*4);
 }

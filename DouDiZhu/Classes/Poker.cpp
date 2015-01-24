@@ -10,7 +10,7 @@
 
 USING_NS_CC;
 
-#define HIGHT_UP    80
+#define HIGHT_UP    40
 
 Poker::~Poker(){
     

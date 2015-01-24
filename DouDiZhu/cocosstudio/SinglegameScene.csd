@@ -41,14 +41,24 @@
                 <PreSize X="0.5" Y="0.5" />
                 <Children>
                   <NodeObjectData Name="Panel_Head" ActionTag="367" FrameEvent="" Tag="151" ObjectIndex="34" TouchEnable="True" BackColorAlpha="0" ComboBoxIndex="1" ColorAngle="90" ctype="PanelObjectData">
-                    <Position X="10" Y="260" />
+                    <Position X="17.6073" Y="243.2602" />
                     <Scale ScaleX="1" ScaleY="1" />
                     <AnchorPoint />
                     <CColor A="255" R="255" G="255" B="255" />
                     <Size X="120" Y="120" />
-                    <PrePosition X="0.01953125" Y="0.6770833" />
+                    <PrePosition X="0.03438926" Y="0.6334901" />
                     <PreSize X="0.234375" Y="0.3125" />
                     <Children>
+                      <NodeObjectData Name="Yellow" ActionTag="562" VisibleForFrame="False" FrameEvent="" Tag="106" ObjectIndex="87" ctype="SpriteObjectData">
+                        <Position X="60.62027" Y="60.4231" />
+                        <Scale ScaleX="1" ScaleY="1" />
+                        <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <Size X="140" Y="140" />
+                        <PrePosition X="0.5051689" Y="0.5035258" />
+                        <PreSize X="0" Y="0" />
+                        <FileData Type="Normal" Path="imgs/portrait/yellow.png" />
+                      </NodeObjectData>
                       <NodeObjectData Name="BtnHead" ActionTag="97" FrameEvent="" Tag="28" ObjectIndex="11" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="120" Scale9Height="119" ctype="ButtonObjectData">
                         <Position X="60" Y="60" />
                         <Scale ScaleX="1" ScaleY="1" />
@@ -81,59 +91,59 @@
                     <ColorVector ScaleY="1" />
                   </NodeObjectData>
                   <NodeObjectData Name="name" ActionTag="98" FrameEvent="" Tag="29" ObjectIndex="1" FontSize="20" LabelText="文西" IsCustomSize="True" ctype="TextObjectData">
-                    <Position X="113.091" Y="243.4997" />
+                    <Position X="120.6991" Y="226.7596" />
                     <Scale ScaleX="1" ScaleY="1" />
                     <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <Size X="200" Y="32" />
-                    <PrePosition X="0.2208808" Y="0.6341138" />
+                    <PrePosition X="0.2357404" Y="0.5905198" />
                     <PreSize X="0.8333333" Y="0.1333333" />
                   </NodeObjectData>
                   <NodeObjectData Name="level" ActionTag="99" FrameEvent="" Tag="30" ObjectIndex="2" FontSize="20" LabelText="长工" IsCustomSize="True" ctype="TextObjectData">
-                    <Position X="113.091" Y="214.6407" />
+                    <Position X="120.6991" Y="197.9004" />
                     <Scale ScaleX="1" ScaleY="1" />
                     <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
                     <CColor A="255" R="17" G="119" B="240" />
                     <Size X="200" Y="32" />
-                    <PrePosition X="0.2208808" Y="0.5589603" />
+                    <PrePosition X="0.2357404" Y="0.5153655" />
                     <PreSize X="0.8333333" Y="0.1333333" />
                   </NodeObjectData>
                   <NodeObjectData Name="ok" ActionTag="130" FrameEvent="" Tag="43" ObjectIndex="14" ctype="SpriteObjectData">
-                    <Position X="196.0919" Y="209.2709" />
+                    <Position X="203.6993" Y="192.5313" />
                     <Scale ScaleX="1" ScaleY="1" />
                     <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <Size X="49" Y="49" />
-                    <PrePosition X="0.3829919" Y="0.5449764" />
+                    <PrePosition X="0.3978503" Y="0.5013837" />
                     <PreSize X="0" Y="0" />
                     <FileData Type="Normal" Path="imgs/layout/imgLayoutOk.png" />
                   </NodeObjectData>
                   <NodeObjectData Name="score" ActionTag="174" FrameEvent="" Tag="51" ObjectIndex="8" FontSize="20" LabelText="1399" IsCustomSize="True" ctype="TextObjectData">
-                    <Position X="113.091" Y="181.9474" />
+                    <Position X="120.6991" Y="165.2072" />
                     <Scale ScaleX="1" ScaleY="1" />
                     <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
                     <CColor A="255" R="215" G="53" B="31" />
                     <Size X="200" Y="32" />
-                    <PrePosition X="0.2208808" Y="0.4738213" />
+                    <PrePosition X="0.2357404" Y="0.4302272" />
                     <PreSize X="0.8333333" Y="0.1333333" />
                   </NodeObjectData>
                   <NodeObjectData Name="pork" ActionTag="220" VisibleForFrame="False" FrameEvent="" Tag="51" ObjectIndex="21" ctype="SpriteObjectData">
-                    <Position X="22.07271" Y="172.7498" />
+                    <Position X="29.68021" Y="156.0099" />
                     <Scale ScaleX="0.4" ScaleY="0.4" />
                     <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <Size X="101" Y="140" />
-                    <PrePosition X="0.04311076" Y="0.4498693" />
+                    <PrePosition X="0.05796915" Y="0.4062757" />
                     <PreSize X="0" Y="0" />
                     <FileData Type="Normal" Path="imgs/poker/cover_small.png" />
                   </NodeObjectData>
                   <NodeObjectData Name="pokerNum" ActionTag="221" VisibleForFrame="False" FrameEvent="" Tag="52" ObjectIndex="15" FontSize="36" LabelText="17" IsCustomSize="True" ctype="TextObjectData">
-                    <Position X="85.26999" Y="174.6897" />
+                    <Position X="92.87732" Y="157.9496" />
                     <Scale ScaleX="1" ScaleY="1" />
                     <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
                     <CColor A="255" R="230" G="169" B="15" />
                     <Size X="80" Y="32" />
-                    <PrePosition X="0.1665429" Y="0.454921" />
+                    <PrePosition X="0.181401" Y="0.411327" />
                     <PreSize X="0.3333333" Y="0.1333333" />
                   </NodeObjectData>
                   <NodeObjectData Name="Panel_bubble" ActionTag="276" VisibleForFrame="False" FrameEvent="" Tag="60" ObjectIndex="20" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" ctype="PanelObjectData">
@@ -240,6 +250,16 @@
                     <PrePosition X="0.7226563" Y="0.6236731" />
                     <PreSize X="0" Y="0" />
                     <Children>
+                      <NodeObjectData Name="Yellow" ActionTag="563" VisibleForFrame="False" FrameEvent="" Tag="107" ObjectIndex="88" ctype="SpriteObjectData">
+                        <Position X="59.09912" Y="61.94635" />
+                        <Scale ScaleX="1" ScaleY="1" />
+                        <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <Size X="140" Y="140" />
+                        <PrePosition X="0.4924927" Y="0.5162196" />
+                        <PreSize X="0" Y="0" />
+                        <FileData Type="Normal" Path="imgs/portrait/yellow.png" />
+                      </NodeObjectData>
                       <NodeObjectData Name="BtnHead" ActionTag="369" FrameEvent="" Tag="153" ObjectIndex="34" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="120" Scale9Height="119" ctype="ButtonObjectData">
                         <Position X="60" Y="60" />
                         <Scale ScaleX="1" ScaleY="1" />
@@ -431,6 +451,16 @@
                     <PrePosition X="0.3320313" Y="0.3125" />
                     <PreSize X="0" Y="0" />
                     <Children>
+                      <NodeObjectData Name="Yellow" ActionTag="564" VisibleForFrame="False" FrameEvent="" Tag="108" ObjectIndex="89" ctype="SpriteObjectData">
+                        <Position X="60" Y="60" />
+                        <Scale ScaleX="1" ScaleY="1" />
+                        <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                        <CColor A="255" R="255" G="255" B="255" />
+                        <Size X="140" Y="140" />
+                        <PrePosition X="0.5" Y="0.5" />
+                        <PreSize X="0" Y="0" />
+                        <FileData Type="Normal" Path="imgs/portrait/yellow.png" />
+                      </NodeObjectData>
                       <NodeObjectData Name="BtnHead" CanEdit="False" ActionTag="375" FrameEvent="" Tag="159" ObjectIndex="36" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="120" Scale9Height="119" ctype="ButtonObjectData">
                         <Position X="60" Y="60" />
                         <Scale ScaleX="1" ScaleY="1" />
@@ -610,7 +640,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1" />
           </NodeObjectData>
-          <NodeObjectData Name="Panel_Bubble" ActionTag="362" FrameEvent="" Tag="146" ObjectIndex="33" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" ctype="PanelObjectData">
+          <NodeObjectData Name="Panel_Bubble" ActionTag="362" Visible="False" FrameEvent="" Tag="146" ObjectIndex="33" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" ctype="PanelObjectData">
             <Position X="512" Y="384" />
             <Scale ScaleX="1" ScaleY="1" />
             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -930,7 +960,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1" />
           </NodeObjectData>
-          <NodeObjectData Name="Toolbar" ActionTag="68" FrameEvent="" Tag="100" ObjectIndex="1" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
+          <NodeObjectData Name="Toolbar" ActionTag="68" Visible="False" FrameEvent="" Tag="100" ObjectIndex="1" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" Scale9Enable="True" ctype="PanelObjectData">
             <Position X="162" Y="678" />
             <Scale ScaleX="1" ScaleY="1" />
             <AnchorPoint />

@@ -62,6 +62,12 @@ int Robot::getLandlord()
     int landlord = -1;
     for (int idx = 0; idx < 3; idx++) {
 
+        if ( 3 == mUser[ idx ]->mCallPoints ) {
+            landlord = idx;
+            mUser[ idx ]->mLandlord = true;
+            return landlord;
+        }
+        
         if ( mUser[ idx ]->mCallPoints < 0) {
             return -1;
         }
@@ -69,16 +75,11 @@ int Robot::getLandlord()
     
     for (int idx = 0; idx < 3; idx++) {
         
-        if ( 3 == mUser[ idx ]->mCallPoints ) {
-            landlord = idx;
-            mUser[ idx ]->mLandlord = true;
-            break;
-        }
-        
+
         if ( mMaxCallPoints == mUser[ idx ]->mCallPoints ) {
             landlord = idx;
             mUser[ idx ]->mLandlord = true;
-            break;
+            return landlord;
         }
     }
     
