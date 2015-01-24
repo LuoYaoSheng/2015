@@ -27,6 +27,6 @@ enum{
 #define ICON_HIGHT   280
 
 #define FILENAMELIST            @[@"OSX",@"iPhone",@"iPad",@"Android"]
-#define DefaultDirectoryName    @"图标生成"
+#define DefaultDirectoryName    @"图片生成"
 
 #endif

@@ -12,6 +12,7 @@
 #include "LoginScene.h"
 #include "WelcomeScene.h"
 #include "Robot.h"
+#include "Logic.h"
 
 USING_NS_CC;
 
@@ -24,6 +25,12 @@ enum{
     PBubble_one ,
     PBubble_two ,
     PBubble_three ,
+    
+    PBubble_check ,
+    PBubble_reset ,
+    PBubble_hint ,
+    PBubble_pull ,
+    
     PBubble_count,
 };
 
@@ -43,6 +50,15 @@ enum{
     PBM_back ,
 };
 
+
+static bool dsc(const Poker *p1, Poker *p2)
+{
+    int v1 = Logic::GetCardLogicValue( p1->Value );
+    int v2 = Logic::GetCardLogicValue( p2->Value );
+    
+    
+    return v1 > v2;
+}
 
 
 
@@ -115,6 +131,11 @@ bool SinglegameScene::init()
     
     _bCanTouch = false;
     
+    auto startItem = static_cast<ui::Button*>(_Panel_Bubble->getChildByName("BtnStart"));
+    auto netItem = static_cast<ui::Button*>(_Panel_Bubble->getChildByName("BtnNet"));
+    startItem->setVisible( true );
+    netItem->setVisible( true );
+    
     return true;
 }
 
@@ -176,6 +197,7 @@ void SinglegameScene::Listener_PanelBubble()
     for (int idx = PBubble_start; idx < PBubble_count; idx++) {
         auto item = static_cast<ui::Button*>(_Panel_Bubble->getChildByTag( idx ) );
         item->addTouchEventListener(CC_CALLBACK_2(SinglegameScene::PanelBubbleCallback, this));
+        item->setVisible(false);
     }
 }
 
@@ -289,9 +311,20 @@ void SinglegameScene::PanelBubbleCallback(cocos2d::Ref* pSender, Widget::TouchEv
                 Director::getInstance()->runWithScene( scene );
             }
                 break;
+                
+            case PBubble_noCall:
+            case PBubble_one:
+            case PBubble_two:
+            case PBubble_three:
+            {
+                Robot::getInstance()->mUser[2]->mCallPoints = btn->getTag() - PBubble_noCall;
+                this->trunCallback( 0 );
+            }
+                break;
+                
             default:
             {
-                CCLOG("测试");
+                CCLOG("--------");
             }
                 break;
         }
@@ -306,8 +339,8 @@ void SinglegameScene::UI_update_basic(bool isStart)
     //提示按钮去除
     auto startItem = static_cast<ui::Button*>(_Panel_Bubble->getChildByName("BtnStart"));
     auto netItem = static_cast<ui::Button*>(_Panel_Bubble->getChildByName("BtnNet"));
-    startItem->setVisible( !isStart );
-    netItem->setVisible( !isStart );
+    startItem->setVisible( false );
+    netItem->setVisible( false );
     
     //ok去除
     for (int idx = 0; idx < 3; idx++) {
@@ -474,14 +507,7 @@ void SinglegameScene::publicCallback(Node* node)
 
 void SinglegameScene::smallCallback(Node* node)
 {
-//    auto delay = DelayTime::create( 0.3 );
-//    auto to = MoveTo::create( 0.3, Vec2(446+(idx-51)*47, 730) );
-//    auto scale = ScaleTo::create( 0.3, 0.3);
-//    auto fadeIn = FadeIn::create( 0.4 );
-//    auto que = Spawn::create( to ,scale, fadeIn, NULL);
-//    auto callFuncAction = CallFuncN::create( CC_CALLBACK_1(SinglegameScene::smallCallback, this) );
-//    auto sqe = Sequence::create( delay, que, callFuncAction,  NULL);
-//    poker->runAction( sqe );
+    
 }
 
 
@@ -499,16 +525,99 @@ void SinglegameScene::trunCallback(int trun)
     int iMax = Robot::getInstance()->getMaxCallPoints();
     int iLandlord = Robot::getInstance()->getLandlord();
     
-    CCLOG("trun:%d iMax:%d iLandlord:%d", trun, iMax, iLandlord);
-    
-    
     if ( iLandlord > 0 ) {
         CCLOG("确定地主---%d", iLandlord);
+        
+        for (int idx = PBubble_noCall; idx < PBubble_count; idx++) {
+            auto item = static_cast<ui::Button*>(_Panel_Bubble->getChildByTag( idx ) );
+            item->setVisible( false );
+        }
+        
+        for (int idx = 0; idx < 3; idx++) {
+            
+            Sprite *sp = Sprite::create( StringUtils::format("PokerPlist/poker%d.png", Robot::getInstance()->mThreeCards[ idx ]  ).c_str() );
+            _threeCards[ idx ]->setTexture( sp->getTexture() ) ;
+            
+            auto delay = DelayTime::create( 0.5 );
+            auto to = MoveTo::create( 0.3, Vec2(446+idx*47, 730) );
+            auto scale = ScaleTo::create( 0.3, 0.3);
+            auto fadeIn = FadeIn::create( 0.4 );
+            auto que = Spawn::create( to ,scale, fadeIn, NULL);
+            auto callFuncAction = CallFuncN::create( CC_CALLBACK_1(SinglegameScene::smallCallback, this) );
+            auto sqe = Sequence::create( delay, que, callFuncAction,  NULL);
+            _threeCards[ idx ]->runAction( sqe );
+        }
+        
+        if ( Robot::getInstance()->mUser[2]->mLandlord ) {
+            unsigned char *cards = Robot::getInstance()->mUser[2]->mCurCards;
+            for (int idx = 0; idx < 3; idx++) {
+                cards[17+idx] = Robot::getInstance()->mThreeCards[ idx ];
+                int value = Robot::getInstance()->mThreeCards[ idx ];
+                Poker *poker = Poker::createPoker( StringUtils::format("PokerPlist/poker%d.png", value ).c_str()  );
+                poker->setTag( idx+17 );
+                poker->Value = value;
+                this->addChild( poker );
+                _vector.pushBack( poker );
+            }
+            Robot::getInstance()->mUser[2]->setUserCards( cards, 20);
+            Robot::getInstance()->mUser[2]->sortCards();
+            
+            std::sort( _vector.begin(), _vector.end(), dsc);
+            
+            for (int idx = 0; idx < 20; idx++) {
+                
+                auto sp = _vector.at( idx );
+                sp->setPosition( Vec2( 77 + 46* idx, 120.00 ) );
+                sp->setZOrder( idx );
+                
+            }
+            
+            
+
+            
+            //获得地主
+            
+            
+            
+        }
+        _bCanTouch = true;
+        
+        
+        for (int idx = 0; idx < 3; idx++) {
+            ui::Layout* Panel_bubble = static_cast<ui::Layout*>(  _Panel_Basic_User[ idx ]->getChildByName("Panel_bubble") );
+            Panel_bubble->setVisible( true );
+            
+            ui::Layout* Panel_bubble_short = static_cast<ui::Layout*>(  Panel_bubble->getChildByName("Panel_bubble_short") );
+            Panel_bubble_short->setVisible( false );
+            
+            auto noCall = static_cast<Sprite*>(  Panel_bubble_short->getChildByName("NoCall") );
+            auto num = static_cast<Sprite*>(  Panel_bubble_short->getChildByName("Num") );
+            auto score = static_cast<Sprite*>(  Panel_bubble_short->getChildByName("Score") );
+
+            noCall->setVisible( false );
+            num->setVisible( false );
+            score->setVisible( false );
+        }
+
+        //出牌操作
+        auto check = static_cast<Sprite*>(  _Panel_Bubble->getChildByName("BtnCheck") );
+        auto reset = static_cast<Sprite*>(  _Panel_Bubble->getChildByName("BtnReset") );
+        auto hint = static_cast<Sprite*>(  _Panel_Bubble->getChildByName("BtnHint") );
+        auto pull = static_cast<Sprite*>(  _Panel_Bubble->getChildByName("BtnPull") );
+        
+        check->setVisible( true );
+        reset->setVisible( true );
+        hint->setVisible( true );
+        pull->setVisible( true );
+        
+        
+        
+        
     }else{
         int iTrum = trun > 2 ? 0:trun;
         if ( iTrum == 2) {
             
-            for (int idx = PBubble_noCall; idx < PBubble_count; idx++) {
+            for (int idx = PBubble_noCall; idx < PBubble_check; idx++) {
                 auto item = static_cast<ui::Button*>(_Panel_Bubble->getChildByTag( idx ) );
                 item->setVisible( true );
                 
@@ -544,13 +653,8 @@ void SinglegameScene::trunCallback(int trun)
                 num->setTexture( temp_obj->getTexture() );
             }
 
-            
-            CCLOG(" %d", Robot::getInstance()->mUser[ iTrum ]->mCallPoints );
             this->trunCallback( trun+1 );
         }
-        
-        
-        
     }
 }
 

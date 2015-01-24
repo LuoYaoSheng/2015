@@ -610,7 +610,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1" />
           </NodeObjectData>
-          <NodeObjectData Name="Panel_Bubble" ActionTag="362" Visible="False" FrameEvent="" Tag="146" ObjectIndex="33" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" ctype="PanelObjectData">
+          <NodeObjectData Name="Panel_Bubble" ActionTag="362" FrameEvent="" Tag="146" ObjectIndex="33" TouchEnable="True" BackColorAlpha="0" ColorAngle="90" ctype="PanelObjectData">
             <Position X="512" Y="384" />
             <Scale ScaleX="1" ScaleY="1" />
             <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
@@ -792,6 +792,106 @@
                     <PrePosition X="0" Y="0" />
                     <PreSize X="0" Y="0" />
                     <FileData Type="Normal" Path="imgs/bubble/bubble_num_score.png" />
+                  </NodeObjectData>
+                </Children>
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="imgs/button/btnGreen.png" />
+                <PressedFileData Type="Normal" Path="imgs/button/btnGreen.png" />
+                <NormalFileData Type="Normal" Path="imgs/button/btnBlue.png" />
+              </NodeObjectData>
+              <NodeObjectData Name="BtnCheck" ActionTag="551" VisibleForFrame="False" FrameEvent="" Tag="106" ObjectIndex="49" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="179" Scale9Height="106" ctype="ButtonObjectData">
+                <Position X="224.9401" Y="301.7311" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <Size X="179" Y="106" />
+                <PrePosition X="0.2196681" Y="0.392879" />
+                <PreSize X="0" Y="0" />
+                <Children>
+                  <NodeObjectData Name="Sprite_55_Copy" ActionTag="552" FrameEvent="" Tag="96" ObjectIndex="80" ctype="SpriteObjectData">
+                    <Position X="87.70061" Y="62.98495" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="71" Y="33" />
+                    <PrePosition X="0" Y="0" />
+                    <PreSize X="0" Y="0" />
+                    <FileData Type="Normal" Path="imgs/bubble/bubble_chat_out.png" />
+                  </NodeObjectData>
+                </Children>
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="imgs/button/btnGreen.png" />
+                <PressedFileData Type="Normal" Path="imgs/button/btnGreen.png" />
+                <NormalFileData Type="Normal" Path="imgs/button/btnBlue.png" />
+              </NodeObjectData>
+              <NodeObjectData Name="BtnReset" ActionTag="553" VisibleForFrame="False" FrameEvent="" Tag="107" ObjectIndex="50" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="179" Scale9Height="106" ctype="ButtonObjectData">
+                <Position X="527.7568" Y="302.1214" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <Size X="179" Y="106" />
+                <PrePosition X="0.5153875" Y="0.3933872" />
+                <PreSize X="0" Y="0" />
+                <Children>
+                  <NodeObjectData Name="Sprite_55" ActionTag="554" FrameEvent="" Tag="98" ObjectIndex="81" ctype="SpriteObjectData">
+                    <Position X="92.97504" Y="64.69101" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="84" Y="42" />
+                    <PrePosition X="0.5194136" Y="0.6102926" />
+                    <PreSize X="0" Y="0" />
+                    <FileData Type="Normal" Path="imgs/button/slice09_09.png" />
+                  </NodeObjectData>
+                </Children>
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="imgs/button/btnGreen.png" />
+                <PressedFileData Type="Normal" Path="imgs/button/btnGreen.png" />
+                <NormalFileData Type="Normal" Path="imgs/button/btnBlue.png" />
+              </NodeObjectData>
+              <NodeObjectData Name="BtnHint" ActionTag="556" VisibleForFrame="False" FrameEvent="" Tag="108" ObjectIndex="51" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="179" Scale9Height="106" ctype="ButtonObjectData">
+                <Position X="716.4658" Y="302.3527" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <Size X="179" Y="106" />
+                <PrePosition X="0.6996737" Y="0.3936884" />
+                <PreSize X="0" Y="0" />
+                <Children>
+                  <NodeObjectData Name="Sprite_55" ActionTag="557" FrameEvent="" Tag="101" ObjectIndex="83" ctype="SpriteObjectData">
+                    <Position X="91.0993" Y="65.51569" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="84" Y="42" />
+                    <PrePosition X="0.5089347" Y="0.6180725" />
+                    <PreSize X="0" Y="0" />
+                    <FileData Type="Normal" Path="imgs/button/imgHintNor.png" />
+                  </NodeObjectData>
+                </Children>
+                <TextColor A="255" R="65" G="65" B="70" />
+                <DisabledFileData Type="Normal" Path="imgs/button/btnGreen.png" />
+                <PressedFileData Type="Normal" Path="imgs/button/btnGreen.png" />
+                <NormalFileData Type="Normal" Path="imgs/button/btnBlue.png" />
+              </NodeObjectData>
+              <NodeObjectData Name="BtnPull" ActionTag="559" VisibleForFrame="False" FrameEvent="" Tag="109" ObjectIndex="52" TouchEnable="True" FontSize="14" ButtonText="" Scale9Width="179" Scale9Height="106" ctype="ButtonObjectData">
+                <Position X="910.3472" Y="301.5294" />
+                <Scale ScaleX="1" ScaleY="1" />
+                <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <Size X="179" Y="106" />
+                <PrePosition X="0.889011" Y="0.3926164" />
+                <PreSize X="0" Y="0" />
+                <Children>
+                  <NodeObjectData Name="Sprite" ActionTag="560" FrameEvent="" Tag="104" ObjectIndex="85" ctype="SpriteObjectData">
+                    <Position X="94.15039" Y="62.34067" />
+                    <Scale ScaleX="1" ScaleY="1" />
+                    <AnchorPoint ScaleX="0.5" ScaleY="0.5" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <Size X="81" Y="42" />
+                    <PrePosition X="0.5259798" Y="0.5881195" />
+                    <PreSize X="0" Y="0" />
+                    <FileData Type="Normal" Path="imgs/button/pull.png" />
                   </NodeObjectData>
                 </Children>
                 <TextColor A="255" R="65" G="65" B="70" />

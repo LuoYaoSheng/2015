@@ -78,6 +78,7 @@
             <Image Name="slice55_55.png" />
             <Image Name="slice56_56.png" />
             <Image Name="imgNetNor.png" />
+            <Image Name="pull.png" />
           </Folder>
           <Folder Name="sound">
             <Folder Name="Woman">

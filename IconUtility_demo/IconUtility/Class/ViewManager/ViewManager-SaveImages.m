@@ -78,15 +78,14 @@
         //Creates a parent directory if not existed.
         [[NSFileManager defaultManager] createDirectoryAtPath:path2ParentDirectory withIntermediateDirectories:NO attributes:nil error:nil];
     }
-    
     int index = 1;
     NSString *aPath = [path2ParentDirectory stringByAppendingPathComponent: pName ];
     
-    while ([[NSFileManager defaultManager] fileExistsAtPath:aPath]) {
-        //Changes a search path.
-        index++;
-        aPath = [path2ParentDirectory stringByAppendingPathComponent: pName ];
-    }
+//    while ([[NSFileManager defaultManager] fileExistsAtPath:aPath]) {
+//        //Changes a search path.
+//        index++;
+//        aPath = [path2ParentDirectory stringByAppendingPathComponent: pName ];
+//    }
     
     //Create a directory.
     [[NSFileManager defaultManager] createDirectoryAtPath:aPath withIntermediateDirectories:NO attributes:nil error:nil];

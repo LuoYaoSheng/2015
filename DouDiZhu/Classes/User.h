@@ -15,7 +15,7 @@ public:
     ~User();
 
     virtual bool init();
-    virtual void setUserCards(unsigned char cards[] );
+    virtual void setUserCards(unsigned char cards[], int count);
     virtual void sortCards();
     virtual void setCallPoints();
 public:
@@ -23,6 +23,8 @@ public:
     unsigned char mCurCards[ 20 ];  //当前牌
     bool mLandlord;
     int mCallPoints;
+private:
+    int _iLeft;
 };
 
 #endif /* defined(__CocosProject__User__) */
