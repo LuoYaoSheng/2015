@@ -72,6 +72,10 @@ public:
     static unsigned char GetCardValue(unsigned char cbCardData);
     static unsigned char GetCardColor(unsigned char cbCardData);
     
+    
+    
+    
+    
 };
 
 #endif /* defined(__texasodds__Logic__) */

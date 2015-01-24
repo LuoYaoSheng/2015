@@ -50,3 +50,14 @@ void User::setCallPoints()
 {
     mCallPoints = (int)(rand_0_1()*4);
 }
+
+bool User::pullCards(unsigned char cards[], int cardCount)
+{
+    if ( cardCount == 0) {
+        //取最小的牌型
+        return true;
+    }else{
+        
+    }
+    return false;
+}
