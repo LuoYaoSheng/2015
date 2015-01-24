@@ -75,7 +75,6 @@ int Robot::getLandlord()
     
     for (int idx = 0; idx < 3; idx++) {
         
-
         if ( mMaxCallPoints == mUser[ idx ]->mCallPoints ) {
             landlord = idx;
             mUser[ idx ]->mLandlord = true;

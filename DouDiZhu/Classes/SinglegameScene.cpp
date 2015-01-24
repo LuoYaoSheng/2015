@@ -129,6 +129,7 @@ bool SinglegameScene::init()
     
     
     _bCanTouch = false;
+    _itemp = 0;
     
     auto startItem = static_cast<ui::Button*>(_Panel_Bubble->getChildByName("BtnStart"));
     auto netItem = static_cast<ui::Button*>(_Panel_Bubble->getChildByName("BtnNet"));
@@ -319,7 +320,7 @@ void SinglegameScene::PanelBubbleCallback(cocos2d::Ref* pSender, Widget::TouchEv
             case PBubble_three:
             {
                 _robot->mUser[2]->mCallPoints = btn->getTag() - PBubble_noCall;
-                this->trunCallback( 0 );
+                this->trunCallback( _itemp );
             }
                 break;
                 
@@ -519,6 +520,11 @@ void SinglegameScene::alertCallback(Node* node)
     sp->Value = cards[ sp->getTag() ];
 }
 
+void  SinglegameScene::oneUpdate(float dt)
+{
+    this->trunCallback( _itemp );
+}
+
 void SinglegameScene::trunCallback(int trun)
 {
     int iMax = _robot->getMaxCallPoints();
@@ -541,6 +547,7 @@ void SinglegameScene::trunCallback(int trun)
         yellow->setVisible( true );
         auto bllink = Blink::create( 1, 1);
         auto repeate = Repeat::create(bllink, 10000);
+        yellow->stopAllActions();
         yellow->runAction( repeate );
     
         
@@ -594,6 +601,8 @@ void SinglegameScene::trunCallback(int trun)
                     sp->runAction( jump );
                 }
             }
+        }else{
+            
         }
 
         for (int idx = 0; idx < 3; idx++) {
@@ -613,22 +622,23 @@ void SinglegameScene::trunCallback(int trun)
         }
 
         //出牌操作
-        auto check = static_cast<Sprite*>(  _Panel_Bubble->getChildByName("BtnCheck") );
-        auto reset = static_cast<Sprite*>(  _Panel_Bubble->getChildByName("BtnReset") );
-        auto hint = static_cast<Sprite*>(  _Panel_Bubble->getChildByName("BtnHint") );
-        auto pull = static_cast<Sprite*>(  _Panel_Bubble->getChildByName("BtnPull") );
+        auto check = static_cast<ui::Button*>(  _Panel_Bubble->getChildByName("BtnCheck") );
+        auto reset = static_cast<ui::Button*>(  _Panel_Bubble->getChildByName("BtnReset") );
+        auto hint = static_cast<ui::Button*>(  _Panel_Bubble->getChildByName("BtnHint") );
+        auto pull = static_cast<ui::Button*>(  _Panel_Bubble->getChildByName("BtnPull") );
         
         check->setVisible( true );
         reset->setVisible( true );
         hint->setVisible( true );
         pull->setVisible( true );
         
-        
+        reset->setBright(false);
+        reset->setTouchEnabled(false);
+        pull->setBright(false);
+        pull->setTouchEnabled(false);
+
         _bCanTouch = true;
-        
-        
-        
-        
+  
     }else{
         int iTrum = trun > 2 ? 0:trun;
         if ( iTrum == 2) {
@@ -657,8 +667,21 @@ void SinglegameScene::trunCallback(int trun)
             auto score = static_cast<Sprite*>(  Panel_bubble_short->getChildByName("Score") );
             
             
-            _robot->mUser[ iTrum ]->setCallPoints();
-            int callPoints = _robot->mUser[ iTrum ]->mCallPoints;
+            bool isEt = false;
+            int callPoints ;
+            while ( !isEt ) {
+                callPoints = _robot->mUser[ iTrum ]->mCallPoints;
+                for (int idx = 0; idx < 3; idx++) {
+                    if ( idx == iTrum) continue;
+                    isEt = true;
+                    if ( callPoints <= 0 && callPoints == _robot->mUser[ idx ]->mCallPoints ) {
+                        isEt = false;
+                        _robot->mUser[ iTrum ]->setCallPoints();
+                        break;
+                    }
+                }
+            }
+
             if ( callPoints == 0 ) {
                 noCall->setVisible( true );
             }else{
@@ -668,8 +691,13 @@ void SinglegameScene::trunCallback(int trun)
                 Sprite * temp_obj = Sprite::create( StringUtils::format("imgs/bubble/bubble_num_%d.png", callPoints ).c_str() );
                 num->setTexture( temp_obj->getTexture() );
             }
-
-            this->trunCallback( trun+1 );
+            
+            _itemp = trun + 1;
+            if ( callPoints == 3 || _itemp == 2) {
+                this->trunCallback( _itemp );
+            }else{
+                this->scheduleOnce(schedule_selector(SinglegameScene::oneUpdate), 1.0f);
+            }
         }
     }
 }

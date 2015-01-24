@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/SinglegameScene.cpp"
-            timestampString = "443787850.108373"
+            timestampString = "443783649.976807"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "589"
-            endingLineNumber = "589"
-            landmarkName = "SinglegameScene::trunCallback(int trun)"
-            landmarkType = "5">
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "dsc(const Poker *p1, Poker *p2)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/SinglegameScene.cpp"
-            timestampString = "443783649.976807"
+            timestampString = "443797327.858674"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "dsc(const Poker *p1, Poker *p2)"
-            landmarkType = "7">
+            startingLineNumber = "523"
+            endingLineNumber = "523"
+            landmarkName = "SinglegameScene::oneUpdate(float dt)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

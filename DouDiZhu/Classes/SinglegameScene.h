@@ -74,6 +74,7 @@ protected:
     void smallCallback(Node* node);
     
     void trunCallback(int trun);
+    void  oneUpdate(float dt);
     
 private:
     ui::Layout* _Panel_Basic;
@@ -105,6 +106,7 @@ private:
     
     Robot *_robot;
     
+    int _itemp ;
 };
 
 #endif /* defined(__CocosProject__SinglegameScene__) */
