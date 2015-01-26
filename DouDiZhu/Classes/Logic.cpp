@@ -13,6 +13,7 @@
 
 unsigned char m_cbCardData[FULL_COUNT];				//扑克定义
 
+
 void Logic::initCardList(unsigned char cbCardData[], unsigned char cbCardCount)
 {
     memset(cbCardData, 0, sizeof(unsigned char) * cbCardCount );
@@ -112,6 +113,33 @@ unsigned char Logic::GetCardColor(unsigned char cbCardData){
     return cbCardData&LOGIC_MASK_COLOR;
 }
 
+int Logic::DisRepeat(unsigned char cbCardData[], int max, int len)
+{
+    int flags[max + 1];
+    int i, j;
+    
+    //初始化标志数组
+    for(i = 0; i <= max; i ++)
+    {
+        flags[i] = false;
+    }
+    
+    //剔除算法
+    for(i = 0; i < len; i ++)
+    {
+        flags[ cbCardData[i] ] = cbCardData[i];
+    }
+    
+    //取出有效数
+    for(i = 0, j = 0; i <= max; i ++)
+    {
+        if( flags[i] != false)
+        {
+            cbCardData[j ++] = flags[i];
+        }
+    }
+    return j;
+}
 
 unsigned char Logic::GetCardType(unsigned char cbCardData[], unsigned char cbCardCount)
 {
@@ -234,33 +262,111 @@ unsigned char Logic::GetCardType(unsigned char cbCardData[], unsigned char cbCar
         }
             break;
             
-            case 8:
-        {
-            int icount = -1;//扣除自己
-            int iOther = -1;
-            for (int idx = 0; idx < cbCardCount; idx++) {
-                if ( GetCardValue( temp[idx]) == GetCardValue( temp[3]) ) {
-                    icount++;
-                    iOther = idx;
-                }
-            }
-            
-            if ( icount == 4) {
-                
-            }
-            
-        }
-            break;
         default:
         {
-//            eAAAABBCC,                                                         8  //四带二对：必须带两个对牌，对子可以不用相连。如 8888+7799)
-//            eAABBCC,                                                         >=6 -- 2*n && n > 2  //对顺 ( 连对 ) ：必须 3 对或 3 对以上连续的对牌，且其中不能有 2 或大小王 ( 如 667788 或 3344556677)
-//            eAAABBB,                                                         >=6  //三顺（连三条）：必须 2 个或 2 个以上连续的三张牌，且其中不能有 2 或大小王：如： 333444 、 555666777888 ）
-//            eAAABBBCD,                                                       >=8  //三顺带一：必须 2 个或 2 个以上连续的三张牌，加上相同牌数的任意单牌，且任意单牌中不能含有大小王（如： 444555+79 ）
-//            eAAABBBCCDD,                                                     >=10 //三顺带对：类似三顺带一，区别是带牌必须为对牌 （如： 444555+77 或 333444555+7799JJ ）
-            
-            
-            
+            if ( !( temp[0] == 0x41 || temp[0] == 0x42) ) {
+                //顺子检测
+                if ( GetCardValue( temp[0] ) != 2 ) {
+                    for (int idx = 0; idx < cbCardCount; idx++) {
+                        if ( idx == cbCardCount-1) {
+                            return eABCDEF;
+                        }
+                        if ( temp[idx] - temp[idx+1] != 1) {
+                            break;
+                        }
+                    }
+                }else{
+
+                    //去重
+                    unsigned char temp2[ cbCardCount ];
+                    for (int idx = 0; idx < cbCardCount; idx++) {
+                        temp2[ idx ] = GetCardLogicValue( temp[idx] );
+                    }
+                    
+                    int left = DisRepeat( temp2, temp2[0], cbCardCount);
+                    unsigned char countData[ left ] ;
+                    for (int i = 0; i < left; i++) {
+                        unsigned char value = temp2[ i ];
+                        int k = 0;
+                        for (int j = 0; j < cbCardCount; j++) {
+                            if ( value == GetCardLogicValue( temp[j] ) ) {
+                                k++;
+                            }
+                        }
+                        countData[i] = k;
+                    }
+                    
+                    unsigned char values[left];
+                    memcpy(values, temp2, sizeof(unsigned char)*left);
+                    SortCardList(values, left);
+                    
+                    //每一种情况统计 -- eAAAABBCC
+                    if ( values[0]==4&&values[1]==2&&values[2]==2 && values[3]==0  ) {
+                        return eAAAABBCC;
+                    }
+                    //
+                    if ( (values[0]==3&&values[1]==3&&values[2]==3&&values[3]==0
+                            && (GetCardLogicValue(temp[0]) - GetCardLogicValue(temp[3]) ==1 && GetCardLogicValue(temp[3]) - GetCardLogicValue(temp[6]) ==1 ) )   //9张
+                        || (values[0]==3&&values[1]==3&&values[2]==3&&values[3]==3&&values[4]==0
+                            && (GetCardLogicValue(temp[0]) - GetCardLogicValue(temp[3]) ==1 && GetCardLogicValue(temp[3]) - GetCardLogicValue(temp[6]) ==1 && GetCardLogicValue(temp[6]) - GetCardLogicValue(temp[9]) ==1 ) ) //12张
+                        || (values[0]==3&&values[1]==3&&values[2]==3&&values[3]==3&&values[4]==3&&values[5]==0
+                            && (GetCardLogicValue(temp[0]) - GetCardLogicValue(temp[3]) ==1 && GetCardLogicValue(temp[3]) - GetCardLogicValue(temp[6]) ==1 && GetCardLogicValue(temp[6]) - GetCardLogicValue(temp[9]) ==1 && GetCardLogicValue(temp[9]) - GetCardLogicValue(temp[12]) ==1 ) ) //15张
+                        || (values[0]==3&&values[1]==3&&values[2]==3&&values[3]==3&&values[4]==3&&values[5]==3&&values[6]==0
+                            && (GetCardLogicValue(temp[0]) - GetCardLogicValue(temp[3]) ==1 && GetCardLogicValue(temp[3]) - GetCardLogicValue(temp[6]) ==1 && GetCardLogicValue(temp[6]) - GetCardLogicValue(temp[9]) ==1 && GetCardLogicValue(temp[9]) - GetCardLogicValue(temp[12]) ==1 && GetCardLogicValue(temp[12]) - GetCardLogicValue(temp[15]) ==1 ) ) //18张
+                        ) {
+                        return eAAABBB;
+                    }
+                    //
+                    if ( ( values[0]==2 && values[1]==2 && values[2]==2 && values[3]==2 )
+                            && (GetCardLogicValue(temp[0])-GetCardLogicValue(temp[2])==1&&GetCardLogicValue(temp[2])-GetCardLogicValue(temp[4])==1&&GetCardLogicValue(temp[4])-GetCardLogicValue(temp[6])==1 ) ) {
+                        return eAABBCC;
+                    }
+                    if ( ( values[0]==2 && values[1]==2 && values[2]==2 && values[3]==2 && values[4]==2 && values[5]==2)
+                        && (GetCardLogicValue(temp[0])-GetCardLogicValue(temp[2])==1&&GetCardLogicValue(temp[2])-GetCardLogicValue(temp[4])==1&&GetCardLogicValue(temp[4])-GetCardLogicValue(temp[6])==1&&GetCardLogicValue(temp[6])-GetCardLogicValue(temp[8])==1&&GetCardLogicValue(temp[8])-GetCardLogicValue(temp[10])==1 ) ) {
+                        return eAABBCC;
+                    }
+                    if ( ( values[0]==2 && values[1]==2 && values[2]==2 && values[3]==2 && values[4]==2 && values[5]==2&& values[6]==2)
+                        && (GetCardLogicValue(temp[0])-GetCardLogicValue(temp[2])==1&&GetCardLogicValue(temp[2])-GetCardLogicValue(temp[4])==1&&GetCardLogicValue(temp[4])-GetCardLogicValue(temp[6])==1&&GetCardLogicValue(temp[6])-GetCardLogicValue(temp[8])==1&&GetCardLogicValue(temp[8])-GetCardLogicValue(temp[10])==1 &&GetCardLogicValue(temp[10])-GetCardLogicValue(temp[12])==1) ) {
+                        return eAABBCC;
+                    }
+                    if ( ( values[0]==2 && values[1]==2 && values[2]==2 && values[3]==2 && values[4]==2 && values[5]==2&& values[6]==2&& values[7]==2)
+                        && (GetCardLogicValue(temp[0])-GetCardLogicValue(temp[2])==1&&GetCardLogicValue(temp[2])-GetCardLogicValue(temp[4])==1&&GetCardLogicValue(temp[4])-GetCardLogicValue(temp[6])==1&&GetCardLogicValue(temp[6])-GetCardLogicValue(temp[8])==1&&GetCardLogicValue(temp[8])-GetCardLogicValue(temp[10])==1 &&GetCardLogicValue(temp[10])-GetCardLogicValue(temp[12])==1&&GetCardLogicValue(temp[12])-GetCardLogicValue(temp[14])==1) ) {
+                        return eAABBCC;
+                    }
+                    if ( ( values[0]==2 && values[1]==2 && values[2]==2 && values[3]==2 && values[4]==2 && values[5]==2&& values[6]==2&& values[7]==2&& values[8]==2)
+                        && (GetCardLogicValue(temp[0])-GetCardLogicValue(temp[2])==1&&GetCardLogicValue(temp[2])-GetCardLogicValue(temp[4])==1&&GetCardLogicValue(temp[4])-GetCardLogicValue(temp[6])==1&&GetCardLogicValue(temp[6])-GetCardLogicValue(temp[8])==1&&GetCardLogicValue(temp[8])-GetCardLogicValue(temp[10])==1 &&GetCardLogicValue(temp[10])-GetCardLogicValue(temp[12])==1&&GetCardLogicValue(temp[12])-GetCardLogicValue(temp[14])==1&&GetCardLogicValue(temp[14])-GetCardLogicValue(temp[16])==1) ) {
+                        return eAABBCC;
+                    }
+                    if ( ( values[0]==2 && values[1]==2 && values[2]==2 && values[3]==2 && values[4]==2 && values[5]==2&& values[6]==2&& values[7]==2&& values[8]==2&& values[10]==2)
+                        && (GetCardLogicValue(temp[0])-GetCardLogicValue(temp[2])==1&&GetCardLogicValue(temp[2])-GetCardLogicValue(temp[4])==1&&GetCardLogicValue(temp[4])-GetCardLogicValue(temp[6])==1&&GetCardLogicValue(temp[6])-GetCardLogicValue(temp[8])==1&&GetCardLogicValue(temp[8])-GetCardLogicValue(temp[10])==1 &&GetCardLogicValue(temp[10])-GetCardLogicValue(temp[12])==1&&GetCardLogicValue(temp[12])-GetCardLogicValue(temp[14])==1&&GetCardLogicValue(temp[14])-GetCardLogicValue(temp[16])==1&&GetCardLogicValue(temp[16])-GetCardLogicValue(temp[18])==1) ) {
+                        return eAABBCC;
+                    }
+                    //
+                    if ( (values[0]==3&&values[1]==3&&values[2]==3&&values[3]==1&&values[4]==1&&values[5]==0
+                          && (GetCardLogicValue(temp[0]) - GetCardLogicValue(temp[3]) ==1 && GetCardLogicValue(temp[3]) - GetCardLogicValue(temp[6]) ==1 ) )   //9张
+                        || (values[0]==3&&values[1]==3&&values[2]==3&&values[3]==3&&values[4]==1&&values[5]==1&&values[6]==0
+                            && (GetCardLogicValue(temp[0]) - GetCardLogicValue(temp[3]) ==1 && GetCardLogicValue(temp[3]) - GetCardLogicValue(temp[6]) ==1 && GetCardLogicValue(temp[6]) - GetCardLogicValue(temp[9]) ==1 ) ) //12张
+                        || (values[0]==3&&values[1]==3&&values[2]==3&&values[3]==3&&values[4]==3&&values[5]==1&&values[6]==1&&values[7]==0
+                            && (GetCardLogicValue(temp[0]) - GetCardLogicValue(temp[3]) ==1 && GetCardLogicValue(temp[3]) - GetCardLogicValue(temp[6]) ==1 && GetCardLogicValue(temp[6]) - GetCardLogicValue(temp[9]) ==1 && GetCardLogicValue(temp[9]) - GetCardLogicValue(temp[12]) ==1 ) ) //15张
+                        || (values[0]==3&&values[1]==3&&values[2]==3&&values[3]==3&&values[4]==3&&values[5]==3&&values[6]==1&&values[7]==1&&values[8]==0
+                            && (GetCardLogicValue(temp[0]) - GetCardLogicValue(temp[3]) ==1 && GetCardLogicValue(temp[3]) - GetCardLogicValue(temp[6]) ==1 && GetCardLogicValue(temp[6]) - GetCardLogicValue(temp[9]) ==1 && GetCardLogicValue(temp[9]) - GetCardLogicValue(temp[12]) ==1 && GetCardLogicValue(temp[12]) - GetCardLogicValue(temp[15]) ==1 ) ) //18张
+                        ) {
+                        return eAAABBBCD;
+                    }
+                    //
+                    if ( (values[0]==3&&values[1]==3&&values[2]==3&&values[3]==2&&values[4]==2&&values[5]==0
+                          && (GetCardLogicValue(temp[0]) - GetCardLogicValue(temp[3]) ==1 && GetCardLogicValue(temp[3]) - GetCardLogicValue(temp[6]) ==1 ) )   //9张
+                        || (values[0]==3&&values[1]==3&&values[2]==3&&values[3]==3&&values[4]==2&&values[5]==2&&values[6]==0
+                            && (GetCardLogicValue(temp[0]) - GetCardLogicValue(temp[3]) ==1 && GetCardLogicValue(temp[3]) - GetCardLogicValue(temp[6]) ==1 && GetCardLogicValue(temp[6]) - GetCardLogicValue(temp[9]) ==1 ) ) //12张
+                        || (values[0]==3&&values[1]==3&&values[2]==3&&values[3]==3&&values[4]==3&&values[5]==2&&values[6]==2&&values[7]==0
+                            && (GetCardLogicValue(temp[0]) - GetCardLogicValue(temp[3]) ==1 && GetCardLogicValue(temp[3]) - GetCardLogicValue(temp[6]) ==1 && GetCardLogicValue(temp[6]) - GetCardLogicValue(temp[9]) ==1 && GetCardLogicValue(temp[9]) - GetCardLogicValue(temp[12]) ==1 ) ) //15张
+                        || (values[0]==3&&values[1]==3&&values[2]==3&&values[3]==3&&values[4]==3&&values[5]==3&&values[6]==2&&values[7]==2&&values[8]==0
+                            && (GetCardLogicValue(temp[0]) - GetCardLogicValue(temp[3]) ==1 && GetCardLogicValue(temp[3]) - GetCardLogicValue(temp[6]) ==1 && GetCardLogicValue(temp[6]) - GetCardLogicValue(temp[9]) ==1 && GetCardLogicValue(temp[9]) - GetCardLogicValue(temp[12]) ==1 && GetCardLogicValue(temp[12]) - GetCardLogicValue(temp[15]) ==1 ) ) //18张
+                        ) {
+                        return eAAABBBCCDD;
+                    }
+                }
+            }
         }
             
             break;
@@ -280,4 +386,5 @@ bool Logic::GetValid(unsigned char cbCardData[], int count)
 {
     return Logic::GetCardType( cbCardData, count);
 }
+
 

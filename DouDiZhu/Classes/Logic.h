@@ -54,6 +54,9 @@ public:
     static unsigned char GetCardValue(unsigned char cbCardData);
     static unsigned char GetCardColor(unsigned char cbCardData);
     
+    
+    static int DisRepeat(unsigned char cbCardData[], int max, int len);
+    
     //功能函数
     static unsigned char GetCardType(unsigned char cbCardData[], unsigned char cbCardCount);                    //获得牌型
     static bool GetCardMini(unsigned char dest[],unsigned char src[], unsigned char output[], int count);        //获得压过对方最小牌型 -- 没有则返回空数组
